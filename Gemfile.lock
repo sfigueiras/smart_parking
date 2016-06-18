@@ -59,6 +59,8 @@ GEM
       warden (~> 1.2.3)
     erubis (2.7.0)
     execjs (2.7.0)
+    font-awesome-sass (4.6.2)
+      sass (>= 3.2)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
     i18n (0.7.0)
@@ -74,6 +76,8 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.6.4)
       mime-types (>= 1.16, < 4)
+    materialize-sass (0.97.6)
+      sass (~> 3.3)
     mime-types (3.1)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2016.0521)
@@ -160,8 +164,10 @@ DEPENDENCIES
   byebug
   coffee-rails (~> 4.1.0)
   devise
+  font-awesome-sass
   jbuilder (~> 2.0)
   jquery-rails
+  materialize-sass
   rails (= 4.2.6)
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
