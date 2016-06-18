@@ -2,7 +2,6 @@
 
 <% if user_signed_in? %>
   <pre><%=current_user.email%></pre>
-  <%= link_to 'Mis datos', edit_user_registration_path %>
   <%= link_to 'Cerrar Cesión', destroy_user_session_path, method: :delete %>
 <% else %>
   <%= link_to 'Iniciar Sesión', new_user_session_path %>
