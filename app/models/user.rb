@@ -4,4 +4,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :trackable, :validatable, :rememberable
   validates :name, :address, presence: true
+
+  # Many to many relation with Patent
+  has_and_belongs_to_many :patents
 end

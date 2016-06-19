@@ -1,0 +1,19 @@
+<%= form_for @patent do |f| %>
+  <% if @patent.errors.any? %>
+    <ul>
+    <% @patent.errors.full_messages.each do |message| %>
+      <li><%= message %>
+    <% end %>
+    </ul>
+  <% end %>
+  <div class="input">
+    <%= f.label :number %>
+    <%= f.text_field :number %>
+  </div>
+
+  <div class="right-align">
+    <div class="input">
+      <%= f.submit "Add", class: 'btn' %>
+    </div>
+  </div>
+<% end %>

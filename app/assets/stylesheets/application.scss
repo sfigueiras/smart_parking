@@ -15,3 +15,26 @@
  */
 @import "materialize";
 @import "font-awesome";
+
+// Configuration for main content to be centered
+// besides the fixed sidenav
+header, main, footer {
+  padding-left: 240px;
+}
+
+@media only screen and (max-width : 992px) {
+  header, main, footer {
+    padding-left: 0;
+  }
+}
+
+* { color: #656161}
+
+body {
+  background-color: #f4f7f8;
+}
+
+.delete-link { 
+  color: firebrick;
+  float: right;
+}

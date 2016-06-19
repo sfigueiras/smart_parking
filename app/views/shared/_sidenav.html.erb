@@ -1,0 +1,13 @@
+<ul id="slide-out" class="side-nav fixed">
+  <% if user_signed_in? %>
+    <li><a><%=current_user.name %></a></li>
+    <li><%= link_to 'Home', home_index_path %></li>
+    <li><%= link_to 'Patentes', patents_path %></li>
+    <li><%= link_to 'Cerrar Cesión', destroy_user_session_path, method: :delete %></li>
+  <% else %>
+    <li><%= link_to 'Iniciar Sesión', new_user_session_path %></li>
+    <li><%= link_to 'Registrarme', new_user_registration_path %></li>
+  <% end %>
+</ul>
+
+<a href="#" data-activates="slide-out" class="button-collapse"><i class="mdi-navigation-menu"></i></a>

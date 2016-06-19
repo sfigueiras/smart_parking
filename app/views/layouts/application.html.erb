@@ -8,12 +8,21 @@
 </head>
 <body>
 
-<div class="center">
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
-</div>
+<%= render 'shared/sidenav' %>
 
-<%= yield %>
+<main>
+  <div class="container">
+    <div class="col offset-s3 s6">
+      <div class="center">
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
+      </div>
+
+      <%= yield %>
+    </div>
+      
+  </div>
+</main>
 
 </body>
 </html>

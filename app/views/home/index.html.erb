@@ -1,11 +1,3 @@
 <div class="center">
   <h1>Smart Parking</h1>
-  <% if user_signed_in? %>
-    <pre><%=current_user.name %></pre>
-    <pre><%=current_user.email%></pre>
-    <%= link_to 'Cerrar Cesión', destroy_user_session_path, method: :delete %>
-  <% else %>
-    <%= link_to 'Iniciar Sesión', new_user_session_path %> o
-    <%= link_to 'Registrarme', new_user_registration_path %>
-  <% end %>
 </div>

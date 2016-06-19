@@ -3,5 +3,7 @@ Rails.application.routes.draw do
 
   devise_for :users, controllers: {registrations: 'registrations'}
   
+  resources :patents
+  
   root 'home#index'
 end
