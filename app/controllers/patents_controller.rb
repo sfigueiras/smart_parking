@@ -19,10 +19,9 @@ class PatentsController < ApplicationController
   end
 
   def destroy
-    patent = Patent.find(params[:id])
-    current_user.patents.delete(patent)
-
-    current_user.select_patent
+    patent = current_user.user_patents.where(patent_id: params[:id]).first
+    current_user.user_patents.delete(patent)
+    current_user.select_patent if patent.selected?
 
     respond_to do |format|
       format.html { redirect_to patents_path }
