@@ -17,5 +17,17 @@
 #= require_tree .
 
 ready = ->
+  console.log 'Document loaded'
   $(".button-collapse").sideNav()
+
+  $(document).on 'click', '.collection-item', ->
+    $(this).addClass('item-selected')
+    $(this).siblings().removeClass('item-selected')
+
+    url = 'patents/' + $(this).data('id') + '/select'
+    request = { id: $(this).data('id') }
+    
+    $.post url, request
+    null
+  null
 $(document).ready(ready)

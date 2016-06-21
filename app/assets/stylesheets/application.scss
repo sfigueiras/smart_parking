@@ -13,6 +13,7 @@
  *= require_tree .
  *= require_self
  */
+@import "materialize/components/color";
 @import "materialize";
 @import "font-awesome";
 
@@ -37,4 +38,13 @@ body {
 .delete-link { 
   color: firebrick;
   float: right;
+}
+
+.collection-item {
+  cursor: pointer !important;
+}
+
+.item-selected {
+  * {color: white !important }
+  background-color: $secondary-color !important;
 }
