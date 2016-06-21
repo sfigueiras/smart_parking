@@ -22,22 +22,15 @@ class PatentsController < ApplicationController
     patent = Patent.find(params[:id])
     current_user.patents.delete(patent)
 
+    current_user.select_patent
+
     respond_to do |format|
       format.html { redirect_to patents_path }
     end
   end
 
   def select
-    # Delete selected from the other patent
-    current_selected = current_user.user_patents.where(selected: true).first
-    current_selected.selected = false if !!current_selected
-    byebug
-
-    # Update new patent
-    patent = current_user.user_patents.where(patent_id: params[:id]).first
-    patent.selected = true
-    patent.save!
-    byebug
+    current_user.select_patent(params[:id])
 
     respond_to do |format|
       format.html { redirect_to patents_path }
