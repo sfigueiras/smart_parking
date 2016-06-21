@@ -48,3 +48,8 @@ body {
   * {color: white !important }
   background-color: $secondary-color !important;
 }
+
+.hint {
+  color: color($grey, 'lighten-2');
+  font-size: smaller;
+}
