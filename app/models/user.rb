@@ -6,5 +6,6 @@ class User < ActiveRecord::Base
   validates :name, :address, presence: true
 
   # Many to many relation with Patent
-  has_and_belongs_to_many :patents
+  has_many :user_patents
+  has_many :patents, through: :user_patents
 end

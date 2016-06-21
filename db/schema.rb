@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160619001102) do
+ActiveRecord::Schema.define(version: 20160619233500) do
 
   create_table "patents", force: :cascade do |t|
     t.string   "number",     null: false
@@ -19,13 +19,16 @@ ActiveRecord::Schema.define(version: 20160619001102) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "patents_users", id: false, force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "patent_id"
+  create_table "user_patents", force: :cascade do |t|
+    t.boolean  "selected"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "user_id"
+    t.integer  "patent_id"
   end
 
-  add_index "patents_users", ["patent_id"], name: "index_patents_users_on_patent_id"
-  add_index "patents_users", ["user_id"], name: "index_patents_users_on_user_id"
+  add_index "user_patents", ["patent_id"], name: "index_user_patents_on_patent_id"
+  add_index "user_patents", ["user_id"], name: "index_user_patents_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

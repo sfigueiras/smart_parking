@@ -6,9 +6,9 @@
     <% if @patents.size > 0 %>
     <ul class="collection">
       <% @patents.each do |patent| %>
-        <li class="collection-item">
-          <span><%= patent.number %></span>
-          <%= link_to 'Delete', patent_path(patent), method: :delete, class: 'delete-link right-align' %>
+        <li class="collection-item <%= 'item-selected' if patent.selected %>" data-id="<%= patent.patent.id %>">
+          <span><%= patent.patent.number %></span>
+          <%= link_to 'Delete', patent_path(patent.patent), method: :delete, class: 'delete-link right-align' %>
         </li>
       <% end %>
     </ul>
