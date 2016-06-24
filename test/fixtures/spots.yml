@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+la_plata_1:
+  number: 1
+  area_id: la_plata
+
+la_plata_2:
+  number: 2
+  area_id: la_plata
+
+berisso_1:
+  number: 1
+  area_id: berisso
+
+berisso_2:
+  number: 2
+  area_id: berisso

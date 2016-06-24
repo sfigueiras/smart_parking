@@ -1,0 +1,7 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+la_plata:
+  name: La Plata
+
+berisso:
+  name: Berisso

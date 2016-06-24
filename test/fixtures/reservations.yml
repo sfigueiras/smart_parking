@@ -4,11 +4,9 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-jorge:
-  email: 'jorge@example.org'
-  name: 'Santiago Figueiras'
-  address: '27 n° 2271'
-carlos:
-  email: 'carlos@example.org'
-  name: 'Gerardo Carlos'
-  address: '2 n° 240'
+one: 
+  spot_id: la_plata_1
+  user: jorge
+two:
+  spot_id: la_plata_2
+  user: carlos

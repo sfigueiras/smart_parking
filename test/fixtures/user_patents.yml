@@ -1,7 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  selected: MyString
+patent_carlos:
+  user_id: carlos
+  patent: one
+  selected: false
 
-two:
-  selected: MyString
+patent_carlos:
+  user_id: carlos
+  patent: two
+  selected: false

@@ -1,0 +1,34 @@
+<div class="row">
+  <div class="col s12 offset-l3 l6">
+    <h4>Areas</h4>
+    <ul class="collapsible" data-collapsible="accordion">
+    <% @areas.each do |area| %>
+      <li>
+        <div class="collapsible-header">
+          <%= area.name %>
+        </div>
+        <div class="collapsible-body">
+          <ul class="collection">
+          <% area.spots.each do |spot| %>
+            <li class="collection-item">
+              <div class="row">
+                <div class="col l6">
+                  Parcela <%= spot.number %>
+                </div>
+                <div class="col l3">
+                  <span class="right-align" href=""><%= spot.state %></span>
+                </div>
+                <div class="col l3">
+                  <%= reserve_link(spot) %>
+                </div>
+              </div>
+            </li>
+          <% end %>
+          </ul>
+        </div>
+      </li>
+    <% end %>
+    </ul>
+  </div>
+</div>
+<ul>

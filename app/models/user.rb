@@ -9,8 +9,15 @@ class User < ActiveRecord::Base
   has_many :user_patents
   has_many :patents, through: :user_patents
 
+  has_many :reservations
+  has_many :spots, through: :reservations
+
   def selected_patent
     self.user_patents.where(selected: true).first
+  end
+
+  def not_selected_patents
+    self.user_patents.where(selected: false)
   end
 
   def select_patent(patent_id = nil)
@@ -25,5 +32,13 @@ class User < ActiveRecord::Base
       patent = user_patents.first
     end
     patent.update_attribute(:selected, true)
+  end
+
+  def has_reservation?
+    reservations.size > 0
+  end
+
+  def has_reserved(spot)
+    reservations.where(spot_id: spot.id).size == 1
   end
 end

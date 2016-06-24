@@ -11,13 +11,39 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160619233500) do
+ActiveRecord::Schema.define(version: 20160622230308) do
+
+  create_table "areas", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "patents", force: :cascade do |t|
     t.string   "number",     null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "reservations", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "user_id"
+    t.integer  "spot_id"
+  end
+
+  add_index "reservations", ["spot_id"], name: "index_reservations_on_spot_id"
+  add_index "reservations", ["user_id"], name: "index_reservations_on_user_id"
+
+  create_table "spots", force: :cascade do |t|
+    t.integer  "number"
+    t.integer  "area_id"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.text     "state",      default: "Libre"
+  end
+
+  add_index "spots", ["area_id"], name: "index_spots_on_area_id"
 
   create_table "user_patents", force: :cascade do |t|
     t.boolean  "selected"

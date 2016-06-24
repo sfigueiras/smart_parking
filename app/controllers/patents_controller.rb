@@ -2,10 +2,6 @@ class PatentsController < ApplicationController
   def index
     @patent = Patent.new
     @patents = current_user.user_patents
-    
-    respond_to do |format|
-      format.html
-    end
   end
 
   def create

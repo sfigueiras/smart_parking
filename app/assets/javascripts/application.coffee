@@ -19,6 +19,9 @@
 ready = ->
   console.log 'Document loaded'
   $(".button-collapse").sideNav()
+  $('.collapsible').collapsible({
+    accordion : false
+  })
 
   $(document).on 'click', '.collection-item', ->
     $(this).addClass('item-selected')
