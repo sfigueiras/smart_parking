@@ -52,14 +52,7 @@ body {
 
 .collection-item {
   cursor: pointer !important;
-}
-
-.collapsible-body .collection {
-  border-radius: 0;
- .collection-item {
-  background-color: #e6e6e6;
   .row { margin-bottom: 0 }
-  }
 }
 
 .item-selected {
@@ -71,4 +64,9 @@ body {
 .hint {
   color: color($grey, 'lighten-2');
   font-size: smaller;
+}
+
+.marker {
+  color: $primary-color;
+  margin-right: 5px;
 }
