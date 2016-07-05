@@ -1,4 +1,6 @@
 class PatentsController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     @patent = Patent.new
     @patents = current_user.user_patents

@@ -1,0 +1,869 @@
+# Logfile created on 2016-07-04 18:57:57 -0300 by logger.rb/53141
+D, [2016-07-04T18:58:08.494998 #4801] DEBUG -- : 
+D, [2016-07-04T18:58:08.495356 #4801] DEBUG -- : 
+I, [2016-07-04T18:58:08.496329 #4801]  INFO -- : Started GET "/reservations/36/pay" for ::1 at 2016-07-04 18:58:08 -0300
+D, [2016-07-04T18:58:08.530651 #4801] DEBUG -- :   [1m[36mActiveRecord::SchemaMigration Load (8.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+I, [2016-07-04T18:58:08.629802 #4801]  INFO -- : Processing by ReservationsController#pay as HTML
+I, [2016-07-04T18:58:08.630106 #4801]  INFO -- :   Parameters: {"id"=>"36"}
+D, [2016-07-04T18:58:08.688911 #4801] DEBUG -- :   [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+D, [2016-07-04T18:58:08.745354 #4801] DEBUG -- :   [1m[36mReservation Load (0.4ms)[0m  [1mSELECT  "reservations".* FROM "reservations" WHERE "reservations"."id" = ? LIMIT 1[0m  [["id", 36]]
+D, [2016-07-04T18:58:08.837446 #4801] DEBUG -- :   [1m[35mPatent Load (0.4ms)[0m  SELECT  "patents".* FROM "patents" WHERE "patents"."id" = ? LIMIT 1  [["id", 1]]
+D, [2016-07-04T18:58:08.870687 #4801] DEBUG -- :   [1m[36mSpot Load (0.4ms)[0m  [1mSELECT  "spots".* FROM "spots" WHERE "spots"."id" = ? LIMIT 1[0m  [["id", 5]]
+D, [2016-07-04T18:58:08.892277 #4801] DEBUG -- :   [1m[35mArea Load (0.3ms)[0m  SELECT  "areas".* FROM "areas" WHERE "areas"."id" = ? LIMIT 1  [["id", 1]]
+D, [2016-07-04T18:58:08.945053 #4801] DEBUG -- :   [1m[36mPayment Load (0.4ms)[0m  [1mSELECT "payments".* FROM "payments" WHERE "payments"."user_id" = ?[0m  [["user_id", 1]]
+I, [2016-07-04T18:58:08.947256 #4801]  INFO -- :   Rendered reservations/pay.html.erb within layouts/application (132.9ms)
+I, [2016-07-04T18:58:09.935523 #4801]  INFO -- :   Rendered shared/_sidenav.html.erb (3.6ms)
+I, [2016-07-04T18:58:09.936644 #4801]  INFO -- : Completed 200 OK in 1306ms (Views: 1141.0ms | ActiveRecord: 6.4ms)
+D, [2016-07-04T18:58:26.017679 #4801] DEBUG -- : 
+D, [2016-07-04T18:58:26.018055 #4801] DEBUG -- : 
+I, [2016-07-04T18:58:26.018626 #4801]  INFO -- : Started PATCH "/reservations/36/pay" for ::1 at 2016-07-04 18:58:26 -0300
+I, [2016-07-04T18:58:26.027826 #4801]  INFO -- : Processing by ReservationsController#save_pay as HTML
+I, [2016-07-04T18:58:26.039468 #4801]  INFO -- :   Parameters: {"utf8"=>"✓", "authenticity_token"=>"hq/9myjC/MoX5W7Voyj0LsUjP0FgWXF6jQfTTj4h8JmHNH3GCdzaVEITY2PGjTohetb95rLpjKaWrEjpjRZlDQ==", "reservation"=>{"payment_id"=>"0"}, "commit"=>"Pagar", "id"=>"36"}
+D, [2016-07-04T18:58:26.043740 #4801] DEBUG -- :   [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+D, [2016-07-04T18:58:26.052503 #4801] DEBUG -- :   [1m[36mReservation Load (0.2ms)[0m  [1mSELECT  "reservations".* FROM "reservations" WHERE "reservations"."id" = ? LIMIT 1[0m  [["id", 36]]
+D, [2016-07-04T18:58:26.060596 #4801] DEBUG -- :   [1m[35m (6.7ms)[0m  begin transaction
+D, [2016-07-04T18:58:26.066885 #4801] DEBUG -- :   [1m[36mSQL (1.2ms)[0m  [1mUPDATE "reservations" SET "payment_id" = ?, "updated_at" = ? WHERE "reservations"."id" = ?[0m  [["payment_id", 0], ["updated_at", "2016-07-04 18:58:26.061804"], ["id", 36]]
+D, [2016-07-04T18:58:26.138569 #4801] DEBUG -- :   [1m[35m (69.8ms)[0m  commit transaction
+D, [2016-07-04T18:58:26.139194 #4801] DEBUG -- : Atributos de la reserva: #<Reservation id: 36, created_at: "2016-07-04 21:19:13", updated_at: "2016-07-04 21:58:26", user_id: 1, spot_id: 5, start_at: "2016-07-04 21:19:13", ends_at: "2016-07-04 21:28:22", patent_id: 1, amount: 3.0, payment_id: 0>
+D, [2016-07-04T18:58:26.142909 #4801] DEBUG -- :   [1m[36mPayment Load (0.4ms)[0m  [1mSELECT  "payments".* FROM "payments" WHERE "payments"."payment_method" = ?  ORDER BY "payments"."id" ASC LIMIT 1[0m  [["payment_method", "Descuento de Saldo"]]
+D, [2016-07-04T18:58:26.162946 #4801] DEBUG -- :   [1m[35m (0.2ms)[0m  begin transaction
+D, [2016-07-04T18:58:26.201919 #4801] DEBUG -- :   [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+D, [2016-07-04T18:58:26.202860 #4801] DEBUG -- :   [1m[35m (0.1ms)[0m  begin transaction
+D, [2016-07-04T18:58:26.206547 #4801] DEBUG -- :   [1m[36mSQL (0.4ms)[0m  [1mUPDATE "reservations" SET "payment_id" = ?, "updated_at" = ? WHERE "reservations"."id" = ?[0m  [["payment_id", nil], ["updated_at", "2016-07-04 18:58:26.203740"], ["id", 36]]
+D, [2016-07-04T18:58:26.223561 #4801] DEBUG -- :   [1m[35m (15.9ms)[0m  commit transaction
+I, [2016-07-04T18:58:26.224750 #4801]  INFO -- : Redirected to http://localhost:3000/areas
+I, [2016-07-04T18:58:26.225296 #4801]  INFO -- : Completed 302 Found in 185ms (ActiveRecord: 95.8ms)
+D, [2016-07-04T18:58:26.240046 #4801] DEBUG -- : 
+D, [2016-07-04T18:58:26.240203 #4801] DEBUG -- : 
+I, [2016-07-04T18:58:26.240541 #4801]  INFO -- : Started GET "/areas" for ::1 at 2016-07-04 18:58:26 -0300
+I, [2016-07-04T18:58:26.274475 #4801]  INFO -- : Processing by AreasController#index as HTML
+D, [2016-07-04T18:58:26.281865 #4801] DEBUG -- :   [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+D, [2016-07-04T18:58:26.299759 #4801] DEBUG -- :   [1m[35mArea Load (0.3ms)[0m  SELECT "areas".* FROM "areas"
+D, [2016-07-04T18:58:26.307170 #4801] DEBUG -- :   [1m[36mSpot Load (0.7ms)[0m  [1mSELECT "spots".* FROM "spots" WHERE "spots"."area_id" = ?[0m  [["area_id", 1]]
+D, [2016-07-04T18:58:26.323082 #4801] DEBUG -- :   [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM "reservations" WHERE "reservations"."user_id" = ? AND "reservations"."spot_id" = ? AND "reservations"."ends_at" IS NULL  [["user_id", 1], ["spot_id", 1]]
+D, [2016-07-04T18:58:26.339916 #4801] DEBUG -- :   [1m[36mUserPatent Load (0.8ms)[0m  [1mSELECT  "user_patents".* FROM "user_patents" WHERE "user_patents"."user_id" = ? AND "user_patents"."selected" = ?  ORDER BY "user_patents"."id" ASC LIMIT 1[0m  [["user_id", 1], ["selected", "t"]]
+D, [2016-07-04T18:58:26.371689 #4801] DEBUG -- :   [1m[35mCACHE (0.0ms)[0m  SELECT  "user_patents".* FROM "user_patents" WHERE "user_patents"."user_id" = ? AND "user_patents"."selected" = ?  ORDER BY "user_patents"."id" ASC LIMIT 1  [["user_id", 1], ["selected", true]]
+D, [2016-07-04T18:58:26.376900 #4801] DEBUG -- :   [1m[36mPatent Load (0.4ms)[0m  [1mSELECT  "patents".* FROM "patents" WHERE "patents"."id" = ? LIMIT 1[0m  [["id", 1]]
+D, [2016-07-04T18:58:26.379763 #4801] DEBUG -- :   [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "reservations" WHERE "reservations"."user_id" = ? AND "reservations"."patent_id" = ? AND "reservations"."ends_at" IS NULL  [["user_id", 1], ["patent_id", 1]]
+D, [2016-07-04T18:58:26.382360 #4801] DEBUG -- :   [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "reservations" WHERE "reservations"."user_id" = ? AND "reservations"."spot_id" = ? AND "reservations"."ends_at" IS NULL[0m  [["user_id", 1], ["spot_id", 2]]
+D, [2016-07-04T18:58:26.383966 #4801] DEBUG -- :   [1m[35mCACHE (0.0ms)[0m  SELECT  "user_patents".* FROM "user_patents" WHERE "user_patents"."user_id" = ? AND "user_patents"."selected" = ?  ORDER BY "user_patents"."id" ASC LIMIT 1  [["user_id", 1], ["selected", true]]
+D, [2016-07-04T18:58:26.385467 #4801] DEBUG -- :   [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "user_patents".* FROM "user_patents" WHERE "user_patents"."user_id" = ? AND "user_patents"."selected" = ?  ORDER BY "user_patents"."id" ASC LIMIT 1[0m  [["user_id", 1], ["selected", true]]
+D, [2016-07-04T18:58:26.386894 #4801] DEBUG -- :   [1m[35mCACHE (0.0ms)[0m  SELECT  "patents".* FROM "patents" WHERE "patents"."id" = ? LIMIT 1  [["id", 1]]
+D, [2016-07-04T18:58:26.388700 #4801] DEBUG -- :   [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reservations" WHERE "reservations"."user_id" = ? AND "reservations"."patent_id" = ? AND "reservations"."ends_at" IS NULL[0m  [["user_id", 1], ["patent_id", 1]]
+D, [2016-07-04T18:58:26.391192 #4801] DEBUG -- :   [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "reservations" WHERE "reservations"."user_id" = ? AND "reservations"."spot_id" = ? AND "reservations"."ends_at" IS NULL  [["user_id", 1], ["spot_id", 3]]
+D, [2016-07-04T18:58:26.392666 #4801] DEBUG -- :   [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "user_patents".* FROM "user_patents" WHERE "user_patents"."user_id" = ? AND "user_patents"."selected" = ?  ORDER BY "user_patents"."id" ASC LIMIT 1[0m  [["user_id", 1], ["selected", true]]
+D, [2016-07-04T18:58:26.394339 #4801] DEBUG -- :   [1m[35mCACHE (0.0ms)[0m  SELECT  "user_patents".* FROM "user_patents" WHERE "user_patents"."user_id" = ? AND "user_patents"."selected" = ?  ORDER BY "user_patents"."id" ASC LIMIT 1  [["user_id", 1], ["selected", true]]
+D, [2016-07-04T18:58:26.395694 #4801] DEBUG -- :   [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "patents".* FROM "patents" WHERE "patents"."id" = ? LIMIT 1[0m  [["id", 1]]
+D, [2016-07-04T18:58:26.397527 #4801] DEBUG -- :   [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "reservations" WHERE "reservations"."user_id" = ? AND "reservations"."patent_id" = ? AND "reservations"."ends_at" IS NULL  [["user_id", 1], ["patent_id", 1]]
+D, [2016-07-04T18:58:26.399787 #4801] DEBUG -- :   [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "reservations" WHERE "reservations"."user_id" = ? AND "reservations"."spot_id" = ? AND "reservations"."ends_at" IS NULL[0m  [["user_id", 1], ["spot_id", 4]]
+D, [2016-07-04T18:58:26.401161 #4801] DEBUG -- :   [1m[35mCACHE (0.0ms)[0m  SELECT  "user_patents".* FROM "user_patents" WHERE "user_patents"."user_id" = ? AND "user_patents"."selected" = ?  ORDER BY "user_patents"."id" ASC LIMIT 1  [["user_id", 1], ["selected", true]]
+D, [2016-07-04T18:58:26.402922 #4801] DEBUG -- :   [1m[36mCACHE (0.1ms)[0m  [1mSELECT  "user_patents".* FROM "user_patents" WHERE "user_patents"."user_id" = ? AND "user_patents"."selected" = ?  ORDER BY "user_patents"."id" ASC LIMIT 1[0m  [["user_id", 1], ["selected", true]]
+D, [2016-07-04T18:58:26.404134 #4801] DEBUG -- :   [1m[35mCACHE (0.0ms)[0m  SELECT  "patents".* FROM "patents" WHERE "patents"."id" = ? LIMIT 1  [["id", 1]]
+D, [2016-07-04T18:58:26.406089 #4801] DEBUG -- :   [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reservations" WHERE "reservations"."user_id" = ? AND "reservations"."patent_id" = ? AND "reservations"."ends_at" IS NULL[0m  [["user_id", 1], ["patent_id", 1]]
+D, [2016-07-04T18:58:26.413493 #4801] DEBUG -- :   [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "reservations" WHERE "reservations"."user_id" = ? AND "reservations"."spot_id" = ? AND "reservations"."ends_at" IS NULL  [["user_id", 1], ["spot_id", 5]]
+D, [2016-07-04T18:58:26.415273 #4801] DEBUG -- :   [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "user_patents".* FROM "user_patents" WHERE "user_patents"."user_id" = ? AND "user_patents"."selected" = ?  ORDER BY "user_patents"."id" ASC LIMIT 1[0m  [["user_id", 1], ["selected", true]]
+D, [2016-07-04T18:58:26.416991 #4801] DEBUG -- :   [1m[35mCACHE (0.0ms)[0m  SELECT  "user_patents".* FROM "user_patents" WHERE "user_patents"."user_id" = ? AND "user_patents"."selected" = ?  ORDER BY "user_patents"."id" ASC LIMIT 1  [["user_id", 1], ["selected", true]]
+D, [2016-07-04T18:58:26.418227 #4801] DEBUG -- :   [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "patents".* FROM "patents" WHERE "patents"."id" = ? LIMIT 1[0m  [["id", 1]]
+D, [2016-07-04T18:58:26.420182 #4801] DEBUG -- :   [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "reservations" WHERE "reservations"."user_id" = ? AND "reservations"."patent_id" = ? AND "reservations"."ends_at" IS NULL  [["user_id", 1], ["patent_id", 1]]
+I, [2016-07-04T18:58:26.421016 #4801]  INFO -- :   Rendered areas/index.html.erb within layouts/application (124.0ms)
+I, [2016-07-04T18:58:26.595026 #4801]  INFO -- :   Rendered shared/_sidenav.html.erb (1.5ms)
+I, [2016-07-04T18:58:26.596342 #4801]  INFO -- : Completed 200 OK in 321ms (Views: 307.7ms | ActiveRecord: 5.6ms)
+D, [2016-07-04T19:02:57.355101 #4801] DEBUG -- : 
+D, [2016-07-04T19:02:57.355311 #4801] DEBUG -- : 
+I, [2016-07-04T19:02:57.355651 #4801]  INFO -- : Started GET "/reservations/36/pay" for ::1 at 2016-07-04 19:02:57 -0300
+I, [2016-07-04T19:02:57.497142 #4801]  INFO -- : Processing by ReservationsController#pay as HTML
+I, [2016-07-04T19:02:57.497487 #4801]  INFO -- :   Parameters: {"id"=>"36"}
+D, [2016-07-04T19:02:57.514624 #4801] DEBUG -- :   [1m[36mUser Load (1.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+D, [2016-07-04T19:02:57.559848 #4801] DEBUG -- :   [1m[35mReservation Load (0.4ms)[0m  SELECT  "reservations".* FROM "reservations" WHERE "reservations"."id" = ? LIMIT 1  [["id", 36]]
+D, [2016-07-04T19:02:57.624542 #4801] DEBUG -- :   [1m[36mPatent Load (0.3ms)[0m  [1mSELECT  "patents".* FROM "patents" WHERE "patents"."id" = ? LIMIT 1[0m  [["id", 1]]
+D, [2016-07-04T19:02:57.663974 #4801] DEBUG -- :   [1m[35mSpot Load (0.5ms)[0m  SELECT  "spots".* FROM "spots" WHERE "spots"."id" = ? LIMIT 1  [["id", 5]]
+D, [2016-07-04T19:02:57.684595 #4801] DEBUG -- :   [1m[36mArea Load (0.3ms)[0m  [1mSELECT  "areas".* FROM "areas" WHERE "areas"."id" = ? LIMIT 1[0m  [["id", 1]]
+D, [2016-07-04T19:02:57.703879 #4801] DEBUG -- :   [1m[35mPayment Load (0.4ms)[0m  SELECT "payments".* FROM "payments" WHERE "payments"."user_id" = ?  [["user_id", 1]]
+I, [2016-07-04T19:02:57.706006 #4801]  INFO -- :   Rendered reservations/pay.html.erb within layouts/application (107.7ms)
+I, [2016-07-04T19:02:57.912773 #4801]  INFO -- :   Rendered shared/_sidenav.html.erb (1.2ms)
+I, [2016-07-04T19:02:57.913894 #4801]  INFO -- : Completed 200 OK in 416ms (Views: 323.6ms | ActiveRecord: 7.3ms)
+D, [2016-07-04T19:03:01.136366 #4801] DEBUG -- : 
+D, [2016-07-04T19:03:01.136869 #4801] DEBUG -- : 
+I, [2016-07-04T19:03:01.137364 #4801]  INFO -- : Started PATCH "/reservations/36/pay" for ::1 at 2016-07-04 19:03:01 -0300
+I, [2016-07-04T19:03:01.144466 #4801]  INFO -- : Processing by ReservationsController#save_pay as HTML
+I, [2016-07-04T19:03:01.144760 #4801]  INFO -- :   Parameters: {"utf8"=>"✓", "authenticity_token"=>"y1hiR7qYMCgG7ihcRgcNovDDz/86CKtcJNqN5lczqLHKw+Iam4YWtlMYJeojosOtTzYNWOi4VoA/cRZB5AQ9JQ==", "reservation"=>{"payment_id"=>"0"}, "commit"=>"Pagar", "id"=>"36"}
+D, [2016-07-04T19:03:01.152237 #4801] DEBUG -- :   [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+D, [2016-07-04T19:03:01.155352 #4801] DEBUG -- :   [1m[35mReservation Load (1.5ms)[0m  SELECT  "reservations".* FROM "reservations" WHERE "reservations"."id" = ? LIMIT 1  [["id", 36]]
+D, [2016-07-04T19:03:01.157106 #4801] DEBUG -- :   [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+D, [2016-07-04T19:03:01.161988 #4801] DEBUG -- :   [1m[35mSQL (1.0ms)[0m  UPDATE "reservations" SET "payment_id" = ?, "updated_at" = ? WHERE "reservations"."id" = ?  [["payment_id", 0], ["updated_at", "2016-07-04 19:03:01.158298"], ["id", 36]]
+D, [2016-07-04T19:03:01.236239 #4801] DEBUG -- :   [1m[36m (72.2ms)[0m  [1mcommit transaction[0m
+D, [2016-07-04T19:03:01.236874 #4801] DEBUG -- : Atributos de la reserva: #<Reservation id: 36, created_at: "2016-07-04 21:19:13", updated_at: "2016-07-04 22:03:01", user_id: 1, spot_id: 5, start_at: "2016-07-04 21:19:13", ends_at: "2016-07-04 21:28:22", patent_id: 1, amount: 3.0, payment_id: 0>
+D, [2016-07-04T19:03:01.239971 #4801] DEBUG -- :   [1m[35mPayment Load (0.3ms)[0m  SELECT  "payments".* FROM "payments" WHERE "payments"."payment_method" = ?  ORDER BY "payments"."id" ASC LIMIT 1  [["payment_method", "Descuento de Saldo"]]
+D, [2016-07-04T19:03:01.256758 #4801] DEBUG -- :   [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+D, [2016-07-04T19:03:01.280598 #4801] DEBUG -- :   [1m[35m (0.2ms)[0m  rollback transaction
+D, [2016-07-04T19:03:01.282820 #4801] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+D, [2016-07-04T19:03:01.291226 #4801] DEBUG -- :   [1m[35mSQL (0.4ms)[0m  UPDATE "reservations" SET "payment_id" = ?, "updated_at" = ? WHERE "reservations"."id" = ?  [["payment_id", nil], ["updated_at", "2016-07-04 19:03:01.283545"], ["id", 36]]
+D, [2016-07-04T19:03:01.335189 #4801] DEBUG -- :   [1m[36m (43.1ms)[0m  [1mcommit transaction[0m
+I, [2016-07-04T19:03:01.336116 #4801]  INFO -- : Redirected to http://localhost:3000/areas
+I, [2016-07-04T19:03:01.336714 #4801]  INFO -- : Completed 302 Found in 191ms (ActiveRecord: 120.3ms)
+D, [2016-07-04T19:03:01.348152 #4801] DEBUG -- : 
+D, [2016-07-04T19:03:01.348520 #4801] DEBUG -- : 
+I, [2016-07-04T19:03:01.348770 #4801]  INFO -- : Started GET "/areas" for ::1 at 2016-07-04 19:03:01 -0300
+I, [2016-07-04T19:03:01.381323 #4801]  INFO -- : Processing by AreasController#index as HTML
+D, [2016-07-04T19:03:01.387068 #4801] DEBUG -- :   [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+D, [2016-07-04T19:03:01.401378 #4801] DEBUG -- :   [1m[36mArea Load (0.4ms)[0m  [1mSELECT "areas".* FROM "areas"[0m
+D, [2016-07-04T19:03:01.409155 #4801] DEBUG -- :   [1m[35mSpot Load (0.5ms)[0m  SELECT "spots".* FROM "spots" WHERE "spots"."area_id" = ?  [["area_id", 1]]
+D, [2016-07-04T19:03:01.417807 #4801] DEBUG -- :   [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "reservations" WHERE "reservations"."user_id" = ? AND "reservations"."spot_id" = ? AND "reservations"."ends_at" IS NULL[0m  [["user_id", 1], ["spot_id", 1]]
+D, [2016-07-04T19:03:01.431040 #4801] DEBUG -- :   [1m[35mUserPatent Load (0.5ms)[0m  SELECT  "user_patents".* FROM "user_patents" WHERE "user_patents"."user_id" = ? AND "user_patents"."selected" = ?  ORDER BY "user_patents"."id" ASC LIMIT 1  [["user_id", 1], ["selected", "t"]]
+D, [2016-07-04T19:03:01.448262 #4801] DEBUG -- :   [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "user_patents".* FROM "user_patents" WHERE "user_patents"."user_id" = ? AND "user_patents"."selected" = ?  ORDER BY "user_patents"."id" ASC LIMIT 1[0m  [["user_id", 1], ["selected", true]]
+D, [2016-07-04T19:03:01.453241 #4801] DEBUG -- :   [1m[35mPatent Load (0.3ms)[0m  SELECT  "patents".* FROM "patents" WHERE "patents"."id" = ? LIMIT 1  [["id", 1]]
+D, [2016-07-04T19:03:01.456222 #4801] DEBUG -- :   [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "reservations" WHERE "reservations"."user_id" = ? AND "reservations"."patent_id" = ? AND "reservations"."ends_at" IS NULL[0m  [["user_id", 1], ["patent_id", 1]]
+D, [2016-07-04T19:03:01.459504 #4801] DEBUG -- :   [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "reservations" WHERE "reservations"."user_id" = ? AND "reservations"."spot_id" = ? AND "reservations"."ends_at" IS NULL  [["user_id", 1], ["spot_id", 2]]
+D, [2016-07-04T19:03:01.461117 #4801] DEBUG -- :   [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "user_patents".* FROM "user_patents" WHERE "user_patents"."user_id" = ? AND "user_patents"."selected" = ?  ORDER BY "user_patents"."id" ASC LIMIT 1[0m  [["user_id", 1], ["selected", true]]
+D, [2016-07-04T19:03:01.463047 #4801] DEBUG -- :   [1m[35mCACHE (0.0ms)[0m  SELECT  "user_patents".* FROM "user_patents" WHERE "user_patents"."user_id" = ? AND "user_patents"."selected" = ?  ORDER BY "user_patents"."id" ASC LIMIT 1  [["user_id", 1], ["selected", true]]
+D, [2016-07-04T19:03:01.464609 #4801] DEBUG -- :   [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "patents".* FROM "patents" WHERE "patents"."id" = ? LIMIT 1[0m  [["id", 1]]
+D, [2016-07-04T19:03:01.467075 #4801] DEBUG -- :   [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "reservations" WHERE "reservations"."user_id" = ? AND "reservations"."patent_id" = ? AND "reservations"."ends_at" IS NULL  [["user_id", 1], ["patent_id", 1]]
+D, [2016-07-04T19:03:01.470907 #4801] DEBUG -- :   [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "reservations" WHERE "reservations"."user_id" = ? AND "reservations"."spot_id" = ? AND "reservations"."ends_at" IS NULL[0m  [["user_id", 1], ["spot_id", 3]]
+D, [2016-07-04T19:03:01.473622 #4801] DEBUG -- :   [1m[35mCACHE (0.0ms)[0m  SELECT  "user_patents".* FROM "user_patents" WHERE "user_patents"."user_id" = ? AND "user_patents"."selected" = ?  ORDER BY "user_patents"."id" ASC LIMIT 1  [["user_id", 1], ["selected", true]]
+D, [2016-07-04T19:03:01.476715 #4801] DEBUG -- :   [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "user_patents".* FROM "user_patents" WHERE "user_patents"."user_id" = ? AND "user_patents"."selected" = ?  ORDER BY "user_patents"."id" ASC LIMIT 1[0m  [["user_id", 1], ["selected", true]]
+D, [2016-07-04T19:03:01.486383 #4801] DEBUG -- :   [1m[35mCACHE (0.0ms)[0m  SELECT  "patents".* FROM "patents" WHERE "patents"."id" = ? LIMIT 1  [["id", 1]]
+D, [2016-07-04T19:03:01.490631 #4801] DEBUG -- :   [1m[36mCACHE (0.1ms)[0m  [1mSELECT COUNT(*) FROM "reservations" WHERE "reservations"."user_id" = ? AND "reservations"."patent_id" = ? AND "reservations"."ends_at" IS NULL[0m  [["user_id", 1], ["patent_id", 1]]
+D, [2016-07-04T19:03:01.495668 #4801] DEBUG -- :   [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM "reservations" WHERE "reservations"."user_id" = ? AND "reservations"."spot_id" = ? AND "reservations"."ends_at" IS NULL  [["user_id", 1], ["spot_id", 4]]
+D, [2016-07-04T19:03:01.499350 #4801] DEBUG -- :   [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "user_patents".* FROM "user_patents" WHERE "user_patents"."user_id" = ? AND "user_patents"."selected" = ?  ORDER BY "user_patents"."id" ASC LIMIT 1[0m  [["user_id", 1], ["selected", true]]
+D, [2016-07-04T19:03:01.502071 #4801] DEBUG -- :   [1m[35mCACHE (0.0ms)[0m  SELECT  "user_patents".* FROM "user_patents" WHERE "user_patents"."user_id" = ? AND "user_patents"."selected" = ?  ORDER BY "user_patents"."id" ASC LIMIT 1  [["user_id", 1], ["selected", true]]
+D, [2016-07-04T19:03:01.504244 #4801] DEBUG -- :   [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "patents".* FROM "patents" WHERE "patents"."id" = ? LIMIT 1[0m  [["id", 1]]
+D, [2016-07-04T19:03:01.508744 #4801] DEBUG -- :   [1m[35mCACHE (0.3ms)[0m  SELECT COUNT(*) FROM "reservations" WHERE "reservations"."user_id" = ? AND "reservations"."patent_id" = ? AND "reservations"."ends_at" IS NULL  [["user_id", 1], ["patent_id", 1]]
+D, [2016-07-04T19:03:01.513566 #4801] DEBUG -- :   [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "reservations" WHERE "reservations"."user_id" = ? AND "reservations"."spot_id" = ? AND "reservations"."ends_at" IS NULL[0m  [["user_id", 1], ["spot_id", 5]]
+D, [2016-07-04T19:03:01.516630 #4801] DEBUG -- :   [1m[35mCACHE (0.0ms)[0m  SELECT  "user_patents".* FROM "user_patents" WHERE "user_patents"."user_id" = ? AND "user_patents"."selected" = ?  ORDER BY "user_patents"."id" ASC LIMIT 1  [["user_id", 1], ["selected", true]]
+D, [2016-07-04T19:03:01.519462 #4801] DEBUG -- :   [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "user_patents".* FROM "user_patents" WHERE "user_patents"."user_id" = ? AND "user_patents"."selected" = ?  ORDER BY "user_patents"."id" ASC LIMIT 1[0m  [["user_id", 1], ["selected", true]]
+D, [2016-07-04T19:03:01.521600 #4801] DEBUG -- :   [1m[35mCACHE (0.0ms)[0m  SELECT  "patents".* FROM "patents" WHERE "patents"."id" = ? LIMIT 1  [["id", 1]]
+D, [2016-07-04T19:03:01.524918 #4801] DEBUG -- :   [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reservations" WHERE "reservations"."user_id" = ? AND "reservations"."patent_id" = ? AND "reservations"."ends_at" IS NULL[0m  [["user_id", 1], ["patent_id", 1]]
+I, [2016-07-04T19:03:01.526437 #4801]  INFO -- :   Rendered areas/index.html.erb within layouts/application (125.8ms)
+I, [2016-07-04T19:03:01.853505 #4801]  INFO -- :   Rendered shared/_sidenav.html.erb (1.0ms)
+I, [2016-07-04T19:03:01.854648 #4801]  INFO -- : Completed 200 OK in 473ms (Views: 460.3ms | ActiveRecord: 5.7ms)
+D, [2016-07-04T19:05:34.899328 #4801] DEBUG -- : 
+D, [2016-07-04T19:05:34.900001 #4801] DEBUG -- : 
+I, [2016-07-04T19:05:34.900713 #4801]  INFO -- : Started GET "/reservations/36/pay" for ::1 at 2016-07-04 19:05:34 -0300
+I, [2016-07-04T19:05:35.037038 #4801]  INFO -- : Processing by ReservationsController#pay as HTML
+I, [2016-07-04T19:05:35.043722 #4801]  INFO -- :   Parameters: {"id"=>"36"}
+D, [2016-07-04T19:05:35.076706 #4801] DEBUG -- :   [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+D, [2016-07-04T19:05:35.119355 #4801] DEBUG -- :   [1m[36mReservation Load (0.4ms)[0m  [1mSELECT  "reservations".* FROM "reservations" WHERE "reservations"."id" = ? LIMIT 1[0m  [["id", 36]]
+I, [2016-07-04T19:05:35.138126 #4801]  INFO -- : hollaaaaaaaa
+D, [2016-07-04T19:05:35.180398 #4801] DEBUG -- :   [1m[35mPatent Load (0.4ms)[0m  SELECT  "patents".* FROM "patents" WHERE "patents"."id" = ? LIMIT 1  [["id", 1]]
+D, [2016-07-04T19:05:35.203772 #4801] DEBUG -- :   [1m[36mSpot Load (0.3ms)[0m  [1mSELECT  "spots".* FROM "spots" WHERE "spots"."id" = ? LIMIT 1[0m  [["id", 5]]
+D, [2016-07-04T19:05:35.230888 #4801] DEBUG -- :   [1m[35mArea Load (0.3ms)[0m  SELECT  "areas".* FROM "areas" WHERE "areas"."id" = ? LIMIT 1  [["id", 1]]
+D, [2016-07-04T19:05:35.250370 #4801] DEBUG -- :   [1m[36mPayment Load (0.7ms)[0m  [1mSELECT "payments".* FROM "payments" WHERE "payments"."user_id" = ?[0m  [["user_id", 1]]
+I, [2016-07-04T19:05:35.253099 #4801]  INFO -- :   Rendered reservations/pay.html.erb within layouts/application (92.1ms)
+I, [2016-07-04T19:05:35.477062 #4801]  INFO -- :   Rendered shared/_sidenav.html.erb (1.0ms)
+I, [2016-07-04T19:05:35.478220 #4801]  INFO -- : Completed 200 OK in 434ms (Views: 324.0ms | ActiveRecord: 6.4ms)
+D, [2016-07-04T19:05:38.210753 #4801] DEBUG -- : 
+D, [2016-07-04T19:05:38.211189 #4801] DEBUG -- : 
+I, [2016-07-04T19:05:38.211692 #4801]  INFO -- : Started PATCH "/reservations/36/pay" for ::1 at 2016-07-04 19:05:38 -0300
+I, [2016-07-04T19:05:38.220179 #4801]  INFO -- : Processing by ReservationsController#save_pay as HTML
+I, [2016-07-04T19:05:38.220931 #4801]  INFO -- :   Parameters: {"utf8"=>"✓", "authenticity_token"=>"TqkkSpSco2AgYDubT3P1DmhjJ6vGkKz+iOKWk0RZ4eJPMqQXtYKF/nWWNi0q1jsB15blDBQgUSKTSQ009250dg==", "reservation"=>{"payment_id"=>"0"}, "commit"=>"Pagar", "id"=>"36"}
+D, [2016-07-04T19:05:38.224724 #4801] DEBUG -- :   [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+D, [2016-07-04T19:05:38.226532 #4801] DEBUG -- :   [1m[36mReservation Load (0.2ms)[0m  [1mSELECT  "reservations".* FROM "reservations" WHERE "reservations"."id" = ? LIMIT 1[0m  [["id", 36]]
+D, [2016-07-04T19:05:38.227611 #4801] DEBUG -- :   [1m[35m (0.1ms)[0m  begin transaction
+D, [2016-07-04T19:05:38.233358 #4801] DEBUG -- :   [1m[36mSQL (0.5ms)[0m  [1mUPDATE "reservations" SET "payment_id" = ?, "updated_at" = ? WHERE "reservations"."id" = ?[0m  [["payment_id", 0], ["updated_at", "2016-07-04 19:05:38.228588"], ["id", 36]]
+D, [2016-07-04T19:05:38.309307 #4801] DEBUG -- :   [1m[35m (73.9ms)[0m  commit transaction
+D, [2016-07-04T19:05:38.309902 #4801] DEBUG -- : Atributos de la reserva: #<Reservation id: 36, created_at: "2016-07-04 21:19:13", updated_at: "2016-07-04 22:05:38", user_id: 1, spot_id: 5, start_at: "2016-07-04 21:19:13", ends_at: "2016-07-04 21:28:22", patent_id: 1, amount: 3.0, payment_id: 0>
+D, [2016-07-04T19:05:38.314197 #4801] DEBUG -- :   [1m[36mPayment Load (0.3ms)[0m  [1mSELECT  "payments".* FROM "payments" WHERE "payments"."payment_method" = ?  ORDER BY "payments"."id" ASC LIMIT 1[0m  [["payment_method", "Descuento de Saldo"]]
+D, [2016-07-04T19:05:38.336322 #4801] DEBUG -- :   [1m[35m (0.7ms)[0m  begin transaction
+D, [2016-07-04T19:05:38.360816 #4801] DEBUG -- :   [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+D, [2016-07-04T19:05:38.361546 #4801] DEBUG -- :   [1m[35m (0.1ms)[0m  begin transaction
+D, [2016-07-04T19:05:38.364348 #4801] DEBUG -- :   [1m[36mSQL (0.4ms)[0m  [1mUPDATE "reservations" SET "payment_id" = ?, "updated_at" = ? WHERE "reservations"."id" = ?[0m  [["payment_id", nil], ["updated_at", "2016-07-04 19:05:38.362376"], ["id", 36]]
+D, [2016-07-04T19:05:38.400674 #4801] DEBUG -- :   [1m[35m (35.4ms)[0m  commit transaction
+I, [2016-07-04T19:05:38.401807 #4801]  INFO -- : Redirected to http://localhost:3000/areas
+I, [2016-07-04T19:05:38.402463 #4801]  INFO -- : Completed 302 Found in 181ms (ActiveRecord: 112.8ms)
+D, [2016-07-04T19:05:38.413305 #4801] DEBUG -- : 
+D, [2016-07-04T19:05:38.413506 #4801] DEBUG -- : 
+I, [2016-07-04T19:05:38.413982 #4801]  INFO -- : Started GET "/areas" for ::1 at 2016-07-04 19:05:38 -0300
+I, [2016-07-04T19:05:38.433420 #4801]  INFO -- : Processing by AreasController#index as HTML
+D, [2016-07-04T19:05:38.436476 #4801] DEBUG -- :   [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+D, [2016-07-04T19:05:38.446473 #4801] DEBUG -- :   [1m[35mArea Load (0.4ms)[0m  SELECT "areas".* FROM "areas"
+D, [2016-07-04T19:05:38.452724 #4801] DEBUG -- :   [1m[36mSpot Load (0.5ms)[0m  [1mSELECT "spots".* FROM "spots" WHERE "spots"."area_id" = ?[0m  [["area_id", 1]]
+D, [2016-07-04T19:05:38.460025 #4801] DEBUG -- :   [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "reservations" WHERE "reservations"."user_id" = ? AND "reservations"."spot_id" = ? AND "reservations"."ends_at" IS NULL  [["user_id", 1], ["spot_id", 1]]
+D, [2016-07-04T19:05:38.472768 #4801] DEBUG -- :   [1m[36mUserPatent Load (0.4ms)[0m  [1mSELECT  "user_patents".* FROM "user_patents" WHERE "user_patents"."user_id" = ? AND "user_patents"."selected" = ?  ORDER BY "user_patents"."id" ASC LIMIT 1[0m  [["user_id", 1], ["selected", "t"]]
+D, [2016-07-04T19:05:38.492432 #4801] DEBUG -- :   [1m[35mCACHE (0.0ms)[0m  SELECT  "user_patents".* FROM "user_patents" WHERE "user_patents"."user_id" = ? AND "user_patents"."selected" = ?  ORDER BY "user_patents"."id" ASC LIMIT 1  [["user_id", 1], ["selected", true]]
+D, [2016-07-04T19:05:38.496939 #4801] DEBUG -- :   [1m[36mPatent Load (0.2ms)[0m  [1mSELECT  "patents".* FROM "patents" WHERE "patents"."id" = ? LIMIT 1[0m  [["id", 1]]
+D, [2016-07-04T19:05:38.499439 #4801] DEBUG -- :   [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "reservations" WHERE "reservations"."user_id" = ? AND "reservations"."patent_id" = ? AND "reservations"."ends_at" IS NULL  [["user_id", 1], ["patent_id", 1]]
+D, [2016-07-04T19:05:38.506450 #4801] DEBUG -- :   [1m[36m (4.7ms)[0m  [1mSELECT COUNT(*) FROM "reservations" WHERE "reservations"."user_id" = ? AND "reservations"."spot_id" = ? AND "reservations"."ends_at" IS NULL[0m  [["user_id", 1], ["spot_id", 2]]
+D, [2016-07-04T19:05:38.509086 #4801] DEBUG -- :   [1m[35mCACHE (0.0ms)[0m  SELECT  "user_patents".* FROM "user_patents" WHERE "user_patents"."user_id" = ? AND "user_patents"."selected" = ?  ORDER BY "user_patents"."id" ASC LIMIT 1  [["user_id", 1], ["selected", true]]
+D, [2016-07-04T19:05:38.510790 #4801] DEBUG -- :   [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "user_patents".* FROM "user_patents" WHERE "user_patents"."user_id" = ? AND "user_patents"."selected" = ?  ORDER BY "user_patents"."id" ASC LIMIT 1[0m  [["user_id", 1], ["selected", true]]
+D, [2016-07-04T19:05:38.512027 #4801] DEBUG -- :   [1m[35mCACHE (0.0ms)[0m  SELECT  "patents".* FROM "patents" WHERE "patents"."id" = ? LIMIT 1  [["id", 1]]
+D, [2016-07-04T19:05:38.514127 #4801] DEBUG -- :   [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reservations" WHERE "reservations"."user_id" = ? AND "reservations"."patent_id" = ? AND "reservations"."ends_at" IS NULL[0m  [["user_id", 1], ["patent_id", 1]]
+D, [2016-07-04T19:05:38.516302 #4801] DEBUG -- :   [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "reservations" WHERE "reservations"."user_id" = ? AND "reservations"."spot_id" = ? AND "reservations"."ends_at" IS NULL  [["user_id", 1], ["spot_id", 3]]
+D, [2016-07-04T19:05:38.518379 #4801] DEBUG -- :   [1m[36mCACHE (0.2ms)[0m  [1mSELECT  "user_patents".* FROM "user_patents" WHERE "user_patents"."user_id" = ? AND "user_patents"."selected" = ?  ORDER BY "user_patents"."id" ASC LIMIT 1[0m  [["user_id", 1], ["selected", true]]
+D, [2016-07-04T19:05:38.519962 #4801] DEBUG -- :   [1m[35mCACHE (0.0ms)[0m  SELECT  "user_patents".* FROM "user_patents" WHERE "user_patents"."user_id" = ? AND "user_patents"."selected" = ?  ORDER BY "user_patents"."id" ASC LIMIT 1  [["user_id", 1], ["selected", true]]
+D, [2016-07-04T19:05:38.521561 #4801] DEBUG -- :   [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "patents".* FROM "patents" WHERE "patents"."id" = ? LIMIT 1[0m  [["id", 1]]
+D, [2016-07-04T19:05:38.531629 #4801] DEBUG -- :   [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "reservations" WHERE "reservations"."user_id" = ? AND "reservations"."patent_id" = ? AND "reservations"."ends_at" IS NULL  [["user_id", 1], ["patent_id", 1]]
+D, [2016-07-04T19:05:38.534145 #4801] DEBUG -- :   [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "reservations" WHERE "reservations"."user_id" = ? AND "reservations"."spot_id" = ? AND "reservations"."ends_at" IS NULL[0m  [["user_id", 1], ["spot_id", 4]]
+D, [2016-07-04T19:05:38.535411 #4801] DEBUG -- :   [1m[35mCACHE (0.0ms)[0m  SELECT  "user_patents".* FROM "user_patents" WHERE "user_patents"."user_id" = ? AND "user_patents"."selected" = ?  ORDER BY "user_patents"."id" ASC LIMIT 1  [["user_id", 1], ["selected", true]]
+D, [2016-07-04T19:05:38.536861 #4801] DEBUG -- :   [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "user_patents".* FROM "user_patents" WHERE "user_patents"."user_id" = ? AND "user_patents"."selected" = ?  ORDER BY "user_patents"."id" ASC LIMIT 1[0m  [["user_id", 1], ["selected", true]]
+D, [2016-07-04T19:05:38.538103 #4801] DEBUG -- :   [1m[35mCACHE (0.0ms)[0m  SELECT  "patents".* FROM "patents" WHERE "patents"."id" = ? LIMIT 1  [["id", 1]]
+D, [2016-07-04T19:05:38.540120 #4801] DEBUG -- :   [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reservations" WHERE "reservations"."user_id" = ? AND "reservations"."patent_id" = ? AND "reservations"."ends_at" IS NULL[0m  [["user_id", 1], ["patent_id", 1]]
+D, [2016-07-04T19:05:38.545800 #4801] DEBUG -- :   [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "reservations" WHERE "reservations"."user_id" = ? AND "reservations"."spot_id" = ? AND "reservations"."ends_at" IS NULL  [["user_id", 1], ["spot_id", 5]]
+D, [2016-07-04T19:05:38.547265 #4801] DEBUG -- :   [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "user_patents".* FROM "user_patents" WHERE "user_patents"."user_id" = ? AND "user_patents"."selected" = ?  ORDER BY "user_patents"."id" ASC LIMIT 1[0m  [["user_id", 1], ["selected", true]]
+D, [2016-07-04T19:05:38.548587 #4801] DEBUG -- :   [1m[35mCACHE (0.0ms)[0m  SELECT  "user_patents".* FROM "user_patents" WHERE "user_patents"."user_id" = ? AND "user_patents"."selected" = ?  ORDER BY "user_patents"."id" ASC LIMIT 1  [["user_id", 1], ["selected", true]]
+D, [2016-07-04T19:05:38.549961 #4801] DEBUG -- :   [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "patents".* FROM "patents" WHERE "patents"."id" = ? LIMIT 1[0m  [["id", 1]]
+D, [2016-07-04T19:05:38.551967 #4801] DEBUG -- :   [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "reservations" WHERE "reservations"."user_id" = ? AND "reservations"."patent_id" = ? AND "reservations"."ends_at" IS NULL  [["user_id", 1], ["patent_id", 1]]
+I, [2016-07-04T19:05:38.552791 #4801]  INFO -- :   Rendered areas/index.html.erb within layouts/application (107.3ms)
+I, [2016-07-04T19:05:38.745783 #4801]  INFO -- :   Rendered shared/_sidenav.html.erb (1.0ms)
+I, [2016-07-04T19:05:38.746740 #4801]  INFO -- : Completed 200 OK in 313ms (Views: 300.0ms | ActiveRecord: 9.1ms)
+D, [2016-07-04T19:09:39.516897 #4801] DEBUG -- : 
+D, [2016-07-04T19:09:39.517079 #4801] DEBUG -- : 
+I, [2016-07-04T19:09:39.517687 #4801]  INFO -- : Started GET "/reservations/36/pay" for ::1 at 2016-07-04 19:09:39 -0300
+I, [2016-07-04T19:09:39.766242 #4801]  INFO -- : Processing by ReservationsController#pay as HTML
+I, [2016-07-04T19:09:39.766736 #4801]  INFO -- :   Parameters: {"id"=>"36"}
+D, [2016-07-04T19:09:39.797061 #4801] DEBUG -- :   [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+D, [2016-07-04T19:09:39.832450 #4801] DEBUG -- :   [1m[35mReservation Load (0.5ms)[0m  SELECT  "reservations".* FROM "reservations" WHERE "reservations"."id" = ? LIMIT 1  [["id", 36]]
+I, [2016-07-04T19:09:39.849261 #4801]  INFO -- : hollaaaaaaaa
+D, [2016-07-04T19:09:39.880413 #4801] DEBUG -- :   [1m[36mPatent Load (0.3ms)[0m  [1mSELECT  "patents".* FROM "patents" WHERE "patents"."id" = ? LIMIT 1[0m  [["id", 1]]
+D, [2016-07-04T19:09:39.904256 #4801] DEBUG -- :   [1m[35mSpot Load (0.3ms)[0m  SELECT  "spots".* FROM "spots" WHERE "spots"."id" = ? LIMIT 1  [["id", 5]]
+D, [2016-07-04T19:09:39.924389 #4801] DEBUG -- :   [1m[36mArea Load (0.3ms)[0m  [1mSELECT  "areas".* FROM "areas" WHERE "areas"."id" = ? LIMIT 1[0m  [["id", 1]]
+D, [2016-07-04T19:09:39.955240 #4801] DEBUG -- :   [1m[35mPayment Load (0.3ms)[0m  SELECT "payments".* FROM "payments" WHERE "payments"."user_id" = ?  [["user_id", 1]]
+I, [2016-07-04T19:09:39.963660 #4801]  INFO -- :   Rendered reservations/pay.html.erb within layouts/application (99.8ms)
+I, [2016-07-04T19:09:40.174230 #4801]  INFO -- :   Rendered shared/_sidenav.html.erb (1.2ms)
+I, [2016-07-04T19:09:40.175255 #4801]  INFO -- : Completed 200 OK in 408ms (Views: 315.8ms | ActiveRecord: 7.9ms)
+D, [2016-07-04T19:11:02.321428 #4801] DEBUG -- : 
+D, [2016-07-04T19:11:02.322868 #4801] DEBUG -- : 
+I, [2016-07-04T19:11:02.323887 #4801]  INFO -- : Started PATCH "/reservations/36/pay" for ::1 at 2016-07-04 19:11:02 -0300
+I, [2016-07-04T19:11:02.500428 #4801]  INFO -- : Processing by ReservationsController#save_pay as HTML
+I, [2016-07-04T19:11:02.500879 #4801]  INFO -- :   Parameters: {"utf8"=>"✓", "authenticity_token"=>"dm+NBYBnq8kOVxBv1W7JL9sPmbxbKm2UMfd6eYQmw3V39A1YoXmNV1uhHdmwywcgZPpbG4makEgqXOHeNxFW4Q==", "reservation"=>{"payment_id"=>"0"}, "commit"=>"Pagar", "id"=>"36"}
+D, [2016-07-04T19:11:02.540039 #4801] DEBUG -- :   [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+D, [2016-07-04T19:11:02.592235 #4801] DEBUG -- :   [1m[35mReservation Load (0.6ms)[0m  SELECT  "reservations".* FROM "reservations" WHERE "reservations"."id" = ? LIMIT 1  [["id", 36]]
+D, [2016-07-04T19:11:02.615297 #4801] DEBUG -- :   [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+D, [2016-07-04T19:11:02.620184 #4801] DEBUG -- :   [1m[35mSQL (0.8ms)[0m  UPDATE "reservations" SET "payment_id" = ?, "updated_at" = ? WHERE "reservations"."id" = ?  [["payment_id", 0], ["updated_at", "2016-07-04 19:11:02.616849"], ["id", 36]]
+D, [2016-07-04T19:11:02.660567 #4801] DEBUG -- :   [1m[36m (38.8ms)[0m  [1mcommit transaction[0m
+I, [2016-07-04T19:11:02.661215 #4801]  INFO -- : Atributos de la reserva: #<Reservation id: 36, created_at: "2016-07-04 21:19:13", updated_at: "2016-07-04 22:11:02", user_id: 1, spot_id: 5, start_at: "2016-07-04 21:19:13", ends_at: "2016-07-04 21:28:22", patent_id: 1, amount: 3.0, payment_id: 0>
+D, [2016-07-04T19:11:02.674295 #4801] DEBUG -- :   [1m[35mPayment Load (0.4ms)[0m  SELECT  "payments".* FROM "payments" WHERE "payments"."payment_method" = ?  ORDER BY "payments"."id" ASC LIMIT 1  [["payment_method", "Descuento de Saldo"]]
+D, [2016-07-04T19:11:02.693963 #4801] DEBUG -- :   [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+D, [2016-07-04T19:11:02.707733 #4801] DEBUG -- :   [1m[35m (0.2ms)[0m  rollback transaction
+D, [2016-07-04T19:11:02.713804 #4801] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+D, [2016-07-04T19:11:02.717420 #4801] DEBUG -- :   [1m[35mSQL (0.5ms)[0m  UPDATE "reservations" SET "payment_id" = ?, "updated_at" = ? WHERE "reservations"."id" = ?  [["payment_id", nil], ["updated_at", "2016-07-04 19:11:02.714856"], ["id", 36]]
+D, [2016-07-04T19:11:02.741829 #4801] DEBUG -- :   [1m[36m (23.4ms)[0m  [1mcommit transaction[0m
+I, [2016-07-04T19:11:02.742782 #4801]  INFO -- : Redirected to http://localhost:3000/areas
+I, [2016-07-04T19:11:02.743341 #4801]  INFO -- : Completed 302 Found in 242ms (ActiveRecord: 77.2ms)
+D, [2016-07-04T19:11:02.760953 #4801] DEBUG -- : 
+D, [2016-07-04T19:11:02.761259 #4801] DEBUG -- : 
+I, [2016-07-04T19:11:02.761540 #4801]  INFO -- : Started GET "/areas" for ::1 at 2016-07-04 19:11:02 -0300
+I, [2016-07-04T19:11:02.790563 #4801]  INFO -- : Processing by AreasController#index as HTML
+D, [2016-07-04T19:11:02.793921 #4801] DEBUG -- :   [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+D, [2016-07-04T19:11:02.811028 #4801] DEBUG -- :   [1m[36mArea Load (0.5ms)[0m  [1mSELECT "areas".* FROM "areas"[0m
+D, [2016-07-04T19:11:02.840943 #4801] DEBUG -- :   [1m[35mSpot Load (0.4ms)[0m  SELECT "spots".* FROM "spots" WHERE "spots"."area_id" = ?  [["area_id", 1]]
+D, [2016-07-04T19:11:02.885377 #4801] DEBUG -- :   [1m[36m (0.6ms)[0m  [1mSELECT COUNT(*) FROM "reservations" WHERE "reservations"."user_id" = ? AND "reservations"."spot_id" = ? AND "reservations"."ends_at" IS NULL[0m  [["user_id", 1], ["spot_id", 1]]
+D, [2016-07-04T19:11:02.910364 #4801] DEBUG -- :   [1m[35mUserPatent Load (0.5ms)[0m  SELECT  "user_patents".* FROM "user_patents" WHERE "user_patents"."user_id" = ? AND "user_patents"."selected" = ?  ORDER BY "user_patents"."id" ASC LIMIT 1  [["user_id", 1], ["selected", "t"]]
+D, [2016-07-04T19:11:02.924545 #4801] DEBUG -- :   [1m[36mCACHE (0.1ms)[0m  [1mSELECT  "user_patents".* FROM "user_patents" WHERE "user_patents"."user_id" = ? AND "user_patents"."selected" = ?  ORDER BY "user_patents"."id" ASC LIMIT 1[0m  [["user_id", 1], ["selected", true]]
+D, [2016-07-04T19:11:02.938461 #4801] DEBUG -- :   [1m[35mPatent Load (0.3ms)[0m  SELECT  "patents".* FROM "patents" WHERE "patents"."id" = ? LIMIT 1  [["id", 1]]
+D, [2016-07-04T19:11:02.962408 #4801] DEBUG -- :   [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "reservations" WHERE "reservations"."user_id" = ? AND "reservations"."patent_id" = ? AND "reservations"."ends_at" IS NULL[0m  [["user_id", 1], ["patent_id", 1]]
+D, [2016-07-04T19:11:02.965680 #4801] DEBUG -- :   [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "reservations" WHERE "reservations"."user_id" = ? AND "reservations"."spot_id" = ? AND "reservations"."ends_at" IS NULL  [["user_id", 1], ["spot_id", 2]]
+D, [2016-07-04T19:11:02.972789 #4801] DEBUG -- :   [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "user_patents".* FROM "user_patents" WHERE "user_patents"."user_id" = ? AND "user_patents"."selected" = ?  ORDER BY "user_patents"."id" ASC LIMIT 1[0m  [["user_id", 1], ["selected", true]]
+D, [2016-07-04T19:11:02.974959 #4801] DEBUG -- :   [1m[35mCACHE (0.0ms)[0m  SELECT  "user_patents".* FROM "user_patents" WHERE "user_patents"."user_id" = ? AND "user_patents"."selected" = ?  ORDER BY "user_patents"."id" ASC LIMIT 1  [["user_id", 1], ["selected", true]]
+D, [2016-07-04T19:11:02.976432 #4801] DEBUG -- :   [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "patents".* FROM "patents" WHERE "patents"."id" = ? LIMIT 1[0m  [["id", 1]]
+D, [2016-07-04T19:11:02.978545 #4801] DEBUG -- :   [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "reservations" WHERE "reservations"."user_id" = ? AND "reservations"."patent_id" = ? AND "reservations"."ends_at" IS NULL  [["user_id", 1], ["patent_id", 1]]
+D, [2016-07-04T19:11:02.980852 #4801] DEBUG -- :   [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "reservations" WHERE "reservations"."user_id" = ? AND "reservations"."spot_id" = ? AND "reservations"."ends_at" IS NULL[0m  [["user_id", 1], ["spot_id", 3]]
+D, [2016-07-04T19:11:02.982498 #4801] DEBUG -- :   [1m[35mCACHE (0.2ms)[0m  SELECT  "user_patents".* FROM "user_patents" WHERE "user_patents"."user_id" = ? AND "user_patents"."selected" = ?  ORDER BY "user_patents"."id" ASC LIMIT 1  [["user_id", 1], ["selected", true]]
+D, [2016-07-04T19:11:02.984073 #4801] DEBUG -- :   [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "user_patents".* FROM "user_patents" WHERE "user_patents"."user_id" = ? AND "user_patents"."selected" = ?  ORDER BY "user_patents"."id" ASC LIMIT 1[0m  [["user_id", 1], ["selected", true]]
+D, [2016-07-04T19:11:02.985568 #4801] DEBUG -- :   [1m[35mCACHE (0.0ms)[0m  SELECT  "patents".* FROM "patents" WHERE "patents"."id" = ? LIMIT 1  [["id", 1]]
+D, [2016-07-04T19:11:02.987643 #4801] DEBUG -- :   [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reservations" WHERE "reservations"."user_id" = ? AND "reservations"."patent_id" = ? AND "reservations"."ends_at" IS NULL[0m  [["user_id", 1], ["patent_id", 1]]
+D, [2016-07-04T19:11:02.994223 #4801] DEBUG -- :   [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "reservations" WHERE "reservations"."user_id" = ? AND "reservations"."spot_id" = ? AND "reservations"."ends_at" IS NULL  [["user_id", 1], ["spot_id", 4]]
+D, [2016-07-04T19:11:02.996055 #4801] DEBUG -- :   [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "user_patents".* FROM "user_patents" WHERE "user_patents"."user_id" = ? AND "user_patents"."selected" = ?  ORDER BY "user_patents"."id" ASC LIMIT 1[0m  [["user_id", 1], ["selected", true]]
+D, [2016-07-04T19:11:02.997785 #4801] DEBUG -- :   [1m[35mCACHE (0.0ms)[0m  SELECT  "user_patents".* FROM "user_patents" WHERE "user_patents"."user_id" = ? AND "user_patents"."selected" = ?  ORDER BY "user_patents"."id" ASC LIMIT 1  [["user_id", 1], ["selected", true]]
+D, [2016-07-04T19:11:02.999236 #4801] DEBUG -- :   [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "patents".* FROM "patents" WHERE "patents"."id" = ? LIMIT 1[0m  [["id", 1]]
+D, [2016-07-04T19:11:03.001062 #4801] DEBUG -- :   [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "reservations" WHERE "reservations"."user_id" = ? AND "reservations"."patent_id" = ? AND "reservations"."ends_at" IS NULL  [["user_id", 1], ["patent_id", 1]]
+D, [2016-07-04T19:11:03.003595 #4801] DEBUG -- :   [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "reservations" WHERE "reservations"."user_id" = ? AND "reservations"."spot_id" = ? AND "reservations"."ends_at" IS NULL[0m  [["user_id", 1], ["spot_id", 5]]
+D, [2016-07-04T19:11:03.005399 #4801] DEBUG -- :   [1m[35mCACHE (0.0ms)[0m  SELECT  "user_patents".* FROM "user_patents" WHERE "user_patents"."user_id" = ? AND "user_patents"."selected" = ?  ORDER BY "user_patents"."id" ASC LIMIT 1  [["user_id", 1], ["selected", true]]
+D, [2016-07-04T19:11:03.007126 #4801] DEBUG -- :   [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "user_patents".* FROM "user_patents" WHERE "user_patents"."user_id" = ? AND "user_patents"."selected" = ?  ORDER BY "user_patents"."id" ASC LIMIT 1[0m  [["user_id", 1], ["selected", true]]
+D, [2016-07-04T19:11:03.008773 #4801] DEBUG -- :   [1m[35mCACHE (0.0ms)[0m  SELECT  "patents".* FROM "patents" WHERE "patents"."id" = ? LIMIT 1  [["id", 1]]
+D, [2016-07-04T19:11:03.011070 #4801] DEBUG -- :   [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reservations" WHERE "reservations"."user_id" = ? AND "reservations"."patent_id" = ? AND "reservations"."ends_at" IS NULL[0m  [["user_id", 1], ["patent_id", 1]]
+I, [2016-07-04T19:11:03.011834 #4801]  INFO -- :   Rendered areas/index.html.erb within layouts/application (201.9ms)
+I, [2016-07-04T19:11:03.189935 #4801]  INFO -- :   Rendered shared/_sidenav.html.erb (1.1ms)
+I, [2016-07-04T19:11:03.190918 #4801]  INFO -- : Completed 200 OK in 400ms (Views: 370.0ms | ActiveRecord: 21.1ms)
+D, [2016-07-04T19:13:56.999313 #4801] DEBUG -- : 
+D, [2016-07-04T19:13:56.999763 #4801] DEBUG -- : 
+I, [2016-07-04T19:13:57.000133 #4801]  INFO -- : Started GET "/reservations/36/pay" for ::1 at 2016-07-04 19:13:57 -0300
+I, [2016-07-04T19:13:57.171487 #4801]  INFO -- : Processing by ReservationsController#pay as HTML
+I, [2016-07-04T19:13:57.171984 #4801]  INFO -- :   Parameters: {"id"=>"36"}
+D, [2016-07-04T19:13:57.198522 #4801] DEBUG -- :   [1m[35mUser Load (1.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+D, [2016-07-04T19:13:57.248575 #4801] DEBUG -- :   [1m[36mReservation Load (0.6ms)[0m  [1mSELECT  "reservations".* FROM "reservations" WHERE "reservations"."id" = ? LIMIT 1[0m  [["id", 36]]
+D, [2016-07-04T19:13:57.339299 #4801] DEBUG -- :   [1m[35mPatent Load (0.9ms)[0m  SELECT  "patents".* FROM "patents" WHERE "patents"."id" = ? LIMIT 1  [["id", 1]]
+D, [2016-07-04T19:13:57.376887 #4801] DEBUG -- :   [1m[36mSpot Load (0.8ms)[0m  [1mSELECT  "spots".* FROM "spots" WHERE "spots"."id" = ? LIMIT 1[0m  [["id", 5]]
+D, [2016-07-04T19:13:57.407531 #4801] DEBUG -- :   [1m[35mArea Load (0.3ms)[0m  SELECT  "areas".* FROM "areas" WHERE "areas"."id" = ? LIMIT 1  [["id", 1]]
+D, [2016-07-04T19:13:57.433356 #4801] DEBUG -- :   [1m[36mPayment Load (2.8ms)[0m  [1mSELECT "payments".* FROM "payments" WHERE "payments"."user_id" = ?[0m  [["user_id", 1]]
+I, [2016-07-04T19:13:57.445533 #4801]  INFO -- :   Rendered reservations/pay.html.erb within layouts/application (137.9ms)
+I, [2016-07-04T19:13:57.754923 #4801]  INFO -- :   Rendered shared/_sidenav.html.erb (1.4ms)
+I, [2016-07-04T19:13:57.755970 #4801]  INFO -- : Completed 200 OK in 584ms (Views: 464.2ms | ActiveRecord: 14.8ms)
+D, [2016-07-04T19:14:14.075407 #4801] DEBUG -- : 
+D, [2016-07-04T19:14:14.076067 #4801] DEBUG -- : 
+I, [2016-07-04T19:14:14.076416 #4801]  INFO -- : Started PATCH "/reservations/36/pay" for ::1 at 2016-07-04 19:14:14 -0300
+I, [2016-07-04T19:14:14.087319 #4801]  INFO -- : Processing by ReservationsController#save_pay as HTML
+I, [2016-07-04T19:14:14.087715 #4801]  INFO -- :   Parameters: {"utf8"=>"✓", "authenticity_token"=>"THLUCR1QbbMaln7f8v5g2VxtgjKIiskWLJIr6sTn+35N6VRUPE5LLU9gc2mXW67W45hAlVo6NMo3ObBNd9Bu6g==", "reservation"=>{"payment_id"=>"0"}, "commit"=>"Pagar", "id"=>"36"}
+D, [2016-07-04T19:14:14.093929 #4801] DEBUG -- :   [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+D, [2016-07-04T19:14:14.105842 #4801] DEBUG -- :   [1m[36mReservation Load (0.2ms)[0m  [1mSELECT  "reservations".* FROM "reservations" WHERE "reservations"."id" = ? LIMIT 1[0m  [["id", 36]]
+D, [2016-07-04T19:14:14.107639 #4801] DEBUG -- :   [1m[35m (0.4ms)[0m  begin transaction
+D, [2016-07-04T19:14:14.114559 #4801] DEBUG -- :   [1m[36mSQL (2.8ms)[0m  [1mUPDATE "reservations" SET "payment_id" = ?, "updated_at" = ? WHERE "reservations"."id" = ?[0m  [["payment_id", 0], ["updated_at", "2016-07-04 19:14:14.109023"], ["id", 36]]
+D, [2016-07-04T19:14:14.223259 #4801] DEBUG -- :   [1m[35m (105.1ms)[0m  commit transaction
+I, [2016-07-04T19:14:14.223877 #4801]  INFO -- : Atributos de la reserva: #<Reservation id: 36, created_at: "2016-07-04 21:19:13", updated_at: "2016-07-04 22:14:14", user_id: 1, spot_id: 5, start_at: "2016-07-04 21:19:13", ends_at: "2016-07-04 21:28:22", patent_id: 1, amount: 3.0, payment_id: 0>
+I, [2016-07-04T19:14:14.224030 #4801]  INFO -- : ENTROOOO
+D, [2016-07-04T19:14:14.227766 #4801] DEBUG -- :   [1m[36mPayment Load (0.3ms)[0m  [1mSELECT  "payments".* FROM "payments" WHERE "payments"."payment_method" = ?  ORDER BY "payments"."id" ASC LIMIT 1[0m  [["payment_method", "Descuento de Saldo"]]
+D, [2016-07-04T19:14:14.248837 #4801] DEBUG -- :   [1m[35m (0.2ms)[0m  begin transaction
+D, [2016-07-04T19:14:14.265188 #4801] DEBUG -- :   [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+D, [2016-07-04T19:14:14.266245 #4801] DEBUG -- :   [1m[35m (0.1ms)[0m  begin transaction
+D, [2016-07-04T19:14:14.269939 #4801] DEBUG -- :   [1m[36mSQL (0.8ms)[0m  [1mUPDATE "reservations" SET "payment_id" = ?, "updated_at" = ? WHERE "reservations"."id" = ?[0m  [["payment_id", nil], ["updated_at", "2016-07-04 19:14:14.267064"], ["id", 36]]
+D, [2016-07-04T19:14:14.296489 #4801] DEBUG -- :   [1m[35m (25.1ms)[0m  commit transaction
+I, [2016-07-04T19:14:14.297432 #4801]  INFO -- : Redirected to http://localhost:3000/areas
+I, [2016-07-04T19:14:14.298087 #4801]  INFO -- : Completed 302 Found in 210ms (ActiveRecord: 135.9ms)
+D, [2016-07-04T19:14:14.317760 #4801] DEBUG -- : 
+D, [2016-07-04T19:14:14.318042 #4801] DEBUG -- : 
+I, [2016-07-04T19:14:14.318385 #4801]  INFO -- : Started GET "/areas" for ::1 at 2016-07-04 19:14:14 -0300
+I, [2016-07-04T19:14:14.342104 #4801]  INFO -- : Processing by AreasController#index as HTML
+D, [2016-07-04T19:14:14.345634 #4801] DEBUG -- :   [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+D, [2016-07-04T19:14:14.356999 #4801] DEBUG -- :   [1m[35mArea Load (0.4ms)[0m  SELECT "areas".* FROM "areas"
+D, [2016-07-04T19:14:14.364678 #4801] DEBUG -- :   [1m[36mSpot Load (0.6ms)[0m  [1mSELECT "spots".* FROM "spots" WHERE "spots"."area_id" = ?[0m  [["area_id", 1]]
+D, [2016-07-04T19:14:14.378972 #4801] DEBUG -- :   [1m[35m (0.8ms)[0m  SELECT COUNT(*) FROM "reservations" WHERE "reservations"."user_id" = ? AND "reservations"."spot_id" = ? AND "reservations"."ends_at" IS NULL  [["user_id", 1], ["spot_id", 1]]
+D, [2016-07-04T19:14:14.404112 #4801] DEBUG -- :   [1m[36mUserPatent Load (0.6ms)[0m  [1mSELECT  "user_patents".* FROM "user_patents" WHERE "user_patents"."user_id" = ? AND "user_patents"."selected" = ?  ORDER BY "user_patents"."id" ASC LIMIT 1[0m  [["user_id", 1], ["selected", "t"]]
+D, [2016-07-04T19:14:14.434414 #4801] DEBUG -- :   [1m[35mCACHE (0.1ms)[0m  SELECT  "user_patents".* FROM "user_patents" WHERE "user_patents"."user_id" = ? AND "user_patents"."selected" = ?  ORDER BY "user_patents"."id" ASC LIMIT 1  [["user_id", 1], ["selected", true]]
+D, [2016-07-04T19:14:14.442684 #4801] DEBUG -- :   [1m[36mPatent Load (0.2ms)[0m  [1mSELECT  "patents".* FROM "patents" WHERE "patents"."id" = ? LIMIT 1[0m  [["id", 1]]
+D, [2016-07-04T19:14:14.450950 #4801] DEBUG -- :   [1m[35m (0.6ms)[0m  SELECT COUNT(*) FROM "reservations" WHERE "reservations"."user_id" = ? AND "reservations"."patent_id" = ? AND "reservations"."ends_at" IS NULL  [["user_id", 1], ["patent_id", 1]]
+D, [2016-07-04T19:14:14.454008 #4801] DEBUG -- :   [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "reservations" WHERE "reservations"."user_id" = ? AND "reservations"."spot_id" = ? AND "reservations"."ends_at" IS NULL[0m  [["user_id", 1], ["spot_id", 2]]
+D, [2016-07-04T19:14:14.455730 #4801] DEBUG -- :   [1m[35mCACHE (0.0ms)[0m  SELECT  "user_patents".* FROM "user_patents" WHERE "user_patents"."user_id" = ? AND "user_patents"."selected" = ?  ORDER BY "user_patents"."id" ASC LIMIT 1  [["user_id", 1], ["selected", true]]
+D, [2016-07-04T19:14:14.457394 #4801] DEBUG -- :   [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "user_patents".* FROM "user_patents" WHERE "user_patents"."user_id" = ? AND "user_patents"."selected" = ?  ORDER BY "user_patents"."id" ASC LIMIT 1[0m  [["user_id", 1], ["selected", true]]
+D, [2016-07-04T19:14:14.458659 #4801] DEBUG -- :   [1m[35mCACHE (0.0ms)[0m  SELECT  "patents".* FROM "patents" WHERE "patents"."id" = ? LIMIT 1  [["id", 1]]
+D, [2016-07-04T19:14:14.460457 #4801] DEBUG -- :   [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reservations" WHERE "reservations"."user_id" = ? AND "reservations"."patent_id" = ? AND "reservations"."ends_at" IS NULL[0m  [["user_id", 1], ["patent_id", 1]]
+D, [2016-07-04T19:14:14.467870 #4801] DEBUG -- :   [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "reservations" WHERE "reservations"."user_id" = ? AND "reservations"."spot_id" = ? AND "reservations"."ends_at" IS NULL  [["user_id", 1], ["spot_id", 3]]
+D, [2016-07-04T19:14:14.469573 #4801] DEBUG -- :   [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "user_patents".* FROM "user_patents" WHERE "user_patents"."user_id" = ? AND "user_patents"."selected" = ?  ORDER BY "user_patents"."id" ASC LIMIT 1[0m  [["user_id", 1], ["selected", true]]
+D, [2016-07-04T19:14:14.471253 #4801] DEBUG -- :   [1m[35mCACHE (0.0ms)[0m  SELECT  "user_patents".* FROM "user_patents" WHERE "user_patents"."user_id" = ? AND "user_patents"."selected" = ?  ORDER BY "user_patents"."id" ASC LIMIT 1  [["user_id", 1], ["selected", true]]
+D, [2016-07-04T19:14:14.472521 #4801] DEBUG -- :   [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "patents".* FROM "patents" WHERE "patents"."id" = ? LIMIT 1[0m  [["id", 1]]
+D, [2016-07-04T19:14:14.474734 #4801] DEBUG -- :   [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "reservations" WHERE "reservations"."user_id" = ? AND "reservations"."patent_id" = ? AND "reservations"."ends_at" IS NULL  [["user_id", 1], ["patent_id", 1]]
+D, [2016-07-04T19:14:14.477389 #4801] DEBUG -- :   [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "reservations" WHERE "reservations"."user_id" = ? AND "reservations"."spot_id" = ? AND "reservations"."ends_at" IS NULL[0m  [["user_id", 1], ["spot_id", 4]]
+D, [2016-07-04T19:14:14.487301 #4801] DEBUG -- :   [1m[35mCACHE (0.0ms)[0m  SELECT  "user_patents".* FROM "user_patents" WHERE "user_patents"."user_id" = ? AND "user_patents"."selected" = ?  ORDER BY "user_patents"."id" ASC LIMIT 1  [["user_id", 1], ["selected", true]]
+D, [2016-07-04T19:14:14.489079 #4801] DEBUG -- :   [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "user_patents".* FROM "user_patents" WHERE "user_patents"."user_id" = ? AND "user_patents"."selected" = ?  ORDER BY "user_patents"."id" ASC LIMIT 1[0m  [["user_id", 1], ["selected", true]]
+D, [2016-07-04T19:14:14.490752 #4801] DEBUG -- :   [1m[35mCACHE (0.0ms)[0m  SELECT  "patents".* FROM "patents" WHERE "patents"."id" = ? LIMIT 1  [["id", 1]]
+D, [2016-07-04T19:14:14.492529 #4801] DEBUG -- :   [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reservations" WHERE "reservations"."user_id" = ? AND "reservations"."patent_id" = ? AND "reservations"."ends_at" IS NULL[0m  [["user_id", 1], ["patent_id", 1]]
+D, [2016-07-04T19:14:14.494853 #4801] DEBUG -- :   [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "reservations" WHERE "reservations"."user_id" = ? AND "reservations"."spot_id" = ? AND "reservations"."ends_at" IS NULL  [["user_id", 1], ["spot_id", 5]]
+D, [2016-07-04T19:14:14.496326 #4801] DEBUG -- :   [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "user_patents".* FROM "user_patents" WHERE "user_patents"."user_id" = ? AND "user_patents"."selected" = ?  ORDER BY "user_patents"."id" ASC LIMIT 1[0m  [["user_id", 1], ["selected", true]]
+D, [2016-07-04T19:14:14.498225 #4801] DEBUG -- :   [1m[35mCACHE (0.0ms)[0m  SELECT  "user_patents".* FROM "user_patents" WHERE "user_patents"."user_id" = ? AND "user_patents"."selected" = ?  ORDER BY "user_patents"."id" ASC LIMIT 1  [["user_id", 1], ["selected", true]]
+D, [2016-07-04T19:14:14.499595 #4801] DEBUG -- :   [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "patents".* FROM "patents" WHERE "patents"."id" = ? LIMIT 1[0m  [["id", 1]]
+D, [2016-07-04T19:14:14.501457 #4801] DEBUG -- :   [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "reservations" WHERE "reservations"."user_id" = ? AND "reservations"."patent_id" = ? AND "reservations"."ends_at" IS NULL  [["user_id", 1], ["patent_id", 1]]
+I, [2016-07-04T19:14:14.502441 #4801]  INFO -- :   Rendered areas/index.html.erb within layouts/application (146.6ms)
+I, [2016-07-04T19:14:14.744327 #4801]  INFO -- :   Rendered shared/_sidenav.html.erb (1.0ms)
+I, [2016-07-04T19:14:14.745819 #4801]  INFO -- : Completed 200 OK in 403ms (Views: 393.2ms | ActiveRecord: 5.8ms)
+D, [2016-07-04T19:15:19.847256 #4801] DEBUG -- : 
+D, [2016-07-04T19:15:19.847711 #4801] DEBUG -- : 
+I, [2016-07-04T19:15:19.848258 #4801]  INFO -- : Started GET "/payments" for ::1 at 2016-07-04 19:15:19 -0300
+I, [2016-07-04T19:15:19.875807 #4801]  INFO -- : Processing by PaymentsController#index as HTML
+D, [2016-07-04T19:15:19.879087 #4801] DEBUG -- :   [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+D, [2016-07-04T19:15:19.891133 #4801] DEBUG -- :   [1m[35mPayment Load (0.2ms)[0m  SELECT "payments".* FROM "payments" WHERE "payments"."user_id" = ?  [["user_id", 1]]
+I, [2016-07-04T19:15:19.892096 #4801]  INFO -- :   Rendered payments/index.html.erb within layouts/application (3.9ms)
+I, [2016-07-04T19:15:20.102527 #4801]  INFO -- :   Rendered shared/_sidenav.html.erb (2.8ms)
+I, [2016-07-04T19:15:20.103489 #4801]  INFO -- : Completed 200 OK in 227ms (Views: 222.7ms | ActiveRecord: 0.4ms)
+D, [2016-07-04T19:15:22.387622 #4801] DEBUG -- : 
+D, [2016-07-04T19:15:22.388069 #4801] DEBUG -- : 
+I, [2016-07-04T19:15:22.388568 #4801]  INFO -- : Started GET "/payments/new" for ::1 at 2016-07-04 19:15:22 -0300
+I, [2016-07-04T19:15:22.395921 #4801]  INFO -- : Processing by PaymentsController#new as HTML
+D, [2016-07-04T19:15:22.401356 #4801] DEBUG -- :   [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+I, [2016-07-04T19:15:22.419152 #4801]  INFO -- :   Rendered payments/new.html.erb within layouts/application (10.6ms)
+I, [2016-07-04T19:15:22.631297 #4801]  INFO -- :   Rendered shared/_sidenav.html.erb (1.3ms)
+I, [2016-07-04T19:15:22.632123 #4801]  INFO -- : Completed 200 OK in 236ms (Views: 229.3ms | ActiveRecord: 0.2ms)
+D, [2016-07-04T19:15:31.281017 #4801] DEBUG -- : 
+D, [2016-07-04T19:15:31.281357 #4801] DEBUG -- : 
+I, [2016-07-04T19:15:31.281775 #4801]  INFO -- : Started POST "/payments" for ::1 at 2016-07-04 19:15:31 -0300
+I, [2016-07-04T19:15:31.293473 #4801]  INFO -- : Processing by PaymentsController#create as HTML
+I, [2016-07-04T19:15:31.294072 #4801]  INFO -- :   Parameters: {"utf8"=>"✓", "authenticity_token"=>"LzPhqEeQAivAHsA8jSZQihS70s7D7Xi/VxjEkwiWtMEuqGH1Zo4ktZXozYrog56Fq04QaRFdhWNMs180u6EhVQ==", "payment"=>{"bank"=>"Banco Nacion", "credit_card_number"=>"123456", "credit_card_key"=>"123"}, "commit"=>"Guardar"}
+D, [2016-07-04T19:15:31.301235 #4801] DEBUG -- :   [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+D, [2016-07-04T19:15:31.305204 #4801] DEBUG -- :   [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+D, [2016-07-04T19:15:31.313278 #4801] DEBUG -- :   [1m[35mSQL (4.3ms)[0m  INSERT INTO "payments" ("bank", "credit_card_number", "credit_card_key", "user_id", "payment_method", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["bank", "Banco Nacion"], ["credit_card_number", "123456"], ["credit_card_key", 123], ["user_id", 1], ["payment_method", "Tarjeta de Credito"], ["created_at", "2016-07-04 19:15:31.306152"], ["updated_at", "2016-07-04 19:15:31.306152"]]
+D, [2016-07-04T19:15:31.330927 #4801] DEBUG -- :   [1m[36m (16.2ms)[0m  [1mcommit transaction[0m
+I, [2016-07-04T19:15:31.331836 #4801]  INFO -- : Redirected to http://localhost:3000/payments
+I, [2016-07-04T19:15:31.332421 #4801]  INFO -- : Completed 302 Found in 38ms (ActiveRecord: 20.8ms)
+D, [2016-07-04T19:15:31.446834 #4801] DEBUG -- : 
+D, [2016-07-04T19:15:31.447131 #4801] DEBUG -- : 
+I, [2016-07-04T19:15:31.447444 #4801]  INFO -- : Started GET "/payments" for ::1 at 2016-07-04 19:15:31 -0300
+I, [2016-07-04T19:15:31.461080 #4801]  INFO -- : Processing by PaymentsController#index as HTML
+D, [2016-07-04T19:15:31.465091 #4801] DEBUG -- :   [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+D, [2016-07-04T19:15:31.481365 #4801] DEBUG -- :   [1m[36mPayment Load (0.2ms)[0m  [1mSELECT "payments".* FROM "payments" WHERE "payments"."user_id" = ?[0m  [["user_id", 1]]
+I, [2016-07-04T19:15:31.485044 #4801]  INFO -- :   Rendered payments/index.html.erb within layouts/application (9.1ms)
+I, [2016-07-04T19:15:31.742915 #4801]  INFO -- :   Rendered shared/_sidenav.html.erb (1.2ms)
+I, [2016-07-04T19:15:31.743736 #4801]  INFO -- : Completed 200 OK in 282ms (Views: 273.4ms | ActiveRecord: 0.5ms)
+D, [2016-07-04T19:15:40.697951 #4801] DEBUG -- : 
+D, [2016-07-04T19:15:40.698508 #4801] DEBUG -- : 
+I, [2016-07-04T19:15:40.698961 #4801]  INFO -- : Started GET "/reservations/36/pay" for ::1 at 2016-07-04 19:15:40 -0300
+I, [2016-07-04T19:15:40.710442 #4801]  INFO -- : Processing by ReservationsController#pay as HTML
+I, [2016-07-04T19:15:40.712186 #4801]  INFO -- :   Parameters: {"id"=>"36"}
+D, [2016-07-04T19:15:40.717069 #4801] DEBUG -- :   [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+D, [2016-07-04T19:15:40.719673 #4801] DEBUG -- :   [1m[36mReservation Load (0.2ms)[0m  [1mSELECT  "reservations".* FROM "reservations" WHERE "reservations"."id" = ? LIMIT 1[0m  [["id", 36]]
+D, [2016-07-04T19:15:40.733617 #4801] DEBUG -- :   [1m[35mPatent Load (0.2ms)[0m  SELECT  "patents".* FROM "patents" WHERE "patents"."id" = ? LIMIT 1  [["id", 1]]
+D, [2016-07-04T19:15:40.735810 #4801] DEBUG -- :   [1m[36mSpot Load (0.1ms)[0m  [1mSELECT  "spots".* FROM "spots" WHERE "spots"."id" = ? LIMIT 1[0m  [["id", 5]]
+D, [2016-07-04T19:15:40.739594 #4801] DEBUG -- :   [1m[35mArea Load (0.1ms)[0m  SELECT  "areas".* FROM "areas" WHERE "areas"."id" = ? LIMIT 1  [["id", 1]]
+D, [2016-07-04T19:15:40.744015 #4801] DEBUG -- :   [1m[36mPayment Load (0.7ms)[0m  [1mSELECT "payments".* FROM "payments" WHERE "payments"."user_id" = ?[0m  [["user_id", 1]]
+I, [2016-07-04T19:15:40.750996 #4801]  INFO -- :   Rendered reservations/pay.html.erb within layouts/application (22.2ms)
+I, [2016-07-04T19:15:41.048017 #4801]  INFO -- :   Rendered shared/_sidenav.html.erb (1.2ms)
+I, [2016-07-04T19:15:41.049047 #4801]  INFO -- : Completed 200 OK in 336ms (Views: 327.1ms | ActiveRecord: 1.5ms)
+D, [2016-07-04T19:15:57.508293 #4801] DEBUG -- : 
+D, [2016-07-04T19:15:57.508703 #4801] DEBUG -- : 
+I, [2016-07-04T19:15:57.509215 #4801]  INFO -- : Started PATCH "/reservations/36/pay" for ::1 at 2016-07-04 19:15:57 -0300
+I, [2016-07-04T19:15:57.516089 #4801]  INFO -- : Processing by ReservationsController#save_pay as HTML
+I, [2016-07-04T19:15:57.516396 #4801]  INFO -- :   Parameters: {"utf8"=>"✓", "authenticity_token"=>"DK6HDm8nDlly/TwCJe1H9k7W6b5TCBGDzYvqsASwMCMNNQdTTjkoxycLMbRASIn58SMrGYG47F/WIHEXt4eltw==", "reservation"=>{"payment_id"=>"1"}, "commit"=>"Pagar", "id"=>"36"}
+D, [2016-07-04T19:15:57.544642 #4801] DEBUG -- :   [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+D, [2016-07-04T19:15:57.546646 #4801] DEBUG -- :   [1m[36mReservation Load (0.4ms)[0m  [1mSELECT  "reservations".* FROM "reservations" WHERE "reservations"."id" = ? LIMIT 1[0m  [["id", 36]]
+D, [2016-07-04T19:15:57.547842 #4801] DEBUG -- :   [1m[35m (0.1ms)[0m  begin transaction
+D, [2016-07-04T19:15:57.551776 #4801] DEBUG -- :   [1m[36mSQL (0.4ms)[0m  [1mUPDATE "reservations" SET "payment_id" = ?, "updated_at" = ? WHERE "reservations"."id" = ?[0m  [["payment_id", 1], ["updated_at", "2016-07-04 19:15:57.548830"], ["id", 36]]
+D, [2016-07-04T19:15:57.656509 #4801] DEBUG -- :   [1m[35m (103.4ms)[0m  commit transaction
+I, [2016-07-04T19:15:57.657046 #4801]  INFO -- : Atributos de la reserva: #<Reservation id: 36, created_at: "2016-07-04 21:19:13", updated_at: "2016-07-04 22:15:57", user_id: 1, spot_id: 5, start_at: "2016-07-04 21:19:13", ends_at: "2016-07-04 21:28:22", patent_id: 1, amount: 3.0, payment_id: 1>
+I, [2016-07-04T19:15:57.657854 #4801]  INFO -- : Redirected to http://localhost:3000/areas
+I, [2016-07-04T19:15:57.659011 #4801]  INFO -- : Completed 302 Found in 142ms (ActiveRecord: 104.8ms)
+D, [2016-07-04T19:15:57.671808 #4801] DEBUG -- : 
+D, [2016-07-04T19:15:57.672181 #4801] DEBUG -- : 
+I, [2016-07-04T19:15:57.672633 #4801]  INFO -- : Started GET "/areas" for ::1 at 2016-07-04 19:15:57 -0300
+I, [2016-07-04T19:15:57.682747 #4801]  INFO -- : Processing by AreasController#index as HTML
+D, [2016-07-04T19:15:57.688427 #4801] DEBUG -- :   [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+D, [2016-07-04T19:15:57.698772 #4801] DEBUG -- :   [1m[35mArea Load (0.3ms)[0m  SELECT "areas".* FROM "areas"
+D, [2016-07-04T19:15:57.701111 #4801] DEBUG -- :   [1m[36mSpot Load (0.3ms)[0m  [1mSELECT "spots".* FROM "spots" WHERE "spots"."area_id" = ?[0m  [["area_id", 1]]
+D, [2016-07-04T19:15:57.709577 #4801] DEBUG -- :   [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "reservations" WHERE "reservations"."user_id" = ? AND "reservations"."spot_id" = ? AND "reservations"."ends_at" IS NULL  [["user_id", 1], ["spot_id", 1]]
+D, [2016-07-04T19:15:57.712232 #4801] DEBUG -- :   [1m[36mUserPatent Load (0.2ms)[0m  [1mSELECT  "user_patents".* FROM "user_patents" WHERE "user_patents"."user_id" = ? AND "user_patents"."selected" = ?  ORDER BY "user_patents"."id" ASC LIMIT 1[0m  [["user_id", 1], ["selected", "t"]]
+D, [2016-07-04T19:15:57.713883 #4801] DEBUG -- :   [1m[35mCACHE (0.0ms)[0m  SELECT  "user_patents".* FROM "user_patents" WHERE "user_patents"."user_id" = ? AND "user_patents"."selected" = ?  ORDER BY "user_patents"."id" ASC LIMIT 1  [["user_id", 1], ["selected", true]]
+D, [2016-07-04T19:15:57.715570 #4801] DEBUG -- :   [1m[36mPatent Load (0.2ms)[0m  [1mSELECT  "patents".* FROM "patents" WHERE "patents"."id" = ? LIMIT 1[0m  [["id", 1]]
+D, [2016-07-04T19:15:57.717718 #4801] DEBUG -- :   [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "reservations" WHERE "reservations"."user_id" = ? AND "reservations"."patent_id" = ? AND "reservations"."ends_at" IS NULL  [["user_id", 1], ["patent_id", 1]]
+D, [2016-07-04T19:15:57.729685 #4801] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "reservations" WHERE "reservations"."user_id" = ? AND "reservations"."spot_id" = ? AND "reservations"."ends_at" IS NULL[0m  [["user_id", 1], ["spot_id", 2]]
+D, [2016-07-04T19:15:57.731740 #4801] DEBUG -- :   [1m[35mCACHE (0.0ms)[0m  SELECT  "user_patents".* FROM "user_patents" WHERE "user_patents"."user_id" = ? AND "user_patents"."selected" = ?  ORDER BY "user_patents"."id" ASC LIMIT 1  [["user_id", 1], ["selected", true]]
+D, [2016-07-04T19:15:57.733409 #4801] DEBUG -- :   [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "user_patents".* FROM "user_patents" WHERE "user_patents"."user_id" = ? AND "user_patents"."selected" = ?  ORDER BY "user_patents"."id" ASC LIMIT 1[0m  [["user_id", 1], ["selected", true]]
+D, [2016-07-04T19:15:57.734754 #4801] DEBUG -- :   [1m[35mCACHE (0.0ms)[0m  SELECT  "patents".* FROM "patents" WHERE "patents"."id" = ? LIMIT 1  [["id", 1]]
+D, [2016-07-04T19:15:57.736841 #4801] DEBUG -- :   [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reservations" WHERE "reservations"."user_id" = ? AND "reservations"."patent_id" = ? AND "reservations"."ends_at" IS NULL[0m  [["user_id", 1], ["patent_id", 1]]
+D, [2016-07-04T19:15:57.739537 #4801] DEBUG -- :   [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "reservations" WHERE "reservations"."user_id" = ? AND "reservations"."spot_id" = ? AND "reservations"."ends_at" IS NULL  [["user_id", 1], ["spot_id", 3]]
+D, [2016-07-04T19:15:57.743727 #4801] DEBUG -- :   [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "user_patents".* FROM "user_patents" WHERE "user_patents"."user_id" = ? AND "user_patents"."selected" = ?  ORDER BY "user_patents"."id" ASC LIMIT 1[0m  [["user_id", 1], ["selected", true]]
+D, [2016-07-04T19:15:57.746016 #4801] DEBUG -- :   [1m[35mCACHE (0.0ms)[0m  SELECT  "user_patents".* FROM "user_patents" WHERE "user_patents"."user_id" = ? AND "user_patents"."selected" = ?  ORDER BY "user_patents"."id" ASC LIMIT 1  [["user_id", 1], ["selected", true]]
+D, [2016-07-04T19:15:57.747349 #4801] DEBUG -- :   [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "patents".* FROM "patents" WHERE "patents"."id" = ? LIMIT 1[0m  [["id", 1]]
+D, [2016-07-04T19:15:57.754576 #4801] DEBUG -- :   [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "reservations" WHERE "reservations"."user_id" = ? AND "reservations"."patent_id" = ? AND "reservations"."ends_at" IS NULL  [["user_id", 1], ["patent_id", 1]]
+D, [2016-07-04T19:15:57.757575 #4801] DEBUG -- :   [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "reservations" WHERE "reservations"."user_id" = ? AND "reservations"."spot_id" = ? AND "reservations"."ends_at" IS NULL[0m  [["user_id", 1], ["spot_id", 4]]
+D, [2016-07-04T19:15:57.759297 #4801] DEBUG -- :   [1m[35mCACHE (0.0ms)[0m  SELECT  "user_patents".* FROM "user_patents" WHERE "user_patents"."user_id" = ? AND "user_patents"."selected" = ?  ORDER BY "user_patents"."id" ASC LIMIT 1  [["user_id", 1], ["selected", true]]
+D, [2016-07-04T19:15:57.760923 #4801] DEBUG -- :   [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "user_patents".* FROM "user_patents" WHERE "user_patents"."user_id" = ? AND "user_patents"."selected" = ?  ORDER BY "user_patents"."id" ASC LIMIT 1[0m  [["user_id", 1], ["selected", true]]
+D, [2016-07-04T19:15:57.762603 #4801] DEBUG -- :   [1m[35mCACHE (0.0ms)[0m  SELECT  "patents".* FROM "patents" WHERE "patents"."id" = ? LIMIT 1  [["id", 1]]
+D, [2016-07-04T19:15:57.764597 #4801] DEBUG -- :   [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reservations" WHERE "reservations"."user_id" = ? AND "reservations"."patent_id" = ? AND "reservations"."ends_at" IS NULL[0m  [["user_id", 1], ["patent_id", 1]]
+D, [2016-07-04T19:15:57.767122 #4801] DEBUG -- :   [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "reservations" WHERE "reservations"."user_id" = ? AND "reservations"."spot_id" = ? AND "reservations"."ends_at" IS NULL  [["user_id", 1], ["spot_id", 5]]
+D, [2016-07-04T19:15:57.768648 #4801] DEBUG -- :   [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "user_patents".* FROM "user_patents" WHERE "user_patents"."user_id" = ? AND "user_patents"."selected" = ?  ORDER BY "user_patents"."id" ASC LIMIT 1[0m  [["user_id", 1], ["selected", true]]
+D, [2016-07-04T19:15:57.770326 #4801] DEBUG -- :   [1m[35mCACHE (0.0ms)[0m  SELECT  "user_patents".* FROM "user_patents" WHERE "user_patents"."user_id" = ? AND "user_patents"."selected" = ?  ORDER BY "user_patents"."id" ASC LIMIT 1  [["user_id", 1], ["selected", true]]
+D, [2016-07-04T19:15:57.771595 #4801] DEBUG -- :   [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "patents".* FROM "patents" WHERE "patents"."id" = ? LIMIT 1[0m  [["id", 1]]
+D, [2016-07-04T19:15:57.773538 #4801] DEBUG -- :   [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "reservations" WHERE "reservations"."user_id" = ? AND "reservations"."patent_id" = ? AND "reservations"."ends_at" IS NULL  [["user_id", 1], ["patent_id", 1]]
+I, [2016-07-04T19:15:57.779605 #4801]  INFO -- :   Rendered areas/index.html.erb within layouts/application (82.0ms)
+I, [2016-07-04T19:15:57.959670 #4801]  INFO -- :   Rendered shared/_sidenav.html.erb (1.0ms)
+I, [2016-07-04T19:15:57.960665 #4801]  INFO -- : Completed 200 OK in 277ms (Views: 268.3ms | ActiveRecord: 2.8ms)
+D, [2016-07-04T19:27:39.311038 #4801] DEBUG -- : 
+D, [2016-07-04T19:27:39.311703 #4801] DEBUG -- : 
+I, [2016-07-04T19:27:39.312074 #4801]  INFO -- : Started GET "/reservations/35/pay" for ::1 at 2016-07-04 19:27:39 -0300
+I, [2016-07-04T19:27:39.430883 #4801]  INFO -- : Processing by ReservationsController#pay as HTML
+I, [2016-07-04T19:27:39.431210 #4801]  INFO -- :   Parameters: {"id"=>"35"}
+D, [2016-07-04T19:27:39.448034 #4801] DEBUG -- :   [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+D, [2016-07-04T19:27:39.477677 #4801] DEBUG -- :   [1m[35mReservation Load (0.3ms)[0m  SELECT  "reservations".* FROM "reservations" WHERE "reservations"."id" = ? LIMIT 1  [["id", 35]]
+D, [2016-07-04T19:27:39.517818 #4801] DEBUG -- :   [1m[36mPatent Load (0.4ms)[0m  [1mSELECT  "patents".* FROM "patents" WHERE "patents"."id" = ? LIMIT 1[0m  [["id", 1]]
+D, [2016-07-04T19:27:39.540668 #4801] DEBUG -- :   [1m[35mSpot Load (0.3ms)[0m  SELECT  "spots".* FROM "spots" WHERE "spots"."id" = ? LIMIT 1  [["id", 2]]
+D, [2016-07-04T19:27:39.561063 #4801] DEBUG -- :   [1m[36mArea Load (0.3ms)[0m  [1mSELECT  "areas".* FROM "areas" WHERE "areas"."id" = ? LIMIT 1[0m  [["id", 1]]
+D, [2016-07-04T19:27:39.576642 #4801] DEBUG -- :   [1m[35mPayment Load (0.5ms)[0m  SELECT "payments".* FROM "payments" WHERE "payments"."user_id" = ?  [["user_id", 1]]
+I, [2016-07-04T19:27:39.592130 #4801]  INFO -- :   Rendered reservations/pay.html.erb within layouts/application (87.1ms)
+I, [2016-07-04T19:27:39.775213 #4801]  INFO -- :   Rendered shared/_sidenav.html.erb (1.4ms)
+I, [2016-07-04T19:27:39.776327 #4801]  INFO -- : Completed 200 OK in 345ms (Views: 274.2ms | ActiveRecord: 6.9ms)
+D, [2016-07-04T19:27:59.446746 #4801] DEBUG -- : 
+D, [2016-07-04T19:27:59.448105 #4801] DEBUG -- : 
+I, [2016-07-04T19:27:59.448580 #4801]  INFO -- : Started PATCH "/reservations/35/pay" for ::1 at 2016-07-04 19:27:59 -0300
+I, [2016-07-04T19:27:59.668359 #4801]  INFO -- : Processing by ReservationsController#save_pay as HTML
+I, [2016-07-04T19:27:59.668645 #4801]  INFO -- :   Parameters: {"utf8"=>"✓", "authenticity_token"=>"E1DVUoV+gZWc/16non9WhYuiUhf1eqvdfShfkdDNeqMSy1UPpGCnC8kJUxHH2piKNFeQsCfKVgFmg8Q2Y/rvNw==", "reservation"=>{"payment_id"=>"0"}, "commit"=>"Pagar", "id"=>"35"}
+D, [2016-07-04T19:27:59.690772 #4801] DEBUG -- :   [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+D, [2016-07-04T19:27:59.732594 #4801] DEBUG -- :   [1m[35mReservation Load (0.4ms)[0m  SELECT  "reservations".* FROM "reservations" WHERE "reservations"."id" = ? LIMIT 1  [["id", 35]]
+D, [2016-07-04T19:27:59.756909 #4801] DEBUG -- :   [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+D, [2016-07-04T19:27:59.761487 #4801] DEBUG -- :   [1m[35mSQL (0.9ms)[0m  UPDATE "reservations" SET "payment_id" = ?, "updated_at" = ? WHERE "reservations"."id" = ?  [["payment_id", 0], ["updated_at", "2016-07-04 19:27:59.758457"], ["id", 35]]
+D, [2016-07-04T19:27:59.819520 #4801] DEBUG -- :   [1m[36m (56.5ms)[0m  [1mcommit transaction[0m
+D, [2016-07-04T19:27:59.828387 #4801] DEBUG -- :   [1m[35mPayment Load (0.4ms)[0m  SELECT  "payments".* FROM "payments" WHERE "payments"."payment_method" = ?  ORDER BY "payments"."id" ASC LIMIT 1  [["payment_method", "Descuento de Saldo"]]
+D, [2016-07-04T19:27:59.841296 #4801] DEBUG -- :   [1m[36m (0.3ms)[0m  [1mbegin transaction[0m
+D, [2016-07-04T19:27:59.852843 #4801] DEBUG -- :   [1m[35m (0.2ms)[0m  rollback transaction
+I, [2016-07-04T19:27:59.902550 #4801]  INFO -- : Completed 500 Internal Server Error in 233ms (ActiveRecord: 62.3ms)
+F, [2016-07-04T19:27:59.920839 #4801] FATAL -- : 
+NameError (undefined local variable or method `payment_id' for #<ReservationsController:0x007f3426b8f1f8>
+Did you mean?  payment):
+  app/controllers/reservations_controller.rb:19:in `save_pay'
+
+
+I, [2016-07-04T19:28:00.130051 #4801]  INFO -- :   Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (12.5ms)
+I, [2016-07-04T19:28:00.154445 #4801]  INFO -- :   Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (14.4ms)
+I, [2016-07-04T19:28:00.175643 #4801]  INFO -- :   Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (3.0ms)
+I, [2016-07-04T19:28:00.176139 #4801]  INFO -- :   Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (80.1ms)
+I, [2016-07-04T19:28:00.206328 #4801]  INFO -- :   Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (2.3ms)
+I, [2016-07-04T19:28:00.243761 #4801]  INFO -- :   Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.9ms)
+I, [2016-07-04T19:28:00.262937 #4801]  INFO -- :   Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.9ms)
+I, [2016-07-04T19:28:00.273726 #4801]  INFO -- :   Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.9ms)
+I, [2016-07-04T19:28:00.275688 #4801]  INFO -- :   Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (60.7ms)
+I, [2016-07-04T19:28:00.296480 #4801]  INFO -- :   Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.9ms)
+I, [2016-07-04T19:28:00.307418 #4801]  INFO -- :   Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.3ms)
+I, [2016-07-04T19:28:00.307894 #4801]  INFO -- :   Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (123.0ms)
+D, [2016-07-04T19:28:41.873855 #4801] DEBUG -- : 
+D, [2016-07-04T19:28:41.874444 #4801] DEBUG -- : 
+I, [2016-07-04T19:28:41.874873 #4801]  INFO -- : Started PATCH "/reservations/35/pay" for ::1 at 2016-07-04 19:28:41 -0300
+I, [2016-07-04T19:28:42.068334 #4801]  INFO -- : Processing by ReservationsController#save_pay as HTML
+I, [2016-07-04T19:28:42.068661 #4801]  INFO -- :   Parameters: {"utf8"=>"✓", "authenticity_token"=>"E1DVUoV+gZWc/16non9WhYuiUhf1eqvdfShfkdDNeqMSy1UPpGCnC8kJUxHH2piKNFeQsCfKVgFmg8Q2Y/rvNw==", "reservation"=>{"payment_id"=>"0"}, "commit"=>"Pagar", "id"=>"35"}
+D, [2016-07-04T19:28:42.096352 #4801] DEBUG -- :   [1m[36mUser Load (1.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+D, [2016-07-04T19:28:42.172131 #4801] DEBUG -- :   [1m[35mReservation Load (0.8ms)[0m  SELECT  "reservations".* FROM "reservations" WHERE "reservations"."id" = ? LIMIT 1  [["id", 35]]
+D, [2016-07-04T19:28:42.203737 #4801] DEBUG -- :   [1m[36m (0.5ms)[0m  [1mbegin transaction[0m
+D, [2016-07-04T19:28:42.211088 #4801] DEBUG -- :   [1m[35m (0.5ms)[0m  commit transaction
+D, [2016-07-04T19:28:42.233850 #4801] DEBUG -- :   [1m[36mPayment Load (0.6ms)[0m  [1mSELECT  "payments".* FROM "payments" WHERE "payments"."payment_method" = ?  ORDER BY "payments"."id" ASC LIMIT 1[0m  [["payment_method", "Descuento de Saldo"]]
+D, [2016-07-04T19:28:42.264570 #4801] DEBUG -- :   [1m[35m (0.2ms)[0m  begin transaction
+D, [2016-07-04T19:28:42.284261 #4801] DEBUG -- :   [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+I, [2016-07-04T19:28:42.290655 #4801]  INFO -- : PAYMENT_ID #<Payment id: nil, payment_method: "Descuento de Saldo", bank: nil, credit_card_number: nil, credit_card_key: nil, created_at: nil, updated_at: nil, user_id: nil>
+D, [2016-07-04T19:28:42.291562 #4801] DEBUG -- :   [1m[35m (0.4ms)[0m  begin transaction
+D, [2016-07-04T19:28:42.298852 #4801] DEBUG -- :   [1m[36mSQL (1.1ms)[0m  [1mUPDATE "reservations" SET "payment_id" = ?, "updated_at" = ? WHERE "reservations"."id" = ?[0m  [["payment_id", nil], ["updated_at", "2016-07-04 19:28:42.292834"], ["id", 35]]
+D, [2016-07-04T19:28:42.325496 #4801] DEBUG -- :   [1m[35m (21.8ms)[0m  commit transaction
+I, [2016-07-04T19:28:42.327058 #4801]  INFO -- : Redirected to http://localhost:3000/areas
+I, [2016-07-04T19:28:42.327910 #4801]  INFO -- : Completed 302 Found in 259ms (ActiveRecord: 32.0ms)
+D, [2016-07-04T19:28:42.381373 #4801] DEBUG -- : 
+D, [2016-07-04T19:28:42.387180 #4801] DEBUG -- : 
+I, [2016-07-04T19:28:42.387853 #4801]  INFO -- : Started GET "/areas" for ::1 at 2016-07-04 19:28:42 -0300
+I, [2016-07-04T19:28:42.449956 #4801]  INFO -- : Processing by AreasController#index as HTML
+D, [2016-07-04T19:28:42.458789 #4801] DEBUG -- :   [1m[36mUser Load (0.7ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+D, [2016-07-04T19:28:42.484270 #4801] DEBUG -- :   [1m[35mArea Load (0.3ms)[0m  SELECT "areas".* FROM "areas"
+D, [2016-07-04T19:28:42.519828 #4801] DEBUG -- :   [1m[36mSpot Load (0.5ms)[0m  [1mSELECT "spots".* FROM "spots" WHERE "spots"."area_id" = ?[0m  [["area_id", 1]]
+D, [2016-07-04T19:28:42.540267 #4801] DEBUG -- :   [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "reservations" WHERE "reservations"."user_id" = ? AND "reservations"."spot_id" = ? AND "reservations"."ends_at" IS NULL  [["user_id", 1], ["spot_id", 1]]
+D, [2016-07-04T19:28:42.552538 #4801] DEBUG -- :   [1m[36mUserPatent Load (0.4ms)[0m  [1mSELECT  "user_patents".* FROM "user_patents" WHERE "user_patents"."user_id" = ? AND "user_patents"."selected" = ?  ORDER BY "user_patents"."id" ASC LIMIT 1[0m  [["user_id", 1], ["selected", "t"]]
+D, [2016-07-04T19:28:42.575127 #4801] DEBUG -- :   [1m[35mCACHE (0.0ms)[0m  SELECT  "user_patents".* FROM "user_patents" WHERE "user_patents"."user_id" = ? AND "user_patents"."selected" = ?  ORDER BY "user_patents"."id" ASC LIMIT 1  [["user_id", 1], ["selected", true]]
+D, [2016-07-04T19:28:42.589062 #4801] DEBUG -- :   [1m[36mPatent Load (0.4ms)[0m  [1mSELECT  "patents".* FROM "patents" WHERE "patents"."id" = ? LIMIT 1[0m  [["id", 1]]
+D, [2016-07-04T19:28:42.610845 #4801] DEBUG -- :   [1m[35m (0.6ms)[0m  SELECT COUNT(*) FROM "reservations" WHERE "reservations"."user_id" = ? AND "reservations"."patent_id" = ? AND "reservations"."ends_at" IS NULL  [["user_id", 1], ["patent_id", 1]]
+D, [2016-07-04T19:28:42.613618 #4801] DEBUG -- :   [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "reservations" WHERE "reservations"."user_id" = ? AND "reservations"."spot_id" = ? AND "reservations"."ends_at" IS NULL[0m  [["user_id", 1], ["spot_id", 2]]
+D, [2016-07-04T19:28:42.615207 #4801] DEBUG -- :   [1m[35mCACHE (0.0ms)[0m  SELECT  "user_patents".* FROM "user_patents" WHERE "user_patents"."user_id" = ? AND "user_patents"."selected" = ?  ORDER BY "user_patents"."id" ASC LIMIT 1  [["user_id", 1], ["selected", true]]
+D, [2016-07-04T19:28:42.616567 #4801] DEBUG -- :   [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "user_patents".* FROM "user_patents" WHERE "user_patents"."user_id" = ? AND "user_patents"."selected" = ?  ORDER BY "user_patents"."id" ASC LIMIT 1[0m  [["user_id", 1], ["selected", true]]
+D, [2016-07-04T19:28:42.617943 #4801] DEBUG -- :   [1m[35mCACHE (0.0ms)[0m  SELECT  "patents".* FROM "patents" WHERE "patents"."id" = ? LIMIT 1  [["id", 1]]
+D, [2016-07-04T19:28:42.619737 #4801] DEBUG -- :   [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reservations" WHERE "reservations"."user_id" = ? AND "reservations"."patent_id" = ? AND "reservations"."ends_at" IS NULL[0m  [["user_id", 1], ["patent_id", 1]]
+D, [2016-07-04T19:28:42.621841 #4801] DEBUG -- :   [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "reservations" WHERE "reservations"."user_id" = ? AND "reservations"."spot_id" = ? AND "reservations"."ends_at" IS NULL  [["user_id", 1], ["spot_id", 3]]
+D, [2016-07-04T19:28:42.623330 #4801] DEBUG -- :   [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "user_patents".* FROM "user_patents" WHERE "user_patents"."user_id" = ? AND "user_patents"."selected" = ?  ORDER BY "user_patents"."id" ASC LIMIT 1[0m  [["user_id", 1], ["selected", true]]
+D, [2016-07-04T19:28:42.624608 #4801] DEBUG -- :   [1m[35mCACHE (0.0ms)[0m  SELECT  "user_patents".* FROM "user_patents" WHERE "user_patents"."user_id" = ? AND "user_patents"."selected" = ?  ORDER BY "user_patents"."id" ASC LIMIT 1  [["user_id", 1], ["selected", true]]
+D, [2016-07-04T19:28:42.625852 #4801] DEBUG -- :   [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "patents".* FROM "patents" WHERE "patents"."id" = ? LIMIT 1[0m  [["id", 1]]
+D, [2016-07-04T19:28:42.627556 #4801] DEBUG -- :   [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "reservations" WHERE "reservations"."user_id" = ? AND "reservations"."patent_id" = ? AND "reservations"."ends_at" IS NULL  [["user_id", 1], ["patent_id", 1]]
+D, [2016-07-04T19:28:42.629631 #4801] DEBUG -- :   [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "reservations" WHERE "reservations"."user_id" = ? AND "reservations"."spot_id" = ? AND "reservations"."ends_at" IS NULL[0m  [["user_id", 1], ["spot_id", 4]]
+D, [2016-07-04T19:28:42.631077 #4801] DEBUG -- :   [1m[35mCACHE (0.0ms)[0m  SELECT  "user_patents".* FROM "user_patents" WHERE "user_patents"."user_id" = ? AND "user_patents"."selected" = ?  ORDER BY "user_patents"."id" ASC LIMIT 1  [["user_id", 1], ["selected", true]]
+D, [2016-07-04T19:28:42.632498 #4801] DEBUG -- :   [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "user_patents".* FROM "user_patents" WHERE "user_patents"."user_id" = ? AND "user_patents"."selected" = ?  ORDER BY "user_patents"."id" ASC LIMIT 1[0m  [["user_id", 1], ["selected", true]]
+D, [2016-07-04T19:28:42.638441 #4801] DEBUG -- :   [1m[35mCACHE (0.0ms)[0m  SELECT  "patents".* FROM "patents" WHERE "patents"."id" = ? LIMIT 1  [["id", 1]]
+D, [2016-07-04T19:28:42.640356 #4801] DEBUG -- :   [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reservations" WHERE "reservations"."user_id" = ? AND "reservations"."patent_id" = ? AND "reservations"."ends_at" IS NULL[0m  [["user_id", 1], ["patent_id", 1]]
+D, [2016-07-04T19:28:42.642607 #4801] DEBUG -- :   [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "reservations" WHERE "reservations"."user_id" = ? AND "reservations"."spot_id" = ? AND "reservations"."ends_at" IS NULL  [["user_id", 1], ["spot_id", 5]]
+D, [2016-07-04T19:28:42.644177 #4801] DEBUG -- :   [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "user_patents".* FROM "user_patents" WHERE "user_patents"."user_id" = ? AND "user_patents"."selected" = ?  ORDER BY "user_patents"."id" ASC LIMIT 1[0m  [["user_id", 1], ["selected", true]]
+D, [2016-07-04T19:28:42.646056 #4801] DEBUG -- :   [1m[35mCACHE (0.0ms)[0m  SELECT  "user_patents".* FROM "user_patents" WHERE "user_patents"."user_id" = ? AND "user_patents"."selected" = ?  ORDER BY "user_patents"."id" ASC LIMIT 1  [["user_id", 1], ["selected", true]]
+D, [2016-07-04T19:28:42.647916 #4801] DEBUG -- :   [1m[36mCACHE (0.1ms)[0m  [1mSELECT  "patents".* FROM "patents" WHERE "patents"."id" = ? LIMIT 1[0m  [["id", 1]]
+D, [2016-07-04T19:28:42.651189 #4801] DEBUG -- :   [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "reservations" WHERE "reservations"."user_id" = ? AND "reservations"."patent_id" = ? AND "reservations"."ends_at" IS NULL  [["user_id", 1], ["patent_id", 1]]
+I, [2016-07-04T19:28:42.651975 #4801]  INFO -- :   Rendered areas/index.html.erb within layouts/application (168.7ms)
+I, [2016-07-04T19:28:42.838766 #4801]  INFO -- :   Rendered shared/_sidenav.html.erb (1.3ms)
+I, [2016-07-04T19:28:42.839985 #4801]  INFO -- : Completed 200 OK in 389ms (Views: 358.7ms | ActiveRecord: 8.4ms)
+D, [2016-07-04T19:32:19.245187 #4801] DEBUG -- : 
+D, [2016-07-04T19:32:19.245379 #4801] DEBUG -- : 
+I, [2016-07-04T19:32:19.245860 #4801]  INFO -- : Started GET "/reservations/35/pay" for ::1 at 2016-07-04 19:32:19 -0300
+I, [2016-07-04T19:32:19.440783 #4801]  INFO -- : Processing by ReservationsController#pay as HTML
+I, [2016-07-04T19:32:19.440986 #4801]  INFO -- :   Parameters: {"id"=>"35"}
+D, [2016-07-04T19:32:19.457315 #4801] DEBUG -- :   [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+D, [2016-07-04T19:32:19.497376 #4801] DEBUG -- :   [1m[35mReservation Load (0.4ms)[0m  SELECT  "reservations".* FROM "reservations" WHERE "reservations"."id" = ? LIMIT 1  [["id", 35]]
+D, [2016-07-04T19:32:19.547101 #4801] DEBUG -- :   [1m[36mPatent Load (0.3ms)[0m  [1mSELECT  "patents".* FROM "patents" WHERE "patents"."id" = ? LIMIT 1[0m  [["id", 1]]
+D, [2016-07-04T19:32:19.579706 #4801] DEBUG -- :   [1m[35mSpot Load (0.4ms)[0m  SELECT  "spots".* FROM "spots" WHERE "spots"."id" = ? LIMIT 1  [["id", 2]]
+D, [2016-07-04T19:32:19.604114 #4801] DEBUG -- :   [1m[36mArea Load (0.3ms)[0m  [1mSELECT  "areas".* FROM "areas" WHERE "areas"."id" = ? LIMIT 1[0m  [["id", 1]]
+D, [2016-07-04T19:32:19.628442 #4801] DEBUG -- :   [1m[35mPayment Load (0.4ms)[0m  SELECT "payments".* FROM "payments" WHERE "payments"."user_id" = ?  [["user_id", 1]]
+I, [2016-07-04T19:32:19.657252 #4801]  INFO -- :   Rendered reservations/pay.html.erb within layouts/application (125.0ms)
+I, [2016-07-04T19:32:19.836045 #4801]  INFO -- :   Rendered shared/_sidenav.html.erb (1.1ms)
+I, [2016-07-04T19:32:19.837021 #4801]  INFO -- : Completed 200 OK in 396ms (Views: 315.4ms | ActiveRecord: 6.9ms)
+D, [2016-07-04T19:32:27.651589 #4801] DEBUG -- : 
+D, [2016-07-04T19:32:27.652167 #4801] DEBUG -- : 
+I, [2016-07-04T19:32:27.652661 #4801]  INFO -- : Started PATCH "/reservations/35/pay" for ::1 at 2016-07-04 19:32:27 -0300
+I, [2016-07-04T19:32:27.660060 #4801]  INFO -- : Processing by ReservationsController#save_pay as HTML
+I, [2016-07-04T19:32:27.660520 #4801]  INFO -- :   Parameters: {"utf8"=>"✓", "authenticity_token"=>"XQe4Cke3x4p7b8jKmCV+2kdUeP/CPr7qMr01axzI/7ZcnDhXZqnhFC6ZxXz9gLDV+KG6WBCOQzYpFq7Mr/9qIg==", "reservation"=>{"payment_id"=>"0"}, "commit"=>"Pagar", "id"=>"35"}
+D, [2016-07-04T19:32:27.667087 #4801] DEBUG -- :   [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+D, [2016-07-04T19:32:27.668899 #4801] DEBUG -- :   [1m[35mReservation Load (0.2ms)[0m  SELECT  "reservations".* FROM "reservations" WHERE "reservations"."id" = ? LIMIT 1  [["id", 35]]
+D, [2016-07-04T19:32:27.673027 #4801] DEBUG -- :   [1m[36m (0.3ms)[0m  [1mbegin transaction[0m
+D, [2016-07-04T19:32:27.677331 #4801] DEBUG -- :   [1m[35mSQL (0.6ms)[0m  UPDATE "reservations" SET "payment_id" = ?, "updated_at" = ? WHERE "reservations"."id" = ?  [["payment_id", 0], ["updated_at", "2016-07-04 19:32:27.674493"], ["id", 35]]
+D, [2016-07-04T19:32:27.750655 #4801] DEBUG -- :   [1m[36m (70.7ms)[0m  [1mcommit transaction[0m
+D, [2016-07-04T19:32:27.764680 #4801] DEBUG -- :   [1m[35mPayment Load (1.0ms)[0m  SELECT  "payments".* FROM "payments" WHERE "payments"."payment_method" = ?  ORDER BY "payments"."id" ASC LIMIT 1  [["payment_method", "Descuento de Saldo"]]
+D, [2016-07-04T19:32:27.768926 #4801] DEBUG -- :   [1m[36m (0.6ms)[0m  [1mbegin transaction[0m
+D, [2016-07-04T19:32:27.790761 #4801] DEBUG -- :   [1m[35m (0.6ms)[0m  rollback transaction
+I, [2016-07-04T19:32:27.791658 #4801]  INFO -- : PAYMENT_ID #<Payment id: nil, payment_method: "Descuento de Saldo", bank: nil, credit_card_number: nil, credit_card_key: nil, created_at: nil, updated_at: nil, user_id: nil>
+D, [2016-07-04T19:32:27.793077 #4801] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+D, [2016-07-04T19:32:27.821499 #4801] DEBUG -- :   [1m[35mSQL (1.2ms)[0m  UPDATE "reservations" SET "payment_id" = ?, "updated_at" = ? WHERE "reservations"."id" = ?  [["payment_id", nil], ["updated_at", "2016-07-04 19:32:27.816756"], ["id", 35]]
+D, [2016-07-04T19:32:27.848782 #4801] DEBUG -- :   [1m[36m (25.9ms)[0m  [1mcommit transaction[0m
+I, [2016-07-04T19:32:27.850713 #4801]  INFO -- : Redirected to http://localhost:3000/areas
+I, [2016-07-04T19:32:27.852156 #4801]  INFO -- : Completed 302 Found in 191ms (ActiveRecord: 101.6ms)
+D, [2016-07-04T19:32:27.894124 #4801] DEBUG -- : 
+D, [2016-07-04T19:32:27.894762 #4801] DEBUG -- : 
+I, [2016-07-04T19:32:27.895251 #4801]  INFO -- : Started GET "/areas" for ::1 at 2016-07-04 19:32:27 -0300
+I, [2016-07-04T19:32:27.953545 #4801]  INFO -- : Processing by AreasController#index as HTML
+D, [2016-07-04T19:32:27.958709 #4801] DEBUG -- :   [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+D, [2016-07-04T19:32:27.992026 #4801] DEBUG -- :   [1m[36mArea Load (0.5ms)[0m  [1mSELECT "areas".* FROM "areas"[0m
+D, [2016-07-04T19:32:28.003426 #4801] DEBUG -- :   [1m[35mSpot Load (0.9ms)[0m  SELECT "spots".* FROM "spots" WHERE "spots"."area_id" = ?  [["area_id", 1]]
+D, [2016-07-04T19:32:28.038667 #4801] DEBUG -- :   [1m[36m (1.0ms)[0m  [1mSELECT COUNT(*) FROM "reservations" WHERE "reservations"."user_id" = ? AND "reservations"."spot_id" = ? AND "reservations"."ends_at" IS NULL[0m  [["user_id", 1], ["spot_id", 1]]
+D, [2016-07-04T19:32:28.078568 #4801] DEBUG -- :   [1m[35mUserPatent Load (1.1ms)[0m  SELECT  "user_patents".* FROM "user_patents" WHERE "user_patents"."user_id" = ? AND "user_patents"."selected" = ?  ORDER BY "user_patents"."id" ASC LIMIT 1  [["user_id", 1], ["selected", "t"]]
+D, [2016-07-04T19:32:28.113527 #4801] DEBUG -- :   [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "user_patents".* FROM "user_patents" WHERE "user_patents"."user_id" = ? AND "user_patents"."selected" = ?  ORDER BY "user_patents"."id" ASC LIMIT 1[0m  [["user_id", 1], ["selected", true]]
+D, [2016-07-04T19:32:28.122136 #4801] DEBUG -- :   [1m[35mPatent Load (0.2ms)[0m  SELECT  "patents".* FROM "patents" WHERE "patents"."id" = ? LIMIT 1  [["id", 1]]
+D, [2016-07-04T19:32:28.124706 #4801] DEBUG -- :   [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "reservations" WHERE "reservations"."user_id" = ? AND "reservations"."patent_id" = ? AND "reservations"."ends_at" IS NULL[0m  [["user_id", 1], ["patent_id", 1]]
+D, [2016-07-04T19:32:28.138522 #4801] DEBUG -- :   [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "reservations" WHERE "reservations"."user_id" = ? AND "reservations"."spot_id" = ? AND "reservations"."ends_at" IS NULL  [["user_id", 1], ["spot_id", 2]]
+D, [2016-07-04T19:32:28.140041 #4801] DEBUG -- :   [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "user_patents".* FROM "user_patents" WHERE "user_patents"."user_id" = ? AND "user_patents"."selected" = ?  ORDER BY "user_patents"."id" ASC LIMIT 1[0m  [["user_id", 1], ["selected", true]]
+D, [2016-07-04T19:32:28.141475 #4801] DEBUG -- :   [1m[35mCACHE (0.0ms)[0m  SELECT  "user_patents".* FROM "user_patents" WHERE "user_patents"."user_id" = ? AND "user_patents"."selected" = ?  ORDER BY "user_patents"."id" ASC LIMIT 1  [["user_id", 1], ["selected", true]]
+D, [2016-07-04T19:32:28.142919 #4801] DEBUG -- :   [1m[36mCACHE (0.1ms)[0m  [1mSELECT  "patents".* FROM "patents" WHERE "patents"."id" = ? LIMIT 1[0m  [["id", 1]]
+D, [2016-07-04T19:32:28.144795 #4801] DEBUG -- :   [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "reservations" WHERE "reservations"."user_id" = ? AND "reservations"."patent_id" = ? AND "reservations"."ends_at" IS NULL  [["user_id", 1], ["patent_id", 1]]
+D, [2016-07-04T19:32:28.147055 #4801] DEBUG -- :   [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "reservations" WHERE "reservations"."user_id" = ? AND "reservations"."spot_id" = ? AND "reservations"."ends_at" IS NULL[0m  [["user_id", 1], ["spot_id", 3]]
+D, [2016-07-04T19:32:28.148437 #4801] DEBUG -- :   [1m[35mCACHE (0.1ms)[0m  SELECT  "user_patents".* FROM "user_patents" WHERE "user_patents"."user_id" = ? AND "user_patents"."selected" = ?  ORDER BY "user_patents"."id" ASC LIMIT 1  [["user_id", 1], ["selected", true]]
+D, [2016-07-04T19:32:28.150072 #4801] DEBUG -- :   [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "user_patents".* FROM "user_patents" WHERE "user_patents"."user_id" = ? AND "user_patents"."selected" = ?  ORDER BY "user_patents"."id" ASC LIMIT 1[0m  [["user_id", 1], ["selected", true]]
+D, [2016-07-04T19:32:28.151351 #4801] DEBUG -- :   [1m[35mCACHE (0.0ms)[0m  SELECT  "patents".* FROM "patents" WHERE "patents"."id" = ? LIMIT 1  [["id", 1]]
+D, [2016-07-04T19:32:28.153206 #4801] DEBUG -- :   [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reservations" WHERE "reservations"."user_id" = ? AND "reservations"."patent_id" = ? AND "reservations"."ends_at" IS NULL[0m  [["user_id", 1], ["patent_id", 1]]
+D, [2016-07-04T19:32:28.155929 #4801] DEBUG -- :   [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "reservations" WHERE "reservations"."user_id" = ? AND "reservations"."spot_id" = ? AND "reservations"."ends_at" IS NULL  [["user_id", 1], ["spot_id", 4]]
+D, [2016-07-04T19:32:28.157509 #4801] DEBUG -- :   [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "user_patents".* FROM "user_patents" WHERE "user_patents"."user_id" = ? AND "user_patents"."selected" = ?  ORDER BY "user_patents"."id" ASC LIMIT 1[0m  [["user_id", 1], ["selected", true]]
+D, [2016-07-04T19:32:28.158995 #4801] DEBUG -- :   [1m[35mCACHE (0.0ms)[0m  SELECT  "user_patents".* FROM "user_patents" WHERE "user_patents"."user_id" = ? AND "user_patents"."selected" = ?  ORDER BY "user_patents"."id" ASC LIMIT 1  [["user_id", 1], ["selected", true]]
+D, [2016-07-04T19:32:28.160532 #4801] DEBUG -- :   [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "patents".* FROM "patents" WHERE "patents"."id" = ? LIMIT 1[0m  [["id", 1]]
+D, [2016-07-04T19:32:28.162935 #4801] DEBUG -- :   [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "reservations" WHERE "reservations"."user_id" = ? AND "reservations"."patent_id" = ? AND "reservations"."ends_at" IS NULL  [["user_id", 1], ["patent_id", 1]]
+D, [2016-07-04T19:32:28.165265 #4801] DEBUG -- :   [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "reservations" WHERE "reservations"."user_id" = ? AND "reservations"."spot_id" = ? AND "reservations"."ends_at" IS NULL[0m  [["user_id", 1], ["spot_id", 5]]
+D, [2016-07-04T19:32:28.167324 #4801] DEBUG -- :   [1m[35mCACHE (0.0ms)[0m  SELECT  "user_patents".* FROM "user_patents" WHERE "user_patents"."user_id" = ? AND "user_patents"."selected" = ?  ORDER BY "user_patents"."id" ASC LIMIT 1  [["user_id", 1], ["selected", true]]
+D, [2016-07-04T19:32:28.168717 #4801] DEBUG -- :   [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "user_patents".* FROM "user_patents" WHERE "user_patents"."user_id" = ? AND "user_patents"."selected" = ?  ORDER BY "user_patents"."id" ASC LIMIT 1[0m  [["user_id", 1], ["selected", true]]
+D, [2016-07-04T19:32:28.169892 #4801] DEBUG -- :   [1m[35mCACHE (0.0ms)[0m  SELECT  "patents".* FROM "patents" WHERE "patents"."id" = ? LIMIT 1  [["id", 1]]
+D, [2016-07-04T19:32:28.179281 #4801] DEBUG -- :   [1m[36mCACHE (0.1ms)[0m  [1mSELECT COUNT(*) FROM "reservations" WHERE "reservations"."user_id" = ? AND "reservations"."patent_id" = ? AND "reservations"."ends_at" IS NULL[0m  [["user_id", 1], ["patent_id", 1]]
+I, [2016-07-04T19:32:28.180239 #4801]  INFO -- :   Rendered areas/index.html.erb within layouts/application (190.0ms)
+I, [2016-07-04T19:32:28.403185 #4801]  INFO -- :   Rendered shared/_sidenav.html.erb (1.3ms)
+I, [2016-07-04T19:32:28.404193 #4801]  INFO -- : Completed 200 OK in 450ms (Views: 436.8ms | ActiveRecord: 6.9ms)
+D, [2016-07-04T19:36:07.431223 #4801] DEBUG -- : 
+D, [2016-07-04T19:36:07.431596 #4801] DEBUG -- : 
+I, [2016-07-04T19:36:07.432059 #4801]  INFO -- : Started GET "/reservations/35/pay" for ::1 at 2016-07-04 19:36:07 -0300
+I, [2016-07-04T19:36:07.600735 #4801]  INFO -- : Processing by ReservationsController#pay as HTML
+I, [2016-07-04T19:36:07.601252 #4801]  INFO -- :   Parameters: {"id"=>"35"}
+D, [2016-07-04T19:36:07.619039 #4801] DEBUG -- :   [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+D, [2016-07-04T19:36:07.657955 #4801] DEBUG -- :   [1m[36mReservation Load (0.3ms)[0m  [1mSELECT  "reservations".* FROM "reservations" WHERE "reservations"."id" = ? LIMIT 1[0m  [["id", 35]]
+D, [2016-07-04T19:36:07.699734 #4801] DEBUG -- :   [1m[35mPatent Load (0.4ms)[0m  SELECT  "patents".* FROM "patents" WHERE "patents"."id" = ? LIMIT 1  [["id", 1]]
+D, [2016-07-04T19:36:07.720794 #4801] DEBUG -- :   [1m[36mSpot Load (0.4ms)[0m  [1mSELECT  "spots".* FROM "spots" WHERE "spots"."id" = ? LIMIT 1[0m  [["id", 2]]
+D, [2016-07-04T19:36:07.740457 #4801] DEBUG -- :   [1m[35mArea Load (0.3ms)[0m  SELECT  "areas".* FROM "areas" WHERE "areas"."id" = ? LIMIT 1  [["id", 1]]
+D, [2016-07-04T19:36:07.756101 #4801] DEBUG -- :   [1m[36mPayment Load (0.3ms)[0m  [1mSELECT "payments".* FROM "payments" WHERE "payments"."user_id" = ?[0m  [["user_id", 1]]
+I, [2016-07-04T19:36:07.769900 #4801]  INFO -- :   Rendered reservations/pay.html.erb within layouts/application (83.9ms)
+I, [2016-07-04T19:36:07.989922 #4801]  INFO -- :   Rendered shared/_sidenav.html.erb (1.9ms)
+I, [2016-07-04T19:36:07.991776 #4801]  INFO -- : Completed 200 OK in 390ms (Views: 308.6ms | ActiveRecord: 7.2ms)
+D, [2016-07-04T19:36:16.376978 #4801] DEBUG -- : 
+D, [2016-07-04T19:36:16.377539 #4801] DEBUG -- : 
+I, [2016-07-04T19:36:16.378239 #4801]  INFO -- : Started PATCH "/reservations/35/pay" for ::1 at 2016-07-04 19:36:16 -0300
+I, [2016-07-04T19:36:16.386844 #4801]  INFO -- : Processing by ReservationsController#save_pay as HTML
+I, [2016-07-04T19:36:16.389587 #4801]  INFO -- :   Parameters: {"utf8"=>"✓", "authenticity_token"=>"+zPmH2oIxdNGw+dOf3lCGkBHF6e+tnsZwgnj6hG5r0f6qGZCSxbjTRM16vga3IwV/7LVAGwGhsXZonhNoo460w==", "reservation"=>{"payment_id"=>"0"}, "commit"=>"Pagar", "id"=>"35"}
+D, [2016-07-04T19:36:16.394625 #4801] DEBUG -- :   [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+D, [2016-07-04T19:36:16.396347 #4801] DEBUG -- :   [1m[36mReservation Load (0.2ms)[0m  [1mSELECT  "reservations".* FROM "reservations" WHERE "reservations"."id" = ? LIMIT 1[0m  [["id", 35]]
+D, [2016-07-04T19:36:16.398051 #4801] DEBUG -- :   [1m[35m (0.1ms)[0m  begin transaction
+D, [2016-07-04T19:36:16.403248 #4801] DEBUG -- :   [1m[36mSQL (0.9ms)[0m  [1mUPDATE "reservations" SET "payment_id" = ?, "updated_at" = ? WHERE "reservations"."id" = ?[0m  [["payment_id", 0], ["updated_at", "2016-07-04 19:36:16.399165"], ["id", 35]]
+D, [2016-07-04T19:36:16.472567 #4801] DEBUG -- :   [1m[35m (53.7ms)[0m  commit transaction
+D, [2016-07-04T19:36:16.475209 #4801] DEBUG -- :   [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+D, [2016-07-04T19:36:16.487617 #4801] DEBUG -- :   [1m[35m (0.2ms)[0m  rollback transaction
+D, [2016-07-04T19:36:16.488346 #4801] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+D, [2016-07-04T19:36:16.504511 #4801] DEBUG -- :   [1m[35m (0.2ms)[0m  rollback transaction
+I, [2016-07-04T19:36:16.505116 #4801]  INFO -- : PAYMENT_ID #<Payment id: nil, payment_method: "Descuento de Saldo", bank: nil, credit_card_number: nil, credit_card_key: nil, created_at: nil, updated_at: nil, user_id: nil>
+D, [2016-07-04T19:36:16.506054 #4801] DEBUG -- :   [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+D, [2016-07-04T19:36:16.526196 #4801] DEBUG -- :   [1m[35mSQL (0.6ms)[0m  UPDATE "reservations" SET "payment_id" = ?, "updated_at" = ? WHERE "reservations"."id" = ?  [["payment_id", nil], ["updated_at", "2016-07-04 19:36:16.523828"], ["id", 35]]
+D, [2016-07-04T19:36:16.547873 #4801] DEBUG -- :   [1m[36m (20.8ms)[0m  [1mcommit transaction[0m
+I, [2016-07-04T19:36:16.551786 #4801]  INFO -- : Redirected to http://localhost:3000/areas
+I, [2016-07-04T19:36:16.552376 #4801]  INFO -- : Completed 302 Found in 162ms (ActiveRecord: 77.7ms)
+D, [2016-07-04T19:36:16.567607 #4801] DEBUG -- : 
+D, [2016-07-04T19:36:16.567808 #4801] DEBUG -- : 
+I, [2016-07-04T19:36:16.568261 #4801]  INFO -- : Started GET "/areas" for ::1 at 2016-07-04 19:36:16 -0300
+I, [2016-07-04T19:36:16.596573 #4801]  INFO -- : Processing by AreasController#index as HTML
+D, [2016-07-04T19:36:16.603747 #4801] DEBUG -- :   [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+D, [2016-07-04T19:36:16.617146 #4801] DEBUG -- :   [1m[36mArea Load (0.4ms)[0m  [1mSELECT "areas".* FROM "areas"[0m
+D, [2016-07-04T19:36:16.628078 #4801] DEBUG -- :   [1m[35mSpot Load (0.5ms)[0m  SELECT "spots".* FROM "spots" WHERE "spots"."area_id" = ?  [["area_id", 1]]
+D, [2016-07-04T19:36:16.642200 #4801] DEBUG -- :   [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "reservations" WHERE "reservations"."user_id" = ? AND "reservations"."spot_id" = ? AND "reservations"."ends_at" IS NULL[0m  [["user_id", 1], ["spot_id", 1]]
+D, [2016-07-04T19:36:16.656778 #4801] DEBUG -- :   [1m[35mUserPatent Load (0.4ms)[0m  SELECT  "user_patents".* FROM "user_patents" WHERE "user_patents"."user_id" = ? AND "user_patents"."selected" = ?  ORDER BY "user_patents"."id" ASC LIMIT 1  [["user_id", 1], ["selected", "t"]]
+D, [2016-07-04T19:36:16.670070 #4801] DEBUG -- :   [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "user_patents".* FROM "user_patents" WHERE "user_patents"."user_id" = ? AND "user_patents"."selected" = ?  ORDER BY "user_patents"."id" ASC LIMIT 1[0m  [["user_id", 1], ["selected", true]]
+D, [2016-07-04T19:36:16.675359 #4801] DEBUG -- :   [1m[35mPatent Load (0.2ms)[0m  SELECT  "patents".* FROM "patents" WHERE "patents"."id" = ? LIMIT 1  [["id", 1]]
+D, [2016-07-04T19:36:16.677879 #4801] DEBUG -- :   [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "reservations" WHERE "reservations"."user_id" = ? AND "reservations"."patent_id" = ? AND "reservations"."ends_at" IS NULL[0m  [["user_id", 1], ["patent_id", 1]]
+D, [2016-07-04T19:36:16.683914 #4801] DEBUG -- :   [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "reservations" WHERE "reservations"."user_id" = ? AND "reservations"."spot_id" = ? AND "reservations"."ends_at" IS NULL  [["user_id", 1], ["spot_id", 2]]
+D, [2016-07-04T19:36:16.685671 #4801] DEBUG -- :   [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "user_patents".* FROM "user_patents" WHERE "user_patents"."user_id" = ? AND "user_patents"."selected" = ?  ORDER BY "user_patents"."id" ASC LIMIT 1[0m  [["user_id", 1], ["selected", true]]
+D, [2016-07-04T19:36:16.687316 #4801] DEBUG -- :   [1m[35mCACHE (0.0ms)[0m  SELECT  "user_patents".* FROM "user_patents" WHERE "user_patents"."user_id" = ? AND "user_patents"."selected" = ?  ORDER BY "user_patents"."id" ASC LIMIT 1  [["user_id", 1], ["selected", true]]
+D, [2016-07-04T19:36:16.688488 #4801] DEBUG -- :   [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "patents".* FROM "patents" WHERE "patents"."id" = ? LIMIT 1[0m  [["id", 1]]
+D, [2016-07-04T19:36:16.690852 #4801] DEBUG -- :   [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "reservations" WHERE "reservations"."user_id" = ? AND "reservations"."patent_id" = ? AND "reservations"."ends_at" IS NULL  [["user_id", 1], ["patent_id", 1]]
+D, [2016-07-04T19:36:16.693304 #4801] DEBUG -- :   [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "reservations" WHERE "reservations"."user_id" = ? AND "reservations"."spot_id" = ? AND "reservations"."ends_at" IS NULL[0m  [["user_id", 1], ["spot_id", 3]]
+D, [2016-07-04T19:36:16.694954 #4801] DEBUG -- :   [1m[35mCACHE (0.0ms)[0m  SELECT  "user_patents".* FROM "user_patents" WHERE "user_patents"."user_id" = ? AND "user_patents"."selected" = ?  ORDER BY "user_patents"."id" ASC LIMIT 1  [["user_id", 1], ["selected", true]]
+D, [2016-07-04T19:36:16.696495 #4801] DEBUG -- :   [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "user_patents".* FROM "user_patents" WHERE "user_patents"."user_id" = ? AND "user_patents"."selected" = ?  ORDER BY "user_patents"."id" ASC LIMIT 1[0m  [["user_id", 1], ["selected", true]]
+D, [2016-07-04T19:36:16.697924 #4801] DEBUG -- :   [1m[35mCACHE (0.0ms)[0m  SELECT  "patents".* FROM "patents" WHERE "patents"."id" = ? LIMIT 1  [["id", 1]]
+D, [2016-07-04T19:36:16.700145 #4801] DEBUG -- :   [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reservations" WHERE "reservations"."user_id" = ? AND "reservations"."patent_id" = ? AND "reservations"."ends_at" IS NULL[0m  [["user_id", 1], ["patent_id", 1]]
+D, [2016-07-04T19:36:16.702342 #4801] DEBUG -- :   [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "reservations" WHERE "reservations"."user_id" = ? AND "reservations"."spot_id" = ? AND "reservations"."ends_at" IS NULL  [["user_id", 1], ["spot_id", 4]]
+D, [2016-07-04T19:36:16.703735 #4801] DEBUG -- :   [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "user_patents".* FROM "user_patents" WHERE "user_patents"."user_id" = ? AND "user_patents"."selected" = ?  ORDER BY "user_patents"."id" ASC LIMIT 1[0m  [["user_id", 1], ["selected", true]]
+D, [2016-07-04T19:36:16.705107 #4801] DEBUG -- :   [1m[35mCACHE (0.0ms)[0m  SELECT  "user_patents".* FROM "user_patents" WHERE "user_patents"."user_id" = ? AND "user_patents"."selected" = ?  ORDER BY "user_patents"."id" ASC LIMIT 1  [["user_id", 1], ["selected", true]]
+D, [2016-07-04T19:36:16.706643 #4801] DEBUG -- :   [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "patents".* FROM "patents" WHERE "patents"."id" = ? LIMIT 1[0m  [["id", 1]]
+D, [2016-07-04T19:36:16.714022 #4801] DEBUG -- :   [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "reservations" WHERE "reservations"."user_id" = ? AND "reservations"."patent_id" = ? AND "reservations"."ends_at" IS NULL  [["user_id", 1], ["patent_id", 1]]
+D, [2016-07-04T19:36:16.716487 #4801] DEBUG -- :   [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "reservations" WHERE "reservations"."user_id" = ? AND "reservations"."spot_id" = ? AND "reservations"."ends_at" IS NULL[0m  [["user_id", 1], ["spot_id", 5]]
+D, [2016-07-04T19:36:16.718184 #4801] DEBUG -- :   [1m[35mCACHE (0.2ms)[0m  SELECT  "user_patents".* FROM "user_patents" WHERE "user_patents"."user_id" = ? AND "user_patents"."selected" = ?  ORDER BY "user_patents"."id" ASC LIMIT 1  [["user_id", 1], ["selected", true]]
+D, [2016-07-04T19:36:16.719656 #4801] DEBUG -- :   [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "user_patents".* FROM "user_patents" WHERE "user_patents"."user_id" = ? AND "user_patents"."selected" = ?  ORDER BY "user_patents"."id" ASC LIMIT 1[0m  [["user_id", 1], ["selected", true]]
+D, [2016-07-04T19:36:16.726183 #4801] DEBUG -- :   [1m[35mCACHE (0.0ms)[0m  SELECT  "patents".* FROM "patents" WHERE "patents"."id" = ? LIMIT 1  [["id", 1]]
+D, [2016-07-04T19:36:16.731990 #4801] DEBUG -- :   [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reservations" WHERE "reservations"."user_id" = ? AND "reservations"."patent_id" = ? AND "reservations"."ends_at" IS NULL[0m  [["user_id", 1], ["patent_id", 1]]
+I, [2016-07-04T19:36:16.733010 #4801]  INFO -- :   Rendered areas/index.html.erb within layouts/application (116.6ms)
+I, [2016-07-04T19:36:16.944207 #4801]  INFO -- :   Rendered shared/_sidenav.html.erb (1.1ms)
+I, [2016-07-04T19:36:16.944970 #4801]  INFO -- : Completed 200 OK in 348ms (Views: 335.3ms | ActiveRecord: 4.8ms)
+D, [2016-07-04T20:28:28.712960 #4801] DEBUG -- : 
+D, [2016-07-04T20:28:28.713615 #4801] DEBUG -- : 
+I, [2016-07-04T20:28:28.714525 #4801]  INFO -- : Started GET "/reservations/35/pay" for ::1 at 2016-07-04 20:28:28 -0300
+I, [2016-07-04T20:28:28.856116 #4801]  INFO -- : Processing by ReservationsController#pay as HTML
+I, [2016-07-04T20:28:28.856456 #4801]  INFO -- :   Parameters: {"id"=>"35"}
+D, [2016-07-04T20:28:28.873270 #4801] DEBUG -- :   [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+I, [2016-07-04T20:28:28.906900 #4801]  INFO -- : Completed 500 Internal Server Error in 50ms (ActiveRecord: 2.2ms)
+F, [2016-07-04T20:28:28.909339 #4801] FATAL -- : 
+NoMethodError (undefined method `arity' for :autosave:Symbol):
+  app/models/reservation.rb:5:in `<class:Reservation>'
+  app/models/reservation.rb:1:in `<top (required)>'
+  app/controllers/reservations_controller.rb:29:in `set_reservation'
+
+
+I, [2016-07-04T20:28:29.144695 #4801]  INFO -- :   Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (13.7ms)
+I, [2016-07-04T20:28:29.165772 #4801]  INFO -- :   Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (6.8ms)
+I, [2016-07-04T20:28:29.180013 #4801]  INFO -- :   Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.5ms)
+I, [2016-07-04T20:28:29.180524 #4801]  INFO -- :   Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (61.7ms)
+I, [2016-07-04T20:28:29.198117 #4801]  INFO -- :   Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (1.0ms)
+I, [2016-07-04T20:28:29.221407 #4801]  INFO -- :   Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.9ms)
+I, [2016-07-04T20:28:29.234387 #4801]  INFO -- :   Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (1.2ms)
+I, [2016-07-04T20:28:29.245119 #4801]  INFO -- :   Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.9ms)
+I, [2016-07-04T20:28:29.247235 #4801]  INFO -- :   Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (40.5ms)
+I, [2016-07-04T20:28:29.257479 #4801]  INFO -- :   Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.7ms)
+I, [2016-07-04T20:28:29.267644 #4801]  INFO -- :   Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.1ms)
+I, [2016-07-04T20:28:29.268089 #4801]  INFO -- :   Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (79.0ms)
+D, [2016-07-04T20:30:22.491872 #4801] DEBUG -- : 
+D, [2016-07-04T20:30:22.492118 #4801] DEBUG -- : 
+I, [2016-07-04T20:30:22.492539 #4801]  INFO -- : Started GET "/reservations/35/pay" for ::1 at 2016-07-04 20:30:22 -0300
+I, [2016-07-04T20:30:22.654886 #4801]  INFO -- : Processing by ReservationsController#pay as HTML
+I, [2016-07-04T20:30:22.655143 #4801]  INFO -- :   Parameters: {"id"=>"35"}
+D, [2016-07-04T20:30:22.671436 #4801] DEBUG -- :   [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+I, [2016-07-04T20:30:22.701733 #4801]  INFO -- : Completed 500 Internal Server Error in 46ms (ActiveRecord: 2.5ms)
+F, [2016-07-04T20:30:22.704211 #4801] FATAL -- : 
+NoMethodError (undefined method `arity' for :autosave:Symbol):
+  app/models/reservation.rb:5:in `<class:Reservation>'
+  app/models/reservation.rb:1:in `<top (required)>'
+  app/controllers/reservations_controller.rb:30:in `set_reservation'
+
+
+I, [2016-07-04T20:30:22.924498 #4801]  INFO -- :   Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (14.1ms)
+I, [2016-07-04T20:30:22.941901 #4801]  INFO -- :   Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (6.8ms)
+I, [2016-07-04T20:30:22.955497 #4801]  INFO -- :   Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.5ms)
+I, [2016-07-04T20:30:22.955992 #4801]  INFO -- :   Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (56.6ms)
+I, [2016-07-04T20:30:22.974338 #4801]  INFO -- :   Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (1.2ms)
+I, [2016-07-04T20:30:22.996883 #4801]  INFO -- :   Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.8ms)
+I, [2016-07-04T20:30:23.010424 #4801]  INFO -- :   Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.9ms)
+I, [2016-07-04T20:30:23.021365 #4801]  INFO -- :   Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (1.0ms)
+I, [2016-07-04T20:30:23.023048 #4801]  INFO -- :   Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (40.3ms)
+I, [2016-07-04T20:30:23.033094 #4801]  INFO -- :   Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.7ms)
+I, [2016-07-04T20:30:23.043349 #4801]  INFO -- :   Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.2ms)
+I, [2016-07-04T20:30:23.043961 #4801]  INFO -- :   Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (79.0ms)
+D, [2016-07-04T20:30:34.276299 #4801] DEBUG -- : 
+D, [2016-07-04T20:30:34.276687 #4801] DEBUG -- : 
+I, [2016-07-04T20:30:34.277198 #4801]  INFO -- : Started GET "/reservations/35/pay" for ::1 at 2016-07-04 20:30:34 -0300
+I, [2016-07-04T20:30:34.413861 #4801]  INFO -- : Processing by ReservationsController#pay as HTML
+I, [2016-07-04T20:30:34.414234 #4801]  INFO -- :   Parameters: {"id"=>"35"}
+D, [2016-07-04T20:30:34.433426 #4801] DEBUG -- :   [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+D, [2016-07-04T20:30:34.469944 #4801] DEBUG -- :   [1m[36mReservation Load (0.4ms)[0m  [1mSELECT  "reservations".* FROM "reservations" WHERE "reservations"."id" = ? LIMIT 1[0m  [["id", 35]]
+D, [2016-07-04T20:30:34.524465 #4801] DEBUG -- :   [1m[35mPatent Load (0.3ms)[0m  SELECT  "patents".* FROM "patents" WHERE "patents"."id" = ? LIMIT 1  [["id", 1]]
+D, [2016-07-04T20:30:34.551107 #4801] DEBUG -- :   [1m[36mSpot Load (0.3ms)[0m  [1mSELECT  "spots".* FROM "spots" WHERE "spots"."id" = ? LIMIT 1[0m  [["id", 2]]
+D, [2016-07-04T20:30:34.570258 #4801] DEBUG -- :   [1m[35mArea Load (0.4ms)[0m  SELECT  "areas".* FROM "areas" WHERE "areas"."id" = ? LIMIT 1  [["id", 1]]
+D, [2016-07-04T20:30:34.586199 #4801] DEBUG -- :   [1m[36mPayment Load (0.4ms)[0m  [1mSELECT "payments".* FROM "payments" WHERE "payments"."user_id" = ?[0m  [["user_id", 1]]
+I, [2016-07-04T20:30:34.601711 #4801]  INFO -- :   Rendered reservations/pay.html.erb within layouts/application (100.8ms)
+I, [2016-07-04T20:30:34.790174 #4801]  INFO -- :   Rendered shared/_sidenav.html.erb (1.2ms)
+I, [2016-07-04T20:30:34.791293 #4801]  INFO -- : Completed 200 OK in 377ms (Views: 295.5ms | ActiveRecord: 7.8ms)
+D, [2016-07-04T20:30:43.717848 #4801] DEBUG -- : 
+D, [2016-07-04T20:30:43.718429 #4801] DEBUG -- : 
+I, [2016-07-04T20:30:43.718808 #4801]  INFO -- : Started PATCH "/reservations/35/pay" for ::1 at 2016-07-04 20:30:43 -0300
+I, [2016-07-04T20:30:43.731349 #4801]  INFO -- : Processing by ReservationsController#save_pay as HTML
+I, [2016-07-04T20:30:43.731707 #4801]  INFO -- :   Parameters: {"utf8"=>"✓", "authenticity_token"=>"TEFVmCWU8UlVxbhPdnn2eOVIGfnrh7qMOs1Xk+5ebTtN2tXFBIrX1wAztfkT3Dh3Wr3bXjk3R1AhZsw0XWn4rw==", "reservation"=>{"payment_id"=>"0"}, "commit"=>"Pagar", "id"=>"35"}
+D, [2016-07-04T20:30:43.735136 #4801] DEBUG -- :   [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+D, [2016-07-04T20:30:43.736884 #4801] DEBUG -- :   [1m[36mReservation Load (0.2ms)[0m  [1mSELECT  "reservations".* FROM "reservations" WHERE "reservations"."id" = ? LIMIT 1[0m  [["id", 35]]
+D, [2016-07-04T20:30:43.738529 #4801] DEBUG -- :   [1m[35m (0.2ms)[0m  begin transaction
+D, [2016-07-04T20:30:43.750255 #4801] DEBUG -- :   [1m[36mSQL (2.8ms)[0m  [1mUPDATE "reservations" SET "payment_id" = ?, "updated_at" = ? WHERE "reservations"."id" = ?[0m  [["payment_id", 0], ["updated_at", "2016-07-04 20:30:43.740479"], ["id", 35]]
+D, [2016-07-04T20:30:43.803423 #4801] DEBUG -- :   [1m[35m (51.4ms)[0m  commit transaction
+D, [2016-07-04T20:30:43.805598 #4801] DEBUG -- :   [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+D, [2016-07-04T20:30:43.822067 #4801] DEBUG -- :   [1m[35m (0.2ms)[0m  rollback transaction
+I, [2016-07-04T20:30:43.824510 #4801]  INFO -- : PAYMENT_ID #<Payment id: nil, payment_method: "Descuento de Saldo", bank: nil, credit_card_number: nil, credit_card_key: nil, created_at: nil, updated_at: nil, user_id: nil>
+D, [2016-07-04T20:30:43.825625 #4801] DEBUG -- :   [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+D, [2016-07-04T20:30:43.838629 #4801] DEBUG -- :   [1m[35m (0.1ms)[0m  rollback transaction
+D, [2016-07-04T20:30:43.839428 #4801] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+D, [2016-07-04T20:30:43.864596 #4801] DEBUG -- :   [1m[35mSQL (0.8ms)[0m  UPDATE "reservations" SET "payment_id" = ?, "updated_at" = ? WHERE "reservations"."id" = ?  [["payment_id", nil], ["updated_at", "2016-07-04 20:30:43.861940"], ["id", 35]]
+D, [2016-07-04T20:30:43.903627 #4801] DEBUG -- :   [1m[36m (38.0ms)[0m  [1mcommit transaction[0m
+I, [2016-07-04T20:30:43.904470 #4801]  INFO -- : Redirected to http://localhost:3000/areas
+I, [2016-07-04T20:30:43.904915 #4801]  INFO -- : Completed 302 Found in 173ms (ActiveRecord: 94.4ms)
+D, [2016-07-04T20:30:43.918148 #4801] DEBUG -- : 
+D, [2016-07-04T20:30:43.918533 #4801] DEBUG -- : 
+I, [2016-07-04T20:30:43.919077 #4801]  INFO -- : Started GET "/areas" for ::1 at 2016-07-04 20:30:43 -0300
+I, [2016-07-04T20:30:43.944919 #4801]  INFO -- : Processing by AreasController#index as HTML
+D, [2016-07-04T20:30:43.948255 #4801] DEBUG -- :   [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+D, [2016-07-04T20:30:43.959012 #4801] DEBUG -- :   [1m[36mArea Load (0.3ms)[0m  [1mSELECT "areas".* FROM "areas"[0m
+D, [2016-07-04T20:30:43.965101 #4801] DEBUG -- :   [1m[35mSpot Load (0.4ms)[0m  SELECT "spots".* FROM "spots" WHERE "spots"."area_id" = ?  [["area_id", 1]]
+D, [2016-07-04T20:30:43.976176 #4801] DEBUG -- :   [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "reservations" WHERE "reservations"."user_id" = ? AND "reservations"."spot_id" = ? AND "reservations"."ends_at" IS NULL[0m  [["user_id", 1], ["spot_id", 1]]
+D, [2016-07-04T20:30:43.988694 #4801] DEBUG -- :   [1m[35mUserPatent Load (0.4ms)[0m  SELECT  "user_patents".* FROM "user_patents" WHERE "user_patents"."user_id" = ? AND "user_patents"."selected" = ?  ORDER BY "user_patents"."id" ASC LIMIT 1  [["user_id", 1], ["selected", "t"]]
+D, [2016-07-04T20:30:44.001001 #4801] DEBUG -- :   [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "user_patents".* FROM "user_patents" WHERE "user_patents"."user_id" = ? AND "user_patents"."selected" = ?  ORDER BY "user_patents"."id" ASC LIMIT 1[0m  [["user_id", 1], ["selected", true]]
+D, [2016-07-04T20:30:44.006073 #4801] DEBUG -- :   [1m[35mPatent Load (0.3ms)[0m  SELECT  "patents".* FROM "patents" WHERE "patents"."id" = ? LIMIT 1  [["id", 1]]
+D, [2016-07-04T20:30:44.012044 #4801] DEBUG -- :   [1m[36m (3.9ms)[0m  [1mSELECT COUNT(*) FROM "reservations" WHERE "reservations"."user_id" = ? AND "reservations"."patent_id" = ? AND "reservations"."ends_at" IS NULL[0m  [["user_id", 1], ["patent_id", 1]]
+D, [2016-07-04T20:30:44.015199 #4801] DEBUG -- :   [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "reservations" WHERE "reservations"."user_id" = ? AND "reservations"."spot_id" = ? AND "reservations"."ends_at" IS NULL  [["user_id", 1], ["spot_id", 2]]
+D, [2016-07-04T20:30:44.016776 #4801] DEBUG -- :   [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "user_patents".* FROM "user_patents" WHERE "user_patents"."user_id" = ? AND "user_patents"."selected" = ?  ORDER BY "user_patents"."id" ASC LIMIT 1[0m  [["user_id", 1], ["selected", true]]
+D, [2016-07-04T20:30:44.018738 #4801] DEBUG -- :   [1m[35mCACHE (0.0ms)[0m  SELECT  "user_patents".* FROM "user_patents" WHERE "user_patents"."user_id" = ? AND "user_patents"."selected" = ?  ORDER BY "user_patents"."id" ASC LIMIT 1  [["user_id", 1], ["selected", true]]
+D, [2016-07-04T20:30:44.020235 #4801] DEBUG -- :   [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "patents".* FROM "patents" WHERE "patents"."id" = ? LIMIT 1[0m  [["id", 1]]
+D, [2016-07-04T20:30:44.022765 #4801] DEBUG -- :   [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "reservations" WHERE "reservations"."user_id" = ? AND "reservations"."patent_id" = ? AND "reservations"."ends_at" IS NULL  [["user_id", 1], ["patent_id", 1]]
+D, [2016-07-04T20:30:44.025273 #4801] DEBUG -- :   [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "reservations" WHERE "reservations"."user_id" = ? AND "reservations"."spot_id" = ? AND "reservations"."ends_at" IS NULL[0m  [["user_id", 1], ["spot_id", 3]]
+D, [2016-07-04T20:30:44.026825 #4801] DEBUG -- :   [1m[35mCACHE (0.0ms)[0m  SELECT  "user_patents".* FROM "user_patents" WHERE "user_patents"."user_id" = ? AND "user_patents"."selected" = ?  ORDER BY "user_patents"."id" ASC LIMIT 1  [["user_id", 1], ["selected", true]]
+D, [2016-07-04T20:30:44.028364 #4801] DEBUG -- :   [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "user_patents".* FROM "user_patents" WHERE "user_patents"."user_id" = ? AND "user_patents"."selected" = ?  ORDER BY "user_patents"."id" ASC LIMIT 1[0m  [["user_id", 1], ["selected", true]]
+D, [2016-07-04T20:30:44.029764 #4801] DEBUG -- :   [1m[35mCACHE (0.0ms)[0m  SELECT  "patents".* FROM "patents" WHERE "patents"."id" = ? LIMIT 1  [["id", 1]]
+D, [2016-07-04T20:30:44.031639 #4801] DEBUG -- :   [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reservations" WHERE "reservations"."user_id" = ? AND "reservations"."patent_id" = ? AND "reservations"."ends_at" IS NULL[0m  [["user_id", 1], ["patent_id", 1]]
+D, [2016-07-04T20:30:44.034001 #4801] DEBUG -- :   [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "reservations" WHERE "reservations"."user_id" = ? AND "reservations"."spot_id" = ? AND "reservations"."ends_at" IS NULL  [["user_id", 1], ["spot_id", 4]]
+D, [2016-07-04T20:30:44.035509 #4801] DEBUG -- :   [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "user_patents".* FROM "user_patents" WHERE "user_patents"."user_id" = ? AND "user_patents"."selected" = ?  ORDER BY "user_patents"."id" ASC LIMIT 1[0m  [["user_id", 1], ["selected", true]]
+D, [2016-07-04T20:30:44.036921 #4801] DEBUG -- :   [1m[35mCACHE (0.0ms)[0m  SELECT  "user_patents".* FROM "user_patents" WHERE "user_patents"."user_id" = ? AND "user_patents"."selected" = ?  ORDER BY "user_patents"."id" ASC LIMIT 1  [["user_id", 1], ["selected", true]]
+D, [2016-07-04T20:30:44.038403 #4801] DEBUG -- :   [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "patents".* FROM "patents" WHERE "patents"."id" = ? LIMIT 1[0m  [["id", 1]]
+D, [2016-07-04T20:30:44.040154 #4801] DEBUG -- :   [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "reservations" WHERE "reservations"."user_id" = ? AND "reservations"."patent_id" = ? AND "reservations"."ends_at" IS NULL  [["user_id", 1], ["patent_id", 1]]
+D, [2016-07-04T20:30:44.042411 #4801] DEBUG -- :   [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "reservations" WHERE "reservations"."user_id" = ? AND "reservations"."spot_id" = ? AND "reservations"."ends_at" IS NULL[0m  [["user_id", 1], ["spot_id", 5]]
+D, [2016-07-04T20:30:44.043867 #4801] DEBUG -- :   [1m[35mCACHE (0.0ms)[0m  SELECT  "user_patents".* FROM "user_patents" WHERE "user_patents"."user_id" = ? AND "user_patents"."selected" = ?  ORDER BY "user_patents"."id" ASC LIMIT 1  [["user_id", 1], ["selected", true]]
+D, [2016-07-04T20:30:44.045548 #4801] DEBUG -- :   [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "user_patents".* FROM "user_patents" WHERE "user_patents"."user_id" = ? AND "user_patents"."selected" = ?  ORDER BY "user_patents"."id" ASC LIMIT 1[0m  [["user_id", 1], ["selected", true]]
+D, [2016-07-04T20:30:44.047419 #4801] DEBUG -- :   [1m[35mCACHE (0.0ms)[0m  SELECT  "patents".* FROM "patents" WHERE "patents"."id" = ? LIMIT 1  [["id", 1]]
+D, [2016-07-04T20:30:44.049321 #4801] DEBUG -- :   [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reservations" WHERE "reservations"."user_id" = ? AND "reservations"."patent_id" = ? AND "reservations"."ends_at" IS NULL[0m  [["user_id", 1], ["patent_id", 1]]
+I, [2016-07-04T20:30:44.050400 #4801]  INFO -- :   Rendered areas/index.html.erb within layouts/application (92.4ms)
+I, [2016-07-04T20:30:44.269874 #4801]  INFO -- :   Rendered shared/_sidenav.html.erb (1.1ms)
+I, [2016-07-04T20:30:44.271098 #4801]  INFO -- : Completed 200 OK in 325ms (Views: 313.3ms | ActiveRecord: 8.2ms)
+D, [2016-07-04T20:32:14.809382 #4801] DEBUG -- : 
+D, [2016-07-04T20:32:14.810193 #4801] DEBUG -- : 
+I, [2016-07-04T20:32:14.810613 #4801]  INFO -- : Started GET "/reservations/35/pay" for ::1 at 2016-07-04 20:32:14 -0300
+I, [2016-07-04T20:32:15.030652 #4801]  INFO -- : Processing by ReservationsController#pay as HTML
+I, [2016-07-04T20:32:15.030836 #4801]  INFO -- :   Parameters: {"id"=>"35"}
+D, [2016-07-04T20:32:15.055686 #4801] DEBUG -- :   [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+D, [2016-07-04T20:32:15.094480 #4801] DEBUG -- :   [1m[36mReservation Load (0.5ms)[0m  [1mSELECT  "reservations".* FROM "reservations" WHERE "reservations"."id" = ? LIMIT 1[0m  [["id", 35]]
+D, [2016-07-04T20:32:15.138661 #4801] DEBUG -- :   [1m[35mPatent Load (0.3ms)[0m  SELECT  "patents".* FROM "patents" WHERE "patents"."id" = ? LIMIT 1  [["id", 1]]
+D, [2016-07-04T20:32:15.158317 #4801] DEBUG -- :   [1m[36mSpot Load (0.3ms)[0m  [1mSELECT  "spots".* FROM "spots" WHERE "spots"."id" = ? LIMIT 1[0m  [["id", 2]]
+D, [2016-07-04T20:32:15.176886 #4801] DEBUG -- :   [1m[35mArea Load (0.3ms)[0m  SELECT  "areas".* FROM "areas" WHERE "areas"."id" = ? LIMIT 1  [["id", 1]]
+D, [2016-07-04T20:32:15.193129 #4801] DEBUG -- :   [1m[36mPayment Load (0.4ms)[0m  [1mSELECT "payments".* FROM "payments" WHERE "payments"."user_id" = ?[0m  [["user_id", 1]]
+I, [2016-07-04T20:32:15.209425 #4801]  INFO -- :   Rendered reservations/pay.html.erb within layouts/application (87.3ms)
+I, [2016-07-04T20:32:15.395411 #4801]  INFO -- :   Rendered shared/_sidenav.html.erb (1.3ms)
+I, [2016-07-04T20:32:15.396451 #4801]  INFO -- : Completed 200 OK in 365ms (Views: 277.7ms | ActiveRecord: 6.7ms)
+D, [2016-07-04T20:32:23.368013 #4801] DEBUG -- : 
+D, [2016-07-04T20:32:23.368731 #4801] DEBUG -- : 
+I, [2016-07-04T20:32:23.369577 #4801]  INFO -- : Started PATCH "/reservations/35/pay" for ::1 at 2016-07-04 20:32:23 -0300
+I, [2016-07-04T20:32:23.378093 #4801]  INFO -- : Processing by ReservationsController#save_pay as HTML
+I, [2016-07-04T20:32:23.378412 #4801]  INFO -- :   Parameters: {"utf8"=>"✓", "authenticity_token"=>"nlExWGd695aNkvLaTMV4M8IfrqLrShtuzRCE9lKtb1yfyrEFRmTRCNhk/2wpYLY8fepsBTn65rLWux9R4Zr6yA==", "reservation"=>{"payment_id"=>"0"}, "commit"=>"Pagar", "id"=>"35"}
+D, [2016-07-04T20:32:23.389094 #4801] DEBUG -- :   [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+D, [2016-07-04T20:32:23.400779 #4801] DEBUG -- :   [1m[36mReservation Load (0.2ms)[0m  [1mSELECT  "reservations".* FROM "reservations" WHERE "reservations"."id" = ? LIMIT 1[0m  [["id", 35]]
+D, [2016-07-04T20:32:23.402997 #4801] DEBUG -- :   [1m[35m (0.3ms)[0m  begin transaction
+D, [2016-07-04T20:32:23.412696 #4801] DEBUG -- :   [1m[36mSQL (0.8ms)[0m  [1mUPDATE "reservations" SET "payment_id" = ?, "updated_at" = ? WHERE "reservations"."id" = ?[0m  [["payment_id", 0], ["updated_at", "2016-07-04 20:32:23.404107"], ["id", 35]]
+D, [2016-07-04T20:32:23.434254 #4801] DEBUG -- :   [1m[35m (19.5ms)[0m  commit transaction
+D, [2016-07-04T20:32:23.439210 #4801] DEBUG -- :   [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+D, [2016-07-04T20:32:23.457598 #4801] DEBUG -- :   [1m[35m (5.2ms)[0m  rollback transaction
+D, [2016-07-04T20:32:23.458456 #4801] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+D, [2016-07-04T20:32:23.468091 #4801] DEBUG -- :   [1m[35m (0.2ms)[0m  rollback transaction
+I, [2016-07-04T20:32:23.468615 #4801]  INFO -- : PAYMENT_ID #<Payment id: nil, payment_method: "Descuento de Saldo", bank: nil, credit_card_number: nil, credit_card_key: nil, created_at: nil, updated_at: nil, user_id: nil>
+D, [2016-07-04T20:32:23.469313 #4801] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+D, [2016-07-04T20:32:23.470986 #4801] DEBUG -- :   [1m[35m (0.2ms)[0m  commit transaction
+I, [2016-07-04T20:32:23.471930 #4801]  INFO -- : Redirected to http://localhost:3000/areas
+I, [2016-07-04T20:32:23.472419 #4801]  INFO -- : Completed 302 Found in 94ms (ActiveRecord: 27.1ms)
+D, [2016-07-04T20:32:23.493510 #4801] DEBUG -- : 
+D, [2016-07-04T20:32:23.493670 #4801] DEBUG -- : 
+I, [2016-07-04T20:32:23.494251 #4801]  INFO -- : Started GET "/areas" for ::1 at 2016-07-04 20:32:23 -0300
+I, [2016-07-04T20:32:23.513861 #4801]  INFO -- : Processing by AreasController#index as HTML
+D, [2016-07-04T20:32:23.517004 #4801] DEBUG -- :   [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+D, [2016-07-04T20:32:23.537101 #4801] DEBUG -- :   [1m[35mArea Load (0.3ms)[0m  SELECT "areas".* FROM "areas"
+D, [2016-07-04T20:32:23.544827 #4801] DEBUG -- :   [1m[36mSpot Load (0.5ms)[0m  [1mSELECT "spots".* FROM "spots" WHERE "spots"."area_id" = ?[0m  [["area_id", 1]]
+D, [2016-07-04T20:32:23.552287 #4801] DEBUG -- :   [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "reservations" WHERE "reservations"."user_id" = ? AND "reservations"."spot_id" = ? AND "reservations"."ends_at" IS NULL  [["user_id", 1], ["spot_id", 1]]
+D, [2016-07-04T20:32:23.579482 #4801] DEBUG -- :   [1m[36mUserPatent Load (0.5ms)[0m  [1mSELECT  "user_patents".* FROM "user_patents" WHERE "user_patents"."user_id" = ? AND "user_patents"."selected" = ?  ORDER BY "user_patents"."id" ASC LIMIT 1[0m  [["user_id", 1], ["selected", "t"]]
+D, [2016-07-04T20:32:23.594421 #4801] DEBUG -- :   [1m[35mCACHE (0.0ms)[0m  SELECT  "user_patents".* FROM "user_patents" WHERE "user_patents"."user_id" = ? AND "user_patents"."selected" = ?  ORDER BY "user_patents"."id" ASC LIMIT 1  [["user_id", 1], ["selected", true]]
+D, [2016-07-04T20:32:23.600318 #4801] DEBUG -- :   [1m[36mPatent Load (0.3ms)[0m  [1mSELECT  "patents".* FROM "patents" WHERE "patents"."id" = ? LIMIT 1[0m  [["id", 1]]
+D, [2016-07-04T20:32:23.603420 #4801] DEBUG -- :   [1m[35m (0.7ms)[0m  SELECT COUNT(*) FROM "reservations" WHERE "reservations"."user_id" = ? AND "reservations"."patent_id" = ? AND "reservations"."ends_at" IS NULL  [["user_id", 1], ["patent_id", 1]]
+D, [2016-07-04T20:32:23.606001 #4801] DEBUG -- :   [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "reservations" WHERE "reservations"."user_id" = ? AND "reservations"."spot_id" = ? AND "reservations"."ends_at" IS NULL[0m  [["user_id", 1], ["spot_id", 2]]
+D, [2016-07-04T20:32:23.618828 #4801] DEBUG -- :   [1m[35mCACHE (0.1ms)[0m  SELECT  "user_patents".* FROM "user_patents" WHERE "user_patents"."user_id" = ? AND "user_patents"."selected" = ?  ORDER BY "user_patents"."id" ASC LIMIT 1  [["user_id", 1], ["selected", true]]
+D, [2016-07-04T20:32:23.620685 #4801] DEBUG -- :   [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "user_patents".* FROM "user_patents" WHERE "user_patents"."user_id" = ? AND "user_patents"."selected" = ?  ORDER BY "user_patents"."id" ASC LIMIT 1[0m  [["user_id", 1], ["selected", true]]
+D, [2016-07-04T20:32:23.622055 #4801] DEBUG -- :   [1m[35mCACHE (0.2ms)[0m  SELECT  "patents".* FROM "patents" WHERE "patents"."id" = ? LIMIT 1  [["id", 1]]
+D, [2016-07-04T20:32:23.623969 #4801] DEBUG -- :   [1m[36mCACHE (0.1ms)[0m  [1mSELECT COUNT(*) FROM "reservations" WHERE "reservations"."user_id" = ? AND "reservations"."patent_id" = ? AND "reservations"."ends_at" IS NULL[0m  [["user_id", 1], ["patent_id", 1]]
+D, [2016-07-04T20:32:23.627660 #4801] DEBUG -- :   [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "reservations" WHERE "reservations"."user_id" = ? AND "reservations"."spot_id" = ? AND "reservations"."ends_at" IS NULL  [["user_id", 1], ["spot_id", 3]]
+D, [2016-07-04T20:32:23.629348 #4801] DEBUG -- :   [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "user_patents".* FROM "user_patents" WHERE "user_patents"."user_id" = ? AND "user_patents"."selected" = ?  ORDER BY "user_patents"."id" ASC LIMIT 1[0m  [["user_id", 1], ["selected", true]]
+D, [2016-07-04T20:32:23.631334 #4801] DEBUG -- :   [1m[35mCACHE (0.0ms)[0m  SELECT  "user_patents".* FROM "user_patents" WHERE "user_patents"."user_id" = ? AND "user_patents"."selected" = ?  ORDER BY "user_patents"."id" ASC LIMIT 1  [["user_id", 1], ["selected", true]]
+D, [2016-07-04T20:32:23.632793 #4801] DEBUG -- :   [1m[36mCACHE (0.1ms)[0m  [1mSELECT  "patents".* FROM "patents" WHERE "patents"."id" = ? LIMIT 1[0m  [["id", 1]]
+D, [2016-07-04T20:32:23.635232 #4801] DEBUG -- :   [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "reservations" WHERE "reservations"."user_id" = ? AND "reservations"."patent_id" = ? AND "reservations"."ends_at" IS NULL  [["user_id", 1], ["patent_id", 1]]
+D, [2016-07-04T20:32:23.637535 #4801] DEBUG -- :   [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "reservations" WHERE "reservations"."user_id" = ? AND "reservations"."spot_id" = ? AND "reservations"."ends_at" IS NULL[0m  [["user_id", 1], ["spot_id", 4]]
+D, [2016-07-04T20:32:23.639086 #4801] DEBUG -- :   [1m[35mCACHE (0.0ms)[0m  SELECT  "user_patents".* FROM "user_patents" WHERE "user_patents"."user_id" = ? AND "user_patents"."selected" = ?  ORDER BY "user_patents"."id" ASC LIMIT 1  [["user_id", 1], ["selected", true]]
+D, [2016-07-04T20:32:23.640606 #4801] DEBUG -- :   [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "user_patents".* FROM "user_patents" WHERE "user_patents"."user_id" = ? AND "user_patents"."selected" = ?  ORDER BY "user_patents"."id" ASC LIMIT 1[0m  [["user_id", 1], ["selected", true]]
+D, [2016-07-04T20:32:23.642190 #4801] DEBUG -- :   [1m[35mCACHE (0.0ms)[0m  SELECT  "patents".* FROM "patents" WHERE "patents"."id" = ? LIMIT 1  [["id", 1]]
+D, [2016-07-04T20:32:23.644014 #4801] DEBUG -- :   [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "reservations" WHERE "reservations"."user_id" = ? AND "reservations"."patent_id" = ? AND "reservations"."ends_at" IS NULL[0m  [["user_id", 1], ["patent_id", 1]]
+D, [2016-07-04T20:32:23.646361 #4801] DEBUG -- :   [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "reservations" WHERE "reservations"."user_id" = ? AND "reservations"."spot_id" = ? AND "reservations"."ends_at" IS NULL  [["user_id", 1], ["spot_id", 5]]
+D, [2016-07-04T20:32:23.648582 #4801] DEBUG -- :   [1m[36mCACHE (0.1ms)[0m  [1mSELECT  "user_patents".* FROM "user_patents" WHERE "user_patents"."user_id" = ? AND "user_patents"."selected" = ?  ORDER BY "user_patents"."id" ASC LIMIT 1[0m  [["user_id", 1], ["selected", true]]
+D, [2016-07-04T20:32:23.650968 #4801] DEBUG -- :   [1m[35mCACHE (0.0ms)[0m  SELECT  "user_patents".* FROM "user_patents" WHERE "user_patents"."user_id" = ? AND "user_patents"."selected" = ?  ORDER BY "user_patents"."id" ASC LIMIT 1  [["user_id", 1], ["selected", true]]
+D, [2016-07-04T20:32:23.652290 #4801] DEBUG -- :   [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "patents".* FROM "patents" WHERE "patents"."id" = ? LIMIT 1[0m  [["id", 1]]
+D, [2016-07-04T20:32:23.654274 #4801] DEBUG -- :   [1m[35mCACHE (0.1ms)[0m  SELECT COUNT(*) FROM "reservations" WHERE "reservations"."user_id" = ? AND "reservations"."patent_id" = ? AND "reservations"."ends_at" IS NULL  [["user_id", 1], ["patent_id", 1]]
+I, [2016-07-04T20:32:23.655104 #4801]  INFO -- :   Rendered areas/index.html.erb within layouts/application (119.0ms)
+I, [2016-07-04T20:32:24.085108 #4801]  INFO -- :   Rendered shared/_sidenav.html.erb (1.2ms)
+I, [2016-07-04T20:32:24.086280 #4801]  INFO -- : Completed 200 OK in 572ms (Views: 562.7ms | ActiveRecord: 5.3ms)

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  payment_method: MyText
+  bank: MyText
+  credit_card_number: MyText
+  credit_card_key: 1
+
+two:
+  payment_method: MyText
+  bank: MyText
+  credit_card_number: MyText
+  credit_card_key: 1

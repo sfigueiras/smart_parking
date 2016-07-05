@@ -27,6 +27,8 @@ gem 'devise'
 gem 'materialize-sass'
 gem 'font-awesome-sass'
 
+gem 'time_difference', '~> 0.4'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
