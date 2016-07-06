@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160622230308) do
+ActiveRecord::Schema.define(version: 20160704191554) do
 
   create_table "areas", force: :cascade do |t|
     t.string   "name"
@@ -25,13 +25,32 @@ ActiveRecord::Schema.define(version: 20160622230308) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "payments", force: :cascade do |t|
+    t.text     "payment_method"
+    t.text     "bank"
+    t.text     "credit_card_number"
+    t.integer  "credit_card_key"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.integer  "user_id"
+  end
+
+  add_index "payments", ["user_id"], name: "index_payments_on_user_id"
+
   create_table "reservations", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "user_id"
     t.integer  "spot_id"
+    t.datetime "start_at"
+    t.datetime "ends_at"
+    t.integer  "patent_id"
+    t.float    "amount"
+    t.integer  "payment_id"
   end
 
+  add_index "reservations", ["patent_id"], name: "index_reservations_on_patent_id"
+  add_index "reservations", ["payment_id"], name: "index_reservations_on_payment_id"
   add_index "reservations", ["spot_id"], name: "index_reservations_on_spot_id"
   add_index "reservations", ["user_id"], name: "index_reservations_on_user_id"
 
