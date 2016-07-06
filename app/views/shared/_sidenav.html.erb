@@ -6,6 +6,7 @@
     <li><%= link_to 'Patentes', patents_path %></li>
     <li><%= link_to 'Mis Reservas', reservations_path %></li>
     <li><%= link_to 'Mis Tarjetas de Credito', payments_path %></li>
+    <li><%= link_to 'Mis Areas de Interes', interested_areas_path %></li>
     <li><%= link_to 'Cerrar Cesión', destroy_user_session_path, method: :delete %></li>
   <% else %>
     <li><%= link_to 'Iniciar Sesión', new_user_session_path %></li>
