@@ -27,6 +27,8 @@ ready = ->
     accordion : false
   })
 
+  $('.modal-trigger').leanModal()
+
   $(document).on 'click', '.selectable-item', ->
     $(this).addClass('item-selected')
     $(this).siblings().removeClass('item-selected')
@@ -38,3 +40,4 @@ ready = ->
     null
   null
 $(document).ready(ready)
+$(document).on('page:load', ready)

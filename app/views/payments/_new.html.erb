@@ -1,0 +1,27 @@
+<div class="modal-content">
+	<h4>Ingresar Tarjeta de Credito</h4>
+	<%= form_for(@payment) do |f| %>
+	<ul>
+		<% @payment.errors.full_messages.each do |message| %>
+			<li><%= message %></li>
+		<% end %>
+	</ul>
+	<div class="input-field">
+		<%= f.label :bank, "Banco" %>
+		<%= f.text_field :bank %>
+	</div>
+	<div class="input-field">
+		<%= f.label :credit_card_number, "Numero de Tarjeta de Credito" %>
+		<%= f.text_field :credit_card_number %>
+	</div>
+	<div class="input-field">
+		<%= f.label :credit_card_key, "Codigo de Seguridad" %>
+		<%= f.password_field :credit_card_key %>
+	</div>
+</div>
+<div class="modal-footer">
+	<div class="actions right-align">
+    <%= f.submit "Guardar", class: 'btn' %>
+	</div>
+</div>
+	<% end %>

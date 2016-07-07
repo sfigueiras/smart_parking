@@ -4,6 +4,10 @@ Rails.application.routes.draw do
 
   get 'home/index'
 
+  authenticated :user do
+    root to: 'areas#index', as: :authenticated_root
+  end
+
   devise_for :users, controllers: {registrations: 'registrations'}
   
   resources :patents, only: ['index', 'create', 'destroy'] do
@@ -12,7 +16,7 @@ Rails.application.routes.draw do
 
   resources :reservations, only: ['index']
   resources :areas, only: ['index']
-  resources :payments, only: ['index', 'new', 'create']
+  resources :payments, only: ['index', 'create', 'destroy']
   
   get 'spots/:id/select', to: 'spots#reserve', as: 'reserve_spot'
   delete 'spot/:id/free', to: 'spots#free', as: 'free_spot'

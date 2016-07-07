@@ -1,20 +1,8 @@
 <div class="row">
-  <ul class="collection with-header">
-    <li class="collection-header"><h5><%= area.name %></h5></li>
+  <ul class="collection with-header z-depth-1">
+    <li class="collection-header"><h5><%= fa_icon 'map-marker', class: 'icon' %> <%= area.name %></h5></li>
     <% area.spots.each do |spot| %>
-      <li class="collection-item">
-        <div class="row">
-          <div class="col l6">
-            Parcela <%= spot.number %>
-          </div>
-          <div class="col l3">
-            <span class="right-align" href=""><%= spot.state %></span>
-          </div>
-          <div class="col l3">
-            <%= reserve_link(spot) %>
-          </div>
-        </div>
-      </li>
+      <%= render partial: 'spots/index', locals: {spot: spot} %>
     <% end %>
   </ul>
 </div>

@@ -1,8 +1,13 @@
 <div class="center">
-  <h1 class="logo-title">Smart Parking</h1>
+  <h1 class="logo-title animated">Smart Parking</h1>
+
+  <%= link_to 'Iniciar Sesión', new_user_session_path %> <i class="teal-text">o</i>
+  <%= link_to 'Registrarme', new_user_registration_path %>
+
   <% if Area.all.empty? %>
   	<%= link_to 'Generar Areas', generate_areas_path %>
   <% end %>
+
   <div class="row">
   </div>
 </div>

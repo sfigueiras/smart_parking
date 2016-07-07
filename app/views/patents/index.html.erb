@@ -4,7 +4,7 @@
     <%= render 'patents/new' %>
 
     <% if @patents.size > 0 %>
-    <ul class="collection">
+    <ul class="collection z-depth-1">
       <% @patents.each do |patent| %>
         <li class="collection-item selectable-item <%= 'item-selected' if patent.selected %>" data-id="<%= patent.patent.id %>">
           <span><%= patent.patent.number %></span>
@@ -12,13 +12,13 @@
         </li>
       <% end %>
     </ul>
+    <span class="hint">Selecciona patentes haciendo click sobre ellas.</span>
     <% else %>
       <div class="row">
         <div class="col s12">
-          <p>No patents added.</p>
+          <p>No tenés patentes agregadas.</p>
         </div>
       </div>
     <% end %>
-    <span class="hint">Selecciona patentes haciendo click sobre ellas.</span>
   </div>
 </div>

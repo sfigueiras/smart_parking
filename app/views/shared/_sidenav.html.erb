@@ -1,17 +1,12 @@
 <ul id="slide-out" class="side-nav fixed">
-  <% if user_signed_in? %>
-    <li><%= link_to 'Smart Parking', home_index_path, class: 'logo' %></li>
-    <li><a>Hello, <%=current_user.name %></a></li>
-    <li><%= link_to 'Areas', areas_path %></li>
-    <li><%= link_to 'Patentes', patents_path %></li>
-    <li><%= link_to 'Mis Reservas', reservations_path %></li>
-    <li><%= link_to 'Mis Tarjetas de Credito', payments_path %></li>
-    <li><%= link_to 'Mis Areas de Interes', interested_areas_path %></li>
-    <li><%= link_to 'Cerrar Cesión', destroy_user_session_path, method: :delete %></li>
-  <% else %>
-    <li><%= link_to 'Iniciar Sesión', new_user_session_path %></li>
-    <li><%= link_to 'Registrarme', new_user_registration_path %></li>
-  <% end %>
+  <li><a class="logo-title">Smart Parking</a></li>
+  <li><a>Hola, <%=current_user.name %></a></li>
+  <li><%= link_to 'Areas', areas_path %></li>
+  <li><%= link_to 'Patentes', patents_path %></li>
+  <li><%= link_to 'Reservas', reservations_path %></li>
+  <li><%= link_to 'Medios de pago', payments_path %></li>
+  <li><%= link_to 'Areas de interes', interested_areas_path %></li>
+  <li><%= link_to 'Cerrar Cesión', destroy_user_session_path, method: :delete %></li>
 </ul>
 
 <a href="#" data-activates="slide-out" class="button-collapse show-on-large"><i class="mdi-navigation-menu"></i></a>

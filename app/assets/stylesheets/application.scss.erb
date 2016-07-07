@@ -21,19 +21,50 @@
 // Configuration for main content to be centered
 // besides the fixed sidenav
 header, main, footer {
+  min-height: 600px;
   padding-left: 240px;
 }
 
 @media only screen and (max-width : 992px) {
-  header, main, footer {
+  header, main {
     padding-left: 0;
   }
 }
 
-* { color: #656161}
+* { color: #656161 }
 
 body {
   background-color: #f4f7f8;
+}
+  
+.not-landing {
+  .logo-title { font-size: 1.5em !important; }
+}
+
+.landing {
+  * { color: white }
+  background: linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,1)), url(<%= asset_path 'ZDRooQC.jpg' %>);
+  background-position: center;
+  background-size: cover;
+
+  @keyframes fadein {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+  }
+
+  .logo-title { 
+    color: white;
+    &.animated { -webkit-animation: fadein 2s }
+  }
+
+  header, main {
+    min-height: 800px;
+    padding-left: 0;
+  }
+}
+
+.welcome {
+  padding-top: 10%;
 }
 
 .logo {
@@ -66,7 +97,11 @@ body {
   font-size: smaller;
 }
 
-.marker {
+.icon {
   color: $primary-color;
   margin-right: 5px;
+}
+
+.blank-slate {
+  margin: 5%;
 }

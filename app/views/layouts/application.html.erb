@@ -6,9 +6,9 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body class="<%= dynamic_background %>">
 
-<%= render 'shared/sidenav' %>
+<%= render 'shared/sidenav' unless in_landing %>
 
 <main>
   <div class="container">
@@ -17,8 +17,10 @@
         <p class="notice"><%= notice %></p>
         <p class="alert"><%= alert %></p>
       </div>
-
-      <%= yield %>
+      
+      <div class="<%= landing_container %>">
+        <%= yield %>
+      </div>
     </div>
       
   </div>

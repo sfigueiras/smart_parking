@@ -2,9 +2,6 @@ class PaymentsController < ApplicationController
 	before_action :authenticate_user!
 
 	def index
-	end
-
-	def new
 		@payment = Payment.new
 	end
 
@@ -16,6 +13,12 @@ class PaymentsController < ApplicationController
 		else
 			render :new
 		end
+	end
+
+	def destroy
+		current_user.payments.destroy(params[:id])
+
+		redirect_to payments_path
 	end
 
 	private
