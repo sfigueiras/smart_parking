@@ -20,7 +20,9 @@ class SpotsController < ApplicationController
     	@reservation.spot.update(state: 'Libre')
       @reservation.update(ends_at: ends, amount: amount)
     end
-    redirect_to pay_reservation_path(@reservation)
-  end
 
+    respond_to do |format|
+      format.js
+    end
+  end
 end

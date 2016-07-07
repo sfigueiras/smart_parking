@@ -24,7 +24,7 @@
 						<td>No Finaliz&oacute;</td>
 					<% else %>
 						<td><%= reservation.ends_at.strftime('%d/%m/%Y %H:%M:%S') %></td>
-						<td>$<%= reservation.amount %></td>
+						<td>$ <%= reservation.amount.round(3) %></td>
 					<% end %>
 				</tr>
 			<% end %>

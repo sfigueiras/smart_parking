@@ -1,0 +1,2 @@
+$("<%= escape_javascript(render partial: 'reservations/pay', locals: {reservation: @reservation}) %>").appendTo("#free-spot");
+$('#free-spot').openModal();
