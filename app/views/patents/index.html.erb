@@ -1,10 +1,10 @@
-<h4>Patentes</h4>
 <div class="row">
-  <div class="col">
+  <div class="col offset-s4 s4 card">
+    <h4>Patentes</h4>
     <%= render 'patents/new' %>
 
     <% if @patents.size > 0 %>
-    <ul class="collection z-depth-1">
+    <ul class="collection">
       <% @patents.each do |patent| %>
         <li class="collection-item selectable-item <%= 'item-selected' if patent.selected %>" data-id="<%= patent.patent.id %>">
           <span><%= patent.patent.number %></span>
