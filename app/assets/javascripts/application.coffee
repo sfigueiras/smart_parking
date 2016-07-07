@@ -38,6 +38,11 @@ ready = ->
     
     $.post url, request
     null
+  $(document).on 'click', '.icon.align-right', ->
+    $icon = $(this).children('i')
+    $icon.toggleClass 'fa-star-o'
+    $icon.toggleClass 'fa-star'
+    null
   null
 $(document).ready(ready)
 $(document).on('page:load', ready)

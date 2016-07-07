@@ -1,6 +1,6 @@
 <ul id="slide-out" class="side-nav fixed">
   <li><a class="logo-title">Smart Parking</a></li>
-  <li><a>Hola, <%=current_user.name %></a></li>
+  <li><a>Hola, <%=current_user.name.split.first %></a></li>
   <li><%= link_to 'Areas', areas_path %></li>
   <li><%= link_to 'Patentes', patents_path %></li>
   <li><%= link_to 'Reservas', reservations_path %></li>
