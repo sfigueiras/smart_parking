@@ -1,8 +1,15 @@
 <div class="row">
   <ul class="collection with-header z-depth-1">
-    <li class="collection-header"><h5><%= fa_icon 'map-marker', class: 'icon' %> <%= area.name %> <div class="icon align-right">
-      <%= fa_icon 'star-o' %>
-    </div></h5></li>
+    <li class="collection-header">
+      <h5>
+        <%= fa_icon 'map-marker', class: 'icon' %> <%= area.name %> 
+        <% unless defined? interestered %>
+          <div class="icon align-right">
+            <%= fa_icon 'star-o' %>
+          </div>
+        <% end %>
+      </h5>
+    </li>
     <% area.spots.each do |spot| %>
       <%= render partial: 'spots/index', locals: {spot: spot} %>
     <% end %>
